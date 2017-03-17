@@ -27,7 +27,9 @@ var Main = React.createClass({
     // Here we render the function
     render: function () {
         return (
-            <div></div>
+            <div>
+                main.js rendering 🙏🏻  🙌🏻
+            </div>
         );
     }
 });

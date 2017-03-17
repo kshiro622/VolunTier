@@ -3,7 +3,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 
 // Include the main Main Component
-var Main = require("./components/Main");
+var Main = require("./components/main/Main");
 
 // Grabs the Routes
 var routes = require("./config/routes");

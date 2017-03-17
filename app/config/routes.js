@@ -19,7 +19,7 @@ var IndexRoute = router.IndexRoute;
 
 // Reference the high-level components
 // will need to add more as we add components
-var Main = require("../components/Main");
+var Main = require("../components/main/Main");
 
 
 // Export the Routes

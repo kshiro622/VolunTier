@@ -20,21 +20,17 @@ var IndexRoute = router.IndexRoute;
 // Reference the high-level components
 // will need to add more as we add components
 var Main = require("../components/main/Main");
+var Landing = require("../components/landing/Landing");
 
 
 // Export the Routes
 module.exports = (
-
-    // The high level component is the Router component
     <Router history={hashHistory}>
-        <Route path="/" component={Main}>
-
-            {/* ROUTES HERE */}
-
-            {/* If user selects any other path... we get the Info Route */}
+        <Route path="/" component={Landing}>
+            <IndexRoute component={Landing} />
+        </Route>
+        <Route path="/main" component={Main}>
             <IndexRoute component={Main} />
-
         </Route>
     </Router>
-
 );

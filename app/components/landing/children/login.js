@@ -6,8 +6,6 @@ var Login = React.createClass({
     render: function () {
         return (
             <span>
-
-
                 <ul className="nav navbar-top-links navbar-right">
                     <li className="dropdown">
                         <a className="dropdown-toggle" data-toggle="dropdown" href="#">

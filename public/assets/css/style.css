@@ -1,3 +1,7 @@
+body {
+    background: #f8f8f8;
+}
+
 .footer-txt {
     margin-top: 15px;
 }
@@ -8,4 +12,81 @@
 
 .login-panel-margin {
     margin-top: 20px;
+}
+
+nav {
+    margin-bottom: 0;
+}
+
+
+/*Top Banner*/
+
+#top-banner {
+    background-image: url('../images/volunteers.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 550px;
+    text-align: center;
+    color: white;
+    margin-top: 0;
+}
+
+.large-h1 {
+    font-size: 60px;
+}
+
+hr {
+    width: 10%;
+}
+
+.btn-outline-success {
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid green;
+}
+
+
+/*Margins*/
+
+.margin-top-200 {
+    margin-top: 200px;
+}
+
+.margin-top-130 {
+    margin-top: 130px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+
+/*About*/
+
+#about {
+    height: 500px;
+    background-image: url('../images/banner-light.jpg');
+    text-align: center;
+}
+
+
+/*How it Works*/
+
+#how-it-works {
+    height: 500px;
+    text-align: center;
+}
+
+.fa-check,
+.fa-search,
+.fa-wrench {
+    font-size: 40px;
+}
+
+
+/*Features*/
+
+#features {
+    height: 500px;
+    text-align: center;
+    background: white;
 }

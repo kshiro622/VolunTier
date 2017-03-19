@@ -1,3 +1,11 @@
 .footer-txt {
     margin-top: 15px;
 }
+
+.login-drop-width {
+    max-width: 390px;
+}
+
+.login-panel-margin {
+    margin-top: 20px;
+}

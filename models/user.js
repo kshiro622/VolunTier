@@ -1,5 +1,7 @@
 // Dependencies
-var mongoose = require("mongoose");
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    passportLocalMongoose = require('passport-local-mongoose');
 
 // Schema
 var Schema = mongoose.Schema;
@@ -8,16 +10,18 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     first_name: String,
     last_name: String,
-    username: String,
+    email: String,
     password: String,
-    hash: String,
-    salt: String,
     bio: String,
     interests: Array,
     connections: Array,
     events: Array,
     updated: { type: Date, default: Date.now },
     created: { type: Date, default: Date.now }
+});
+
+userSchema.plugin(passportLocalMongoose, {
+    usernameField: "email"
 });
 
 // Model

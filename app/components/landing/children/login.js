@@ -1,8 +1,76 @@
 // Include React
 var React = require("react");
+var axios = require("axios");
 
 // Creating the Form component
 var Login = React.createClass({
+    // Sets the initial state of the component.
+    getInitialState: function () {
+        return {
+            email: "",
+            password: "",
+            message: "Login"
+        };
+    },
+
+    handleEmailChange: function (event) {
+        this.setState({
+            email: event.target.value
+        });
+
+    },
+    handlePasswordChange: function (event) {
+        this.setState({
+            password: event.target.value
+        });
+
+    },
+
+    //needs to be moved to the Resgister page-------------------------------
+    handleRegisterSubmit: function (event) {
+        event.preventDefault();
+        if (this.state.email != "" && this.state.password != "") {
+            console.log('working');
+            var cred = {
+                email: this.state.email,
+                password: this.state.password
+            }
+            axios.post('/register', cred)
+                .then(function (response) {
+                    this.setState({
+                        email: "",
+                        password: "",
+                        message: "Registering..."
+                    })
+                }.bind(this))
+        } else {
+            this.setState({
+                error: "All fields are required"
+            })
+        }
+    },
+
+    handleLoginSubmit: function (event) {
+        event.preventDefault();
+        if (this.state.email != "" && this.state.password != "") {
+            this.setState({
+                message: "Registering..."
+            })
+            var cred = {
+                email: this.state.email,
+                password: this.state.password
+            }
+            axios.post('/login', cred)
+                .then(function (response) {
+
+                }.bind(this))
+        } else {
+            this.setState({
+                error: "All fields are required"
+            })
+        }
+    },
+
     render: function () {
         return (
             <span>

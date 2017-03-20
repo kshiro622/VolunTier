@@ -11,7 +11,7 @@ var Landing = React.createClass({
         return {
             email: "",
             password: "",
-            message: "Login"
+            message: "Register"
         };
     },
 
@@ -29,6 +29,9 @@ var Landing = React.createClass({
     },
     handleRegisterSubmit: function (event) {
         event.preventDefault();
+        this.setState({
+            message: "Registering..."
+        })
         if (this.state.email != "" && this.state.password != "") {
             console.log('working');
             var cred = {
@@ -37,11 +40,7 @@ var Landing = React.createClass({
             }
             axios.post('/register', cred)
                 .then(function (response) {
-                    this.setState({
-                        email: "",
-                        password: "",
-                        message: "Registering..."
-                    })
+
                 }.bind(this))
         } else {
             this.setState({

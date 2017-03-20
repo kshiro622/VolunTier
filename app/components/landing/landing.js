@@ -1,6 +1,7 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
+import { Link } from 'react-router'
 
 // Include children components
 var Login = require("./children/Login");
@@ -38,7 +39,14 @@ var Landing = React.createClass({
                         </button>
                         <a className="navbar-brand" href="index.html">Do Good</a>
                     </div>
-                    <Login />
+                    <ul className="nav navbar-top-links navbar-right">
+                        <li className="dropdown">
+                            <Link to="/register">
+                                Register
+                            </Link>
+                        </li>
+                        <Login />
+                    </ul>
                 </nav>
                 {/*Top Banner*/}
                 <div id="top-banner">

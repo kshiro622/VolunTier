@@ -75,7 +75,7 @@ var Login = React.createClass({
         return (
             <span>
                 <li className="dropdown">
-                    <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a className="dropdown-toggle green-link" data-toggle="dropdown" href="#">
                         Login <i className="fa fa-caret-down"></i>
                     </a>
                     <ul className="dropdown-menu login-drop-width">

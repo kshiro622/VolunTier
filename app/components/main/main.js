@@ -31,6 +31,15 @@ var Main = React.createClass({
         // what to do when component updates    
     },
 
+    logout: function () {
+        event.preventDefault();
+        sessionStorage.clear();
+        axios.get('/logout')
+            .then(function (response) {
+                this.context.router.push('/');
+            }.bind(this))
+    },
+
     // Here we render the function
     render: function () {
         return (
@@ -244,7 +253,7 @@ var Main = React.createClass({
                                 <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                                 </li>
                                 <li className="divider"></li>
-                                <li><a href="login.html"><i className="fa fa-sign-out fa-fw"></i> Logout</a>
+                                <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>
                                 </li>
                             </ul>
                         </li>

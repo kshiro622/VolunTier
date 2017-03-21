@@ -40,6 +40,7 @@ var Login = React.createClass({
                 .then(function (response) {
                     console.log(response.data);
                     sessionStorage.setItem('do_good_id', response.data);
+                    this.context.router.push('main');
                 }.bind(this))
         } else {
             this.setState({
@@ -88,6 +89,10 @@ var Login = React.createClass({
         );
     }
 });
+
+Login.contextTypes = {
+    router: React.PropTypes.any
+};
 
 // Export the component back for use in other files
 module.exports = Login;

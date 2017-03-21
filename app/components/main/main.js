@@ -16,6 +16,12 @@ var Main = React.createClass({
         };
     },
 
+    componentWillMount: function () {
+        if (sessionStorage.getItem('do_good_id') === null) {
+            this.context.router.push('/');
+        }
+    },
+
     componentDidMount: function () {
         // what to do when the component mounts
     },
@@ -268,6 +274,10 @@ var Main = React.createClass({
         );
     }
 });
+
+Main.contextTypes = {
+    router: React.PropTypes.any
+};
 
 // Export the component back for use in other files
 module.exports = Main;

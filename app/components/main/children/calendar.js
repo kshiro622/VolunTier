@@ -1,6 +1,16 @@
 var React = require("react");
 
 var Calendar = React.createClass({
+    componentDidMount: function () {
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next',
+                center: 'title',
+                right: 'agendaDay,agendaWeek,month'
+            }
+        });
+    },
+
     render: function () {
         return (
             < span >

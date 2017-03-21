@@ -23,11 +23,6 @@ var Main = require("../components/main/Main");
 var Landing = require("../components/landing/Landing");
 var Register = require("../components/register/register.js")
 
-function auth() {
-    if (sessionStorage.getItem('do_good_id') === null) {
-        window.location.href = "/";
-    }
-}
 
 
 // Export the Routes
@@ -36,7 +31,7 @@ module.exports = (
         <Route path="/" component={Landing}>
             <IndexRoute component={Landing} />
         </Route>
-        <Route path="/main" component={Main} onEnter={auth}>
+        <Route path="/main" component={Main}>
             <IndexRoute component={Main} />
         </Route>
         <Route path="/register" component={Register}>

@@ -26,35 +26,11 @@ var Login = React.createClass({
 
     },
 
-    //needs to be moved to the Resgister page-------------------------------
-    handleRegisterSubmit: function (event) {
-        event.preventDefault();
-        if (this.state.email != "" && this.state.password != "") {
-            console.log('working');
-            var cred = {
-                email: this.state.email,
-                password: this.state.password
-            }
-            axios.post('/register', cred)
-                .then(function (response) {
-                    this.setState({
-                        email: "",
-                        password: "",
-                        message: "Registering..."
-                    })
-                }.bind(this))
-        } else {
-            this.setState({
-                error: "All fields are required"
-            })
-        }
-    },
-
     handleLoginSubmit: function (event) {
         event.preventDefault();
         if (this.state.email != "" && this.state.password != "") {
             this.setState({
-                message: "Registering..."
+                message: "Logging In..."
             })
             var cred = {
                 email: this.state.email,
@@ -62,7 +38,9 @@ var Login = React.createClass({
             }
             axios.post('/login', cred)
                 .then(function (response) {
-
+                    console.log(response.data);
+                    sessionStorage.setItem('do_good_id', response.data);
+                    this.context.router.push('main');
                 }.bind(this))
         } else {
             this.setState({
@@ -85,7 +63,7 @@ var Login = React.createClass({
                                     <div className="col-md-4">
                                         <div className="login-panel panel panel-default login-panel-margin">
                                             <div className="panel-heading">
-                                                <h3 className="panel-title">Please Sign In</h3>
+                                                <h3 className="panel-title">Please login</h3>
                                             </div>
                                             <div className="panel-body">
                                                 <form role="form" onSubmit={this.handleLoginSubmit}>
@@ -111,6 +89,10 @@ var Login = React.createClass({
         );
     }
 });
+
+Login.contextTypes = {
+    router: React.PropTypes.any
+};
 
 // Export the component back for use in other files
 module.exports = Login;

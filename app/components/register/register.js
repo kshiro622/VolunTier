@@ -5,13 +5,13 @@ var axios = require("axios");
 
 
 // Creating the Main component
-var Landing = React.createClass({
+var Register = React.createClass({
     // Sets the initial state of the component.
     getInitialState: function () {
         return {
             email: "",
             password: "",
-            message: "Login"
+            message: "Register"
         };
     },
 
@@ -29,19 +29,18 @@ var Landing = React.createClass({
     },
     handleRegisterSubmit: function (event) {
         event.preventDefault();
+        this.setState({
+            message: "Registering..."
+        })
         if (this.state.email != "" && this.state.password != "") {
-            console.log('working');
             var cred = {
                 email: this.state.email,
                 password: this.state.password
             }
             axios.post('/register', cred)
                 .then(function (response) {
-                    this.setState({
-                        email: "",
-                        password: "",
-                        message: "Registering..."
-                    })
+                    sessionStorage.setItem('do_good_id', response.data);
+                    this.context.router.push('main');
                 }.bind(this))
         } else {
             this.setState({
@@ -112,5 +111,9 @@ var Landing = React.createClass({
     }
 });
 
+Register.contextTypes = {
+    router: React.PropTypes.any
+};
+
 // Export the component back for use in other files
-module.exports = Landing;
+module.exports = Register;

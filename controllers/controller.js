@@ -11,15 +11,20 @@ router.post('/register', function (req, res) {
             console.log(err);
             res.send('User already exists')
         } else {
-            console.log('success');
+            res.send(user._id);
         }
     });
 });
 
 router.post('/login', passport.authenticate('local'), function (req, res) {
-    console.log(res);
+    res.send(res.req.user._id);
 });
 
+router.get('/logout', function (req, res) {
+    req.session.destroy(function (err) {
+        res.send('done');
+    });
+});
 
 // Export routes for server.js to use.
 module.exports = router;

@@ -16,6 +16,12 @@ var Main = React.createClass({
         };
     },
 
+    componentWillMount: function () {
+        if (sessionStorage.getItem('do_good_id') === null) {
+            this.context.router.push('/');
+        }
+    },
+
     componentDidMount: function () {
         // what to do when the component mounts
     },
@@ -23,6 +29,15 @@ var Main = React.createClass({
 
     componentDidUpdate: function () {
         // what to do when component updates    
+    },
+
+    logout: function () {
+        event.preventDefault();
+        sessionStorage.clear();
+        axios.get('/logout')
+            .then(function (response) {
+                this.context.router.push('/');
+            }.bind(this))
     },
 
     // Here we render the function
@@ -238,7 +253,7 @@ var Main = React.createClass({
                                 <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                                 </li>
                                 <li className="divider"></li>
-                                <li><a href="login.html"><i className="fa fa-sign-out fa-fw"></i> Logout</a>
+                                <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>
                                 </li>
                             </ul>
                         </li>
@@ -268,6 +283,10 @@ var Main = React.createClass({
         );
     }
 });
+
+Main.contextTypes = {
+    router: React.PropTypes.any
+};
 
 // Export the component back for use in other files
 module.exports = Main;

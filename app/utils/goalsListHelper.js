@@ -14,7 +14,11 @@ var helper = {
     },
     //deletes Goal from db
     deleteGoal: function (goalId, userId) {
-        return axios.delete('/api/saved/' + goalId + '/' + userId);
+        return axios.delete('/api/goals/' + goalId + '/' + userId);
+    },
+    //update Goal
+    updateGoal: function (goalId) {
+        return axios.update('/api/goals/' + goalId);
     }
 
 };

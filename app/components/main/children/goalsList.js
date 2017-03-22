@@ -11,7 +11,7 @@ var GoalsList = React.createClass({
             this.setState({ goals: response })
         }.bind(this));
     },
-    newGoalAdded: function () {
+    updateGoals: function () {
         goalsListHelper.getSavedGoals(this.props.userId).then(function (response) {
             this.setState({ goals: response })
         }.bind(this));
@@ -19,13 +19,17 @@ var GoalsList = React.createClass({
     render: function () {
         return (
             < span >
-                <form role="form">
-                    {this.state.goals.map(function (element, index) {
-                        return (
-                            <Goal key={index} goalText={element} />
-                        )
-                    })}
-                </form>
+                {/*if the user doesn't have goals already, display an empty Goal*/}
+                {!this.state.goals &&
+                    (
+                        <Goal key={''} goalText={''} updateGoals={this.updateGoals} />
+                    )
+                }
+                {this.state.goals.map(function (element, index) {
+                    return (
+                        <Goal key={element._id} goalText={element} updateGoals={this.updateGoals} />
+                    )
+                }, this)}
             </span >
         )
     }

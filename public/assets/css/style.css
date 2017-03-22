@@ -133,3 +133,11 @@ hr {
     text-align: center;
     background: white;
 }
+
+textarea {
+    resize: none;
+}
+
+.login-panel {
+    margin-top: 10px;
+}

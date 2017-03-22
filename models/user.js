@@ -16,6 +16,7 @@ var userSchema = new Schema({
     interests: Array,
     connections: Array,
     events: Array,
+    goals: Array,
     updated: { type: Date, default: Date.now },
     created: { type: Date, default: Date.now }
 });

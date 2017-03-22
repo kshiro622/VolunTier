@@ -14,7 +14,7 @@ body {
     margin-top: 20px;
 }
 
-.navbar {
+.landing-nav {
     margin-bottom: 0;
     background: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
@@ -25,7 +25,7 @@ body {
     transition: all 0.6s ease-out;
 }
 
-.navbar.scrolled {
+.landing-nav.scrolled {
     background: #f8f8f8;
     border-color: #f8f8f8;
 }

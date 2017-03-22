@@ -6,7 +6,13 @@ var user = require('./../models/user.js');
 
 // routes go here
 router.post('/register', function (req, res) {
-    user.register(new user({ email: req.body.email }), req.body.password, function (err, user) {
+    user.register(new user({
+        email: req.body.email,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        bio: req.body.bio,
+        interests: req.body.interests
+    }), req.body.password, function (err, user) {
         if (err) {
             console.log(err);
             res.send('User already exists')

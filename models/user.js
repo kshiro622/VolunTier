@@ -21,7 +21,8 @@ var userSchema = new Schema({
 });
 
 userSchema.plugin(passportLocalMongoose, {
-    usernameField: "email"
+    usernameField: "email",
+    usernameLowerCase: true
 });
 
 // Model

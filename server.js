@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var favicon = require('serve-favicon');
 var PORT = process.env.PORT || 8080;
 
 // Connects to the MongoDB.
@@ -37,6 +38,7 @@ app.use(bodyParser.json({
     type: "application/vnd.api+json"
 }));
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/assets/img/favicon.ico'));
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -29,7 +29,7 @@ var Landing = React.createClass({
     render: function () {
         return (
             <span>
-                <nav className="navbar navbar-default navbar-fixed-top" role="navigation" style={{ marginBottom: 0 }}>
+                <nav className="landing-nav navbar navbar-default navbar-fixed-top" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

@@ -39,7 +39,7 @@ var Landing = React.createClass({
                                 <span className="icon-bar"></span>
                             </button>
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
-                            <a className="navbar-brand" id="nav-brand" href="index.html">Do Good</a>
+                            <a className="navbar-brand" id="nav-brand" href="index.html">Noble</a>
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
                             <li className="dropdown">
@@ -55,7 +55,7 @@ var Landing = React.createClass({
                 <div id="top-banner">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1 className="margin-top-200 large-h1"> Do Good App </h1>
+                            <h1 className="margin-top-200 large-h1"> Noble </h1>
                             <hr />
                             <h4> Some Content. </h4>
                             <button type="button" className="btn btn-lg btn-outline-success margin-top-50">Get Started</button>
@@ -128,7 +128,7 @@ var Landing = React.createClass({
                                 <a target="_blank" className="green-link" href="https://github.com/kshiro622">Katie Shiro</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
                                 <a target="_blank" className="green-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
-                                <span className="pull-right">The Do Good App &copy; 2017</span>
+                                <span className="pull-right">Noble &copy; 2017</span>
                             </div>
                         </div>
                     </div>

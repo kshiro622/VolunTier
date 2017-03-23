@@ -7,15 +7,15 @@ var Login = React.createClass({
     // Sets the initial state of the component.
     getInitialState: function () {
         return {
-            email: "",
+            username: "",
             password: "",
             message: "Login"
         };
     },
 
-    handleEmailChange: function (event) {
+    handleUsernameChange: function (event) {
         this.setState({
-            email: event.target.value
+            username: event.target.value
         });
 
     },
@@ -28,12 +28,12 @@ var Login = React.createClass({
 
     handleLoginSubmit: function (event) {
         event.preventDefault();
-        if (this.state.email != "" && this.state.password != "") {
+        if (this.state.username != "" && this.state.password != "") {
             this.setState({
                 message: "Logging In..."
             })
             var cred = {
-                email: this.state.email,
+                username: this.state.username,
                 password: this.state.password
             }
             axios.post('/login', cred)
@@ -69,7 +69,7 @@ var Login = React.createClass({
                                                 <form role="form" onSubmit={this.handleLoginSubmit}>
                                                     <fieldset>
                                                         <div className="form-group">
-                                                            <input className="form-control" placeholder="E-mail" name="email" type="email" value={this.state.email} onChange={this.handleEmailChange} autoFocus />
+                                                            <input className="form-control" placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleUsernameChange} autoFocus />
                                                         </div>
                                                         <div className="form-group">
                                                             <input className="form-control" placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />

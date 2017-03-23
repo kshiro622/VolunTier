@@ -9,7 +9,7 @@ var Register = React.createClass({
     // Sets the initial state of the component.
     getInitialState: function () {
         return {
-            email: "",
+            username: "",
             password: "",
             confirmPassword: "",
             first_name: "",
@@ -23,9 +23,9 @@ var Register = React.createClass({
         };
     },
 
-    handleEmailChange: function (event) {
+    handleUsernameChange: function (event) {
         this.setState({
-            email: event.target.value
+            username: event.target.value
         });
 
     },
@@ -103,7 +103,7 @@ var Register = React.createClass({
             usrInterests.push(this.state.interest3);
 
             var cred = {
-                email: this.state.email,
+                username: this.state.username,
                 password: this.state.password,
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
@@ -165,8 +165,8 @@ var Register = React.createClass({
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label htmlFor="email">Email</label>
-                                                <input className="form-control" placeholder="" name="email" type="email" value={this.state.email} onChange={this.handleEmailChange} required />
+                                                <label htmlFor="username">Username</label>
+                                                <input className="form-control" placeholder="" name="username" type="username" value={this.state.username} onChange={this.handleUsernameChange} required />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="password">Password</label>

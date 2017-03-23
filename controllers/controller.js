@@ -7,7 +7,7 @@ var user = require('./../models/user.js');
 // routes go here
 router.post('/register', function (req, res) {
     user.register(new user({
-        email: req.body.email,
+        username: req.body.username,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         bio: req.body.bio,

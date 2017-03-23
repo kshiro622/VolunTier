@@ -10,7 +10,7 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     first_name: String,
     last_name: String,
-    email: String,
+    username: String,
     password: String,
     bio: String,
     interests: Array,
@@ -25,7 +25,6 @@ var userSchema = new Schema({
 });
 
 userSchema.plugin(passportLocalMongoose, {
-    usernameField: "email",
     usernameLowerCase: true
 });
 

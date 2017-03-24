@@ -22,9 +22,13 @@ router.post('/register', function (req, res) {
     });
 });
 
-router.post('/login', passport.authenticate('local'), function (req, res) {
-    res.send(res.req.user._id);
+router.post('/login', function (req, res, next) {
+    passport.authenticate('local', function (err, user) {
+        if (!user) res.send("INVALID LOGIN");
+        if (user) res.send(user._id);
+    })(req, res, next);
 });
+
 
 router.get('/logout', function (req, res) {
     req.session.destroy(function (err) {

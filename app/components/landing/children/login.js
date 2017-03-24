@@ -38,9 +38,19 @@ var Login = React.createClass({
             }
             axios.post('/login', cred)
                 .then(function (response) {
-                    console.log(response.data);
-                    sessionStorage.setItem('do_good_id', response.data);
-                    this.context.router.push('main');
+                    if (response.data === "INVALID LOGIN") {
+                        this.setState({
+                            error: "Invalid Login",
+                            username: "",
+                            password: "",
+                            message: "Login"
+                        })
+                    } else {
+                        console.log("RESPONSE:" + response);
+                        console.log(response.data);
+                        sessionStorage.setItem('do_good_id', response.data);
+                        this.context.router.push('main');
+                    }
                 }.bind(this))
         } else {
             this.setState({
@@ -68,6 +78,7 @@ var Login = React.createClass({
                                             <div className="panel-body">
                                                 <form role="form" onSubmit={this.handleLoginSubmit}>
                                                     <fieldset>
+                                                        <span className="text-sm-center">{this.state.error}</span>
                                                         <div className="form-group">
                                                             <input className="form-control" placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleUsernameChange} autoFocus />
                                                         </div>

@@ -142,12 +142,8 @@ textarea {
     margin-top: 10px;
 }
 
-.register-margin-bottom {
-    margin-bottom: 50px;
-}
-
-.panel-margin-bottom {
-    margin-bottom: 70px;
+.cal-panel-margin-top {
+    margin-top: 20px;
 }
 
 
@@ -162,4 +158,21 @@ textarea {
 .highchart-div-nest {
     width: 300px;
     height: 200px;
+}
+
+html {
+    position: relative !important;
+    min-height: 100% !important;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 50px !important;
+}
+
+.footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 50px !important;
 }

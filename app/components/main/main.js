@@ -264,7 +264,7 @@ var Main = React.createClass({
                 <Calendar />
                 <GoalTracker />
 
-                <footer className="navbar navbar-default navbar-fixed-bottom" role="navigation" style={{ marginBottom: 0 }}>
+                <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12 footer-txt">

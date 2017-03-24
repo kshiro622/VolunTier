@@ -79,7 +79,7 @@ var GoalTracker = React.createClass({
             },
 
             series: [{
-                name: 'Speed',
+                name: 'Goal',
                 // this value is the users current progess towards the goal (DB query)
                 data: [60],
                 dataLabels: {

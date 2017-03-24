@@ -16,6 +16,12 @@ var Landing = React.createClass({
         };
     },
 
+    componentWillMount: function () {
+        if (sessionStorage.getItem('do_good_id') != null) {
+            this.context.router.push('/main');
+        }
+    },
+
     componentDidMount: function () {
         // what to do when the component mounts
     },
@@ -39,7 +45,7 @@ var Landing = React.createClass({
                                 <span className="icon-bar"></span>
                             </button>
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
-                            <a className="navbar-brand" id="nav-brand" href="index.html">Noble</a>
+                            <a className="navbar-brand" id="nav-brand" href="#">Noble</a>
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
                             <li className="dropdown">
@@ -137,6 +143,10 @@ var Landing = React.createClass({
         );
     }
 });
+
+Landing.contextTypes = {
+    router: React.PropTypes.any
+};
 
 // Export the component back for use in other files
 module.exports = Landing;

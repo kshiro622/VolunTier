@@ -112,8 +112,15 @@ var Register = React.createClass({
             }
             axios.post('/register', cred)
                 .then(function (response) {
-                    sessionStorage.setItem('do_good_id', response.data);
-                    this.context.router.push('main');
+                    console.log(response.data);
+                    if (response.data === "User already exists") {
+                        this.setState({
+                            error: "User already exists, please select a new username or login"
+                        })
+                    } else {
+                        sessionStorage.setItem('do_good_id', response.data);
+                        this.context.router.push('main');
+                    }
                 }.bind(this))
         }
     },
@@ -129,13 +136,13 @@ var Register = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand" href="index.html">Noble</a>
+                        <a className="navbar-brand" href="#">Noble</a>
                     </div>
                 </nav>
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-12 register-margin-bottom">
                             <div className="login-panel panel panel-default">
                                 <div className="panel-heading">
                                     <h3 className="panel-title">Registration</h3>

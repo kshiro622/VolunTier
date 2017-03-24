@@ -52,7 +52,7 @@ var Main = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand" href="index.html">Noble</a>
+                        <a className="navbar-brand" href="#">Noble</a>
                     </div>
 
                     <ul className="nav navbar-top-links navbar-right">

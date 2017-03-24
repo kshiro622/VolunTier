@@ -163,7 +163,7 @@ var Landing = React.createClass({
                                 <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
                                 <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
-                                <span className="pull-right">Voluntier &copy; 2017</span>
+                                <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>
                         </div>
                     </div>

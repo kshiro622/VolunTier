@@ -145,3 +145,21 @@ textarea {
 .register-margin-bottom {
     margin-bottom: 50px;
 }
+
+.panel-margin-bottom {
+    margin-bottom: 70px;
+}
+
+
+/*HIGHCHARTS PANEL*/
+
+.highchart-div {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.highchart-div-nest {
+    width: 300px;
+    height: 200px;
+}

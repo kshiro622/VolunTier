@@ -108,7 +108,7 @@ var Register = React.createClass({
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 bio: this.state.bio,
-                interests: usrInterests
+                interests: usrInterests,
             }
             axios.post('/register', cred)
                 .then(function (response) {
@@ -142,7 +142,7 @@ var Register = React.createClass({
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12 register-margin-bottom">
+                        <div className="col-md-12">
                             <div className="login-panel panel panel-default">
                                 <div className="panel-heading">
                                     <h3 className="panel-title">Registration</h3>
@@ -193,7 +193,7 @@ var Register = React.createClass({
                     </div>
                 </div>
 
-                <footer className="navbar navbar-default navbar-fixed-bottom" role="navigation" style={{ marginBottom: 0 }}>
+                <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12 footer-txt">

@@ -1,10 +1,11 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
-var Calendar = require("./children/calendar");
+
 
 // Include children components
-
+var Calendar = require("./children/calendar");
+var GoalTracker = require("./children/goalTracker");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -261,8 +262,9 @@ var Main = React.createClass({
                 </nav>
 
                 <Calendar />
+                <GoalTracker />
 
-                <footer className="navbar navbar-default navbar-fixed-bottom" role="navigation" style={{ marginBottom: 0 }}>
+                <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12 footer-txt">

@@ -71,7 +71,7 @@ var Landing = React.createClass({
                         <div className="col-md-5">
                             <h1 className="margin-top-130">Helping You Give Back</h1>
                             <h4 className="text-orange">Set goals. Track your progress. Showcase your profile.</h4>
-                            <h5>Noble helps you give back when you have an hour or two to spare. Volunteer on your schedule and track your progress. Share your profile with others and make connections.</h5>
+                            <h5>VolunTier helps you give back when you have an hour or two to spare. Volunteer on your schedule and track your progress. Share your profile with others and make connections.</h5>
                             <button type="button" className="btn btn-lg orange-btn margin-top-50">Create Account</button>
                         </div>
                         <div className="col-md-1"></div>
@@ -81,7 +81,7 @@ var Landing = React.createClass({
                 <div id="how-it-works">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1 className="margin-top-90">How it Works</h1>
+                            <h1 className="margin-top-90 margin-bottom-50">How it Works</h1>
                         </div>
                     </div>
                     <div className="row">
@@ -130,25 +130,31 @@ var Landing = React.createClass({
                         <div className="col-md-12">
                             <h1 className="margin-top-90">What People Are Saying</h1>
                             <hr />
-                            <h5>alksdfalksdf'laksjd'flkajsd'lkfja'sldkfjalsdkfaldsmflakdsflakdsfla</h5>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-5">
+                            <h5 className="italic">"VolunTier keeps me motivated to meet my goal of giving back to the community 5 hours a month!"</h5>
+                        </div>
+                        <div className="col-md-5">
+                            <h5 className="italic">"Because of VolunTier, I can fit doing my part into my schedule and see my impact."</h5>
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
                 </div>
+
                 <footer className="footer navbar navbar-default navbar-static-bottom" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="row footer-top">
                         <div className="container">
                             <div className="col-md-4">
                                 <h4 className="footer-top-text">Help Us Grow</h4>
-                                <p>asdfadfadsf</p>
-
                             </div>
                             <div className="col-md-4">
                                 <h4 className="footer-top-text">Join The Discussion</h4>
-                                <p>asdfadfa</p>
                             </div>
                             <div className="col-md-4">
                                 <h4 className="footer-top-text">Connect</h4>
-                                <p>adsfadfd</p>
                             </div>
                         </div>
                     </div>

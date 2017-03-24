@@ -110,6 +110,9 @@ hr {
     width: 10%;
 }
 
+
+/*buttons*/
+
 .btn-outline-success {
     background: #6564DA;
     /*border: 2px solid #4abdac;*/
@@ -154,6 +157,10 @@ hr {
     margin-top: 50px;
 }
 
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
+
 .img-circle {
     border-radius: 50%;
 }
@@ -171,6 +178,10 @@ hr {
 
 .text-green {
     color: #6AD34C;
+}
+
+.italic {
+    font-style: italic;
 }
 
 

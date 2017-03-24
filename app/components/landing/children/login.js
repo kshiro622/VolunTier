@@ -78,7 +78,7 @@ var Login = React.createClass({
                                             <div className="panel-body">
                                                 <form role="form" onSubmit={this.handleLoginSubmit}>
                                                     <fieldset>
-                                                        <span className="text-sm-center">{this.state.error}</span>
+                                                        {this.state.error}
                                                         <div className="form-group">
                                                             <input className="form-control" placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleUsernameChange} autoFocus />
                                                         </div>

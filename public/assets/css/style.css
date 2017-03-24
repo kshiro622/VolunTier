@@ -2,17 +2,20 @@ body {
     background: #f8f8f8;
 }
 
-.footer-txt {
-    margin-top: 15px;
-}
-
 .login-drop-width {
     max-width: 390px;
+}
+
+.login-panel {
+    margin-top: 10px;
 }
 
 .login-panel-margin {
     margin-top: 20px;
 }
+
+
+/*NAV*/
 
 .landing-nav {
     margin-bottom: 0;
@@ -26,13 +29,20 @@ body {
 }
 
 .landing-nav.scrolled {
-    background: #f8f8f8;
-    border-color: #f8f8f8;
+    /*background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);*/
+    background: #6564DA;
+    border-color: #6564DA;
 }
 
-.green-link {
-    color: #5cb85c;
+.scroll-link {
+    color: white;
 }
+
+
+/*.scroll-link.scrolled {
+    color: #4c4a58;
+}*/
 
 .nav>li>a:focus,
 .nav>li>a:hover {
@@ -41,19 +51,26 @@ body {
 
 a:focus,
 a:hover {
-    color: lightgreen;
+    color: whitesmoke;
 }
 
-#nav-brand {
+#nav-brand,
+#nav-brand-2 {
     color: white;
     font-size: 25px;
     float: none;
     display: inline-block;
 }
 
-#nav-brand.scrolled {
-    color: #5cb85c;
-}
+
+/*#nav-brand.scrolled {
+    color: #4c4a58;
+}*/
+
+
+/*#nav-brand-2.scrolled {
+    color: #6564DA;
+}*/
 
 #icon {
     display: inline-block;
@@ -65,10 +82,10 @@ a:hover {
 /*Top Banner*/
 
 #top-banner {
-    background-image: url('../images/volunteers.jpg');
+    background-image: url('../images/soupkitchen.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 550px;
+    height: 700px;
     text-align: center;
     color: white;
     margin-top: 0;
@@ -83,12 +100,26 @@ hr {
 }
 
 .btn-outline-success {
-    background: rgba(255, 255, 255, 0);
-    border: 1px solid green;
+    background: #6564DA;
+    /*border: 2px solid #4abdac;*/
+}
+
+.green-btn {
+    background: #6AD34C;
+    color: white;
+}
+
+.orange-btn {
+    background: #fc4a1a;
+    color: white;
 }
 
 
 /*Margins*/
+
+.margin-top-220 {
+    margin-top: 220px;
+}
 
 .margin-top-200 {
     margin-top: 200px;
@@ -98,17 +129,45 @@ hr {
     margin-top: 130px;
 }
 
+.margin-top-90 {
+    margin-top: 90px;
+}
+
 .margin-top-50 {
     margin-top: 50px;
 }
+
+.img-circle {
+    border-radius: 50%;
+}
+
+
+/*text*/
+
+.text-orange {
+    color: #fc4a1a;
+}
+
+.yellow-text {
+    color: #fc4a1a;
+}
+
+.text-green {
+    color: #6AD34C;
+}
+
+
+/*.text-left {
+    text-align: left;
+}*/
 
 
 /*About*/
 
 #about {
     height: 500px;
-    background-image: url('../images/banner-light.jpg');
-    text-align: center;
+    background-color: white;
+    text-align: left;
 }
 
 
@@ -116,63 +175,78 @@ hr {
 
 #how-it-works {
     height: 500px;
+    background-color: #585858;
+    color: white;
     text-align: center;
 }
 
-.fa-check,
+
+/*.fa-check,
 .fa-search,
 .fa-wrench {
     font-size: 40px;
+}*/
+
+
+/*Beyond Tracking*/
+
+#beyond-tracking {
+    height: 500px;
+    background-image: url('../images/painting-light-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    text-align: center;
 }
 
 
 /*Features*/
 
 #features {
-    height: 500px;
+    height: 300px;
+    background-color: whitesmoke;
     text-align: center;
-    background: white;
 }
 
 textarea {
     resize: none;
 }
 
-.login-panel {
-    margin-top: 10px;
+.panting-img {
+    text-align: right;
 }
 
-.cal-panel-margin-top {
-    margin-top: 20px;
+.fa-globe,
+.fa-comments {
+    font-size: 40px;
+    margin-top: 30px;
 }
 
 
-/*HIGHCHARTS PANEL*/
+/*FOOTER*/
 
-.highchart-div {
-    width: 300px;
-    height: 200px;
-    margin: 0 auto;
+.footer-top {
+    background: #585858;
+    color: white;
+    height: 100px;
+    text-align: center;
 }
 
-.highchart-div-nest {
-    width: 300px;
-    height: 200px;
+.footer-bottom {
+    background: #484848;
+    height: 70px;
+    color: white;
 }
 
-html {
-    position: relative !important;
-    min-height: 100% !important;
+.footer-link {
+    color: white;
 }
 
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 50px !important;
+.footer-txt {
+    margin-top: 15px;
+    color: #b0b0b0;
 }
 
-.footer {
-    position: absolute !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 50px !important;
+.footer-top-text {
+    margin-top: 30px;
 }

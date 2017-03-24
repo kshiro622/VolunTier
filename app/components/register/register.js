@@ -18,7 +18,7 @@ var Register = React.createClass({
             interest1: "",
             interest2: "",
             interest3: "",
-            message: "Register",
+            message: "Submit",
             error: ""
         };
     },
@@ -146,7 +146,7 @@ var Register = React.createClass({
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1>New User Registration</h1>
+                            <h1>Register</h1>
                         </div>
                     </div>
                     <div className="row">

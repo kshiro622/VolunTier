@@ -20,6 +20,11 @@ var Landing = React.createClass({
         // what to do when the component mounts
     },
 
+    componentWillMount: function () {
+        if (sessionStorage.getItem('do_good_id') != null) {
+            this.context.router.push('/main');
+        }
+    },
 
     componentDidUpdate: function () {
         // what to do when component updates    
@@ -179,6 +184,10 @@ var Landing = React.createClass({
         );
     }
 });
+
+Landing.contextTypes = {
+    router: React.PropTypes.any
+};
 
 // Export the component back for use in other files
 module.exports = Landing;

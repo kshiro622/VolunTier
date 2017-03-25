@@ -2,8 +2,6 @@
 var React = require("react");
 var axios = require("axios");
 
-
-
 // Creating the Register component
 var GoalTracker = React.createClass({
 
@@ -81,7 +79,7 @@ var GoalTracker = React.createClass({
             series: [{
                 name: 'Goal',
                 // this value is the users current progess towards the goal (DB query)
-                data: [60],
+                data: [50],
                 dataLabels: {
                     format: '<div style="text-align:center"><span style="font-size:25px;color:' +
                     ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
@@ -112,9 +110,11 @@ var GoalTracker = React.createClass({
             <span>
                 <div className="panel panel-default panel-margin-bottom">
                     <div className="panel-heading">
-                        <i className="fa fa-sliders fa-fw"></i> Goal Tracker
+                        <p className="panel-title">
+                            <i className="fa fa-sliders fa-fw"></i> Goal Tracker</p>
                         </div>
                     <div className="panel-body">
+                        <p>Track the number of hours you want to volunteer this month.</p>
                         <div className="highchart-div">
                             <div id="container-goal" className="highchart-div-nest"></div>
                         </div>

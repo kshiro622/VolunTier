@@ -29,7 +29,7 @@ var Form = React.createClass({
     optionsObj["keywords"] = [this.state.keyword];
     optionsObj["categoryIds"] = [this.state.category];
     optionsObj["location"] = this.state.location;
-    optionsObj["numberOfResults"] = 10;
+    optionsObj["numberOfResults"] = 5;
     this.props.searchVM(optionsObj);
     this.setState({ keyword: "", category:"", location:""});
   },

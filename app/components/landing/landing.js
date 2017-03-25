@@ -70,7 +70,6 @@ var Landing = React.createClass({
                                 <img src="assets/images/chart-light.jpg" height="450px" alt="" />
                             </div>
                             <div className="col-md-6">
-
                                 <h1 className="margin-top-130">Helping You Give Back</h1>
                                 <h4 className="text-orange">Set goals. Track your progress. Showcase your profile.</h4>
                                 <h5>VolunTier helps you give back when you have an hour or two to spare. Volunteer on your schedule and track your progress. Share your profile with others and make connections.</h5>

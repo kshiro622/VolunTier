@@ -7,6 +7,8 @@ var axios = require("axios");
 var Calendar = require("./children/calendar");
 var GoalTracker = require("./children/goalTracker");
 
+var Search = require("./children/search");
+
 // Creating the Main component
 var Main = React.createClass({
 
@@ -260,9 +262,26 @@ var Main = React.createClass({
                         </li>
                     </ul>
                 </nav>
+                <div className="container">
+                    <div className="row">
+                    <div className="col-md-8">
+                        <Calendar />
+                    </div>
+                    <div className="col-md-4">
 
-                <Calendar />
-                <GoalTracker />
+                    </div>
+                    </div>
+                    <Search />
+                    <div className="row">
+                        <div className="col-md-4">
+                            <GoalTracker />
+                        </div>
+                        <div className="col-md-8">
+
+                        </div>
+                    </div>
+                    
+                </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="container">

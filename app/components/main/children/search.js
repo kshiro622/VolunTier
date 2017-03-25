@@ -18,26 +18,22 @@ var Search = React.createClass({
         //run the query for the search term
         helpers.searchOpportunities(options).then(function(response) {
         if (response !== this.state.results) {
-            this.setState({results: response});
+            this.setState({results: response.data.opportunities});
         }
         }.bind(this));
         this.setState({results:[]});
     },
     render: function(){
         return(
-                <div className="row">
-                    <div className="col-sm-12">
-                        <h1 className="text-center">Volunteer Opportunities</h1>
-                        <p>Search for volunteering opportunities.</p>
-                    </div>
-                    <div className="col-sm-12 col-md-4">
-                        <Form searchVM={this.searchVM} />
-                    </div>
-                    <div className="col-sm-12 col-md-8">
-                        <div id="alert-area"></div>
-                        <Results results={this.state.results} />
-                    </div>
+            <div className="row">
+                <div className="col-sm-12 col-md-5">
+                    <Form searchVM={this.searchVM} />
                 </div>
+                <div className="col-sm-12 col-md-7">
+                    <div id="alert-area"></div>
+                    <Results results={this.state.results} />
+                </div>
+            </div>
         );
     }
 });

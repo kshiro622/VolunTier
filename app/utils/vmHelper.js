@@ -30,7 +30,9 @@ let vmHelper = {
         query: JSON.stringify(options)
       }
     };
-
     return axios(url, request);
   }
-}
+};
+
+module.exports= vmHelper;
+

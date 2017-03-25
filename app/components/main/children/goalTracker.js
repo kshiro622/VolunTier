@@ -110,20 +110,13 @@ var GoalTracker = React.createClass({
     render: function () {
         return (
             <span>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="panel panel-default panel-margin-bottom">
-                                <div className="panel-heading">
-                                    <i className="fa fa-sliders fa-fw"></i> Goal Tracker
-                                 </div>
-                                <div className="panel-body">
-                                    <div className="highchart-div">
-                                        <div id="container-goal" className="highchart-div-nest"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-8"></div>
+                <div className="panel panel-default panel-margin-bottom">
+                    <div className="panel-heading">
+                        <i className="fa fa-sliders fa-fw"></i> Goal Tracker
+                        </div>
+                    <div className="panel-body">
+                        <div className="highchart-div">
+                            <div id="container-goal" className="highchart-div-nest"></div>
                         </div>
                     </div>
                 </div>

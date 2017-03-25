@@ -88,7 +88,8 @@ var Landing = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                <h1 className="margin-top-90 margin-bottom-50">How it Works</h1>
+                                <h1 className="margin-top-90">How it Works</h1>
+                                <hr />
                             </div>
                         </div>
                         <div className="row">

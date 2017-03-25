@@ -5,9 +5,9 @@ var axios = require("axios");
 
 // Include children components
 var Calendar = require("./children/calendar");
-var GoalTracker = require("./children/goalTracker");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
+var Upcoming = require("./children/upcoming");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -47,7 +47,7 @@ var Main = React.createClass({
     render: function () {
         return (
             <span>
-                <nav className="main-nav navbar navbar-default navbar-static-top" role="navigation" >
+                <nav className="main-nav navbar navbar-default navbar-fixed-top" role="navigation" >
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -57,12 +57,12 @@ var Main = React.createClass({
                                 <span className="icon-bar"></span>
                             </button>
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
-                            <a className="navbar-brand" id="nav-brand" href="#">Volun<span id="nav-brand-2">Tier</span></a>
+                            <a className="navbar-brand" id="nav-brand" href="#">VolunTier</a>
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i className="fa fa-tasks fa-fw purple-icon"></i> <i className="fa fa-caret-down purple-icon"></i>
+                                    <i className="fa fa-tasks fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
                                 </a>
                                 <ul className="dropdown-menu dropdown-tasks">
                                     <li>
@@ -142,7 +142,7 @@ var Main = React.createClass({
                             </li>
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i className="fa fa-user fa-fw purple-icon"></i> <i className="fa fa-caret-down purple-icon"></i>
+                                    <i className="fa fa-user fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
                                 </a>
                                 <ul className="dropdown-menu dropdown-user">
                                     <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
@@ -158,32 +158,25 @@ var Main = React.createClass({
                     </div>
                 </nav>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8">
-                            <Calendar />
-                        </div>
-                        <div className="col-md-4">
-                            <div className="panel panel-default">
-                                <div className="panel-heading">
-                                    <p className="panel-title">Upcoming Events</p>
-                                </div>
-                                <div className="panel-body">
-                                    <p>This is a placeholder for the events component.</p>
-                                </div>
+                <div className="main-background">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-8">
+                                <Calendar />
+                            </div>
+                            <div className="col-md-4">
+                                <Upcoming />
                             </div>
                         </div>
-                    </div>
-                    <Search />
-                    <div className="row">
-                        <div className="col-md-7">
-                            <GoalTracker />
+                        <Search />
+                        <div className="row">
+                            <div className="col-md-6"></div>
+                            <div className="col-md-6">
+                                <GoalsList />
+                            </div>
                         </div>
-                        <div className="col-md-5">
-                            <GoalsList />
-                        </div>
-                    </div>
 
+                    </div>
                 </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
@@ -216,7 +209,7 @@ var Main = React.createClass({
                         </div>
                     </div>
                 </footer>
-            </span>
+            </span >
         );
     }
 });

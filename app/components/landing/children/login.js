@@ -72,7 +72,7 @@ var Login = React.createClass({
                                 <div className="row">
                                     <div className="col-md-4">
                                         <div className="login-panel-margin">
-                                            <h3 className="text-center">Welcome!</h3>
+                                            <h3 className="text-center black-text">Welcome!</h3>
                                             <div>
                                                 <form role="form" onSubmit={this.handleLoginSubmit}>
                                                     <fieldset>

@@ -156,7 +156,7 @@ var Register = React.createClass({
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1 className="register-margin-top">Register</h1>
+                            <h1>Register</h1>
                         </div>
                     </div>
                     <div className="row">

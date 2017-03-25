@@ -10,8 +10,18 @@ body {
     margin-top: 10px;
 }
 
+.login-button {
+    margin-bottom: 10px;
+    background: #2AA057;
+    color: white;
+}
+
 .login-panel-margin {
     margin-top: 20px;
+}
+
+.black-text {
+    color: black;
 }
 
 
@@ -36,11 +46,12 @@ body {
 }
 
 .main-nav {
-    background: white;
+    background: #6564DA;
+    color: white;
 }
 
-.purple-icon {
-    color: #6564DA;
+.white-icon {
+    color: white;
 }
 
 .scroll-link {
@@ -55,6 +66,10 @@ body {
 /*.scroll-link.scrolled {
     color: #4c4a58;
 }*/
+
+.navbar {
+    margin-bottom: 0px;
+}
 
 .nav>li>a:focus,
 .nav>li>a:hover {
@@ -127,7 +142,7 @@ hr {
 }
 
 .green-btn {
-    background: #6AD34C;
+    background: #2AA057;
     color: white;
 }
 
@@ -170,7 +185,8 @@ hr {
 }
 
 .img-circle {
-    border-radius: 50%;
+    border-radius: 25px;
+    margin-top: 25px;
 }
 
 
@@ -210,7 +226,7 @@ hr {
 /*How it Works*/
 
 #how-it-works {
-    height: 500px;
+    height: 550px;
     background-color: #585858;
     color: white;
     text-align: center;
@@ -266,6 +282,19 @@ textarea {
     max-width: 100%;
 }
 
+.main-background {
+    background: #eaedf2;
+}
+
+.cal-panel-margin-top {
+    margin-top: 70px;
+}
+
+.panel-default>.panel-heading {
+    background: white;
+    color: #323a45;
+}
+
 
 /*FOOTER*/
 
@@ -293,10 +322,6 @@ textarea {
 
 .footer-top-text {
     margin-top: 30px;
-}
-
-.register-margin-top {
-    margin-top: 0;
 }
 
 

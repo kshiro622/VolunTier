@@ -28,7 +28,7 @@ var GoalsForm = React.createClass({
                             required
                         />
                         <button
-                            className="btn btn-default"
+                            className="btn btn-default green-btn"
                             type="submit">Submit</button>
                     </div>
                 </form>

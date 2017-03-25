@@ -2,19 +2,20 @@
 // alternative to request)
 var axios = require("axios");
 
+const userId= sessionStorage.getItem('do_good_id');
 // Helper Functions
 var helper = {
     // retrieves saved Goals from server
-    getSavedGoals: function (userId) {
-        return axios.get('/api/goals/' + userId);
+    getSavedGoals: function () {
+        return axios.get('/api/goals/'+userId);
     },
     // adds Goal to database
-    addGoal: function (goal, userId) {
-        return axios.post('/api/goals/' + userId, goal);
+    addGoal: function (goal) {
+        return axios.post('/api/goals/'+userId, {'goalText':goal});
     },
     //deletes Goal from db
-    deleteGoal: function (goalId, userId) {
-        return axios.delete('/api/goals/' + goalId + '/' + userId);
+    deleteGoal: function (goalId) {
+        return axios.delete('/api/goals/'+userId + '/' + goalId );
     },
     //update Goal
     updateGoal: function (goalId) {

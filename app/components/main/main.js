@@ -6,8 +6,8 @@ var axios = require("axios");
 // Include children components
 var Calendar = require("./children/calendar");
 var GoalTracker = require("./children/goalTracker");
-
 var Search = require("./children/search");
+var GoalsList = require("./children/goalsList");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -268,16 +268,23 @@ var Main = React.createClass({
                         <Calendar />
                     </div>
                     <div className="col-md-4">
-
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <p className="panel-title">Upcoming Events</p>
+                            </div>
+                            <div className="panel-body">
+                                <p>This is a placeholder for the events component.</p>
+                            </div>
+                        </div>
                     </div>
                     </div>
                     <Search />
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-7">
                             <GoalTracker />
                         </div>
-                        <div className="col-md-8">
-
+                        <div className="col-md-5">
+                            <GoalsList />
                         </div>
                     </div>
                     

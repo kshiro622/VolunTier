@@ -66,17 +66,19 @@ router.get("/api/goals/:userId", function (req, res) {
 // Create a new goal
 router.post("/api/goals/:userId", function (req, res) {
     // Create a new Goal and pass the req.body to the entry
-    Goal.create(req.body, function (error, goalDoc) {
+    var createGoal = Goal.create(req.body, function (error, goalDoc) {
         // Log any errors
         if (error) {
             console.log(error);
-        } else {
-            // Use the User id to find and update it's goal
+        }
+    });
+    createGoal.then(function(response){
+        // Use the User id to find and update it's goal
             user.findOneAndUpdate({
                 "_id": req.params.userId
             }, {
                     $push: {
-                        "goals": goalDoc._id
+                        "goals": response._id
                     }
                 }, {
                     safe: true,
@@ -94,9 +96,7 @@ router.post("/api/goals/:userId", function (req, res) {
                         res.json(doc);
                     }
                 });
-        }
     });
-
 });
 
 router.delete("/api/goals/:userId/:goalId", function (req, res) {

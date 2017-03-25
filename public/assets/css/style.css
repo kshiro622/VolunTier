@@ -208,6 +208,10 @@ hr {
     font-style: italic;
 }
 
+.white-text {
+    color: white;
+}
+
 
 /*.text-left {
     text-align: left;
@@ -227,7 +231,7 @@ hr {
 
 #how-it-works {
     height: 550px;
-    background-color: #585858;
+    background-color: #737373;
     color: white;
     text-align: center;
 }

@@ -250,6 +250,12 @@ textarea {
     margin-top: 30px;
 }
 
+/*Main*/
+.fit-img{
+    height: auto;
+    max-width: 100%;
+}
+
 
 /*FOOTER*/
 

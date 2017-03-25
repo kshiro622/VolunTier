@@ -6,7 +6,7 @@ var Form = React.createClass({
 
   // set search keyword state
   getInitialState: function() {
-    return { keyword: "", category:"", location:"", options:{} };
+    return { keyword: "", category:"", location:"" };
   },
   // This function will respond to the user input
   handleKeywordChange: function(event) {
@@ -14,41 +14,36 @@ var Form = React.createClass({
   },
   // This function will respond to the user input
   handleCategoryChange: function(event) {
-    this.setState({ category: event.target.value });
+    this.setState({ category: parseInt(event.target.value) });
   },
   // This function will respond to the user input
   handleLocationChange: function(event) {
     this.setState({ location: event.target.value });
-  },
-  // This function will respond to the user input
-  formOptions: function() {
-    let optionsObj = {};
-    optionsObj["keywords"] = this.state.keyword;
-    optionsObj["categoryIds"] = this.state.category;
-    optionsObj["location"] = this.state.location;
-    this.setState({options:optionsObj});
   },
   // When a user submits...
   handleSubmit: function(event) {
     // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
     // clicking the button
     event.preventDefault();
-    // Set the parent to have the search keyword, begin, end years
-    this.props.searchVM(this.state.options);
-    this.setState({ keyword: "", keyword: "", category:"", location:""});
+    let optionsObj = {};
+    optionsObj["keywords"] = [this.state.keyword];
+    optionsObj["categoryIds"] = [this.state.category];
+    optionsObj["location"] = this.state.location;
+    optionsObj["numberOfResults"] = 10;
+    this.props.searchVM(optionsObj);
+    this.setState({ keyword: "", category:"", location:""});
   },
   // Here we describe this component's render method
   render: function() {
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">I want to help.</h3>
+          <p className="panel-title">I want to help</p>
         </div>
         <div className="panel-body">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               {/*Location is required*/}
-              <h2>What do you care about in...</h2> 
               <label htmlFor="location">Location</label>
               <input
                 value={this.state.location}
@@ -68,7 +63,7 @@ var Form = React.createClass({
                 onChange={this.handleKeywordChange}
                 required
               />
-              <label htmlFor="category">Selects</label>
+              <label htmlFor="category">Browse</label>
               <select 
               className="form-control"
               size="7"

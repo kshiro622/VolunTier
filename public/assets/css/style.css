@@ -36,12 +36,11 @@ body {
 }
 
 .main-nav {
-    background: #6564DA;
-    border-color: #6564DA;
+    background: white;
 }
 
-.white-icon {
-    color: white;
+.purple-icon {
+    color: #6564DA;
 }
 
 .scroll-link {

@@ -62,7 +62,7 @@ var Main = React.createClass({
                         <ul className="nav navbar-top-links navbar-right">
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i className="fa fa-tasks fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
+                                    <i className="fa fa-tasks fa-fw purple-icon"></i> <i className="fa fa-caret-down purple-icon"></i>
                                 </a>
                                 <ul className="dropdown-menu dropdown-tasks">
                                     <li>
@@ -142,7 +142,7 @@ var Main = React.createClass({
                             </li>
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i className="fa fa-user fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
+                                    <i className="fa fa-user fa-fw purple-icon"></i> <i className="fa fa-caret-down purple-icon"></i>
                                 </a>
                                 <ul className="dropdown-menu dropdown-user">
                                     <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>

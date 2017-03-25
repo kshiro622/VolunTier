@@ -71,11 +71,9 @@ var Login = React.createClass({
                             <div className="container">
                                 <div className="row">
                                     <div className="col-md-4">
-                                        <div className="login-panel panel panel-default login-panel-margin">
-                                            <div className="panel-heading">
-                                                <h3 className="panel-title">Please login</h3>
-                                            </div>
-                                            <div className="panel-body">
+                                        <div className="login-panel-margin">
+                                            <h3 className="text-center black-text">Welcome!</h3>
+                                            <div>
                                                 <form role="form" onSubmit={this.handleLoginSubmit}>
                                                     <fieldset>
                                                         {this.state.error}
@@ -85,7 +83,7 @@ var Login = React.createClass({
                                                         <div className="form-group">
                                                             <input className="form-control" placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
                                                         </div>
-                                                        <button href="index.html" className="btn btn-lg btn-success btn-block">{this.state.message}</button>
+                                                        <button className="btn btn-lg login-button btn-block">{this.state.message}</button>
                                                     </fieldset>
                                                 </form>
                                             </div>

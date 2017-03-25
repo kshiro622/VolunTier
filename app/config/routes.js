@@ -21,7 +21,7 @@ var IndexRoute = router.IndexRoute;
 // will need to add more as we add components
 var Main = require("../components/main/Main");
 var Landing = require("../components/landing/Landing");
-var Register = require("../components/register/register.js")
+var Register = require("../components/register/register.js");
 
 
 

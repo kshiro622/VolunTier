@@ -30,6 +30,10 @@ var Landing = React.createClass({
         // what to do when component updates    
     },
 
+    registerPageClick: function () {
+        this.context.router.push('register');
+    },
+
     // Here we render the function
     render: function () {
         return (
@@ -44,7 +48,7 @@ var Landing = React.createClass({
                                 <span className="icon-bar"></span>
                             </button>
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
-                            <a className="navbar-brand" id="nav-brand" href="index.html">Volun<span id="nav-brand-2">Tier</span></a>
+                            <a className="navbar-brand" id="nav-brand" href="#">Volun<span id="nav-brand-2">Tier</span></a>
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
                             <li className="dropdown">
@@ -63,7 +67,7 @@ var Landing = React.createClass({
                             <h1 className="margin-top-220 large-h1"> VolunTier </h1>
                             <hr />
                             <h4> Measuring your impact made easy. </h4>
-                            <button type="button" className="btn btn-lg btn-outline-success margin-top-50">Get Started</button>
+                            <button type="button" className="btn btn-lg btn-outline-success margin-top-50" onClick={this.registerPageClick}>Get Started</button>
                         </div>
                     </div>
                 </div>
@@ -78,7 +82,7 @@ var Landing = React.createClass({
                                 <h1 className="margin-top-130">Helping You Give Back</h1>
                                 <h4 className="text-orange">Set goals. Track your progress. Showcase your profile.</h4>
                                 <h5>VolunTier helps you give back when you have an hour or two to spare. Volunteer on your schedule and track your progress. Share your profile with others and make connections.</h5>
-                                <button type="button" className="btn btn-lg orange-btn margin-top-50">Create Account</button>
+                                <button type="button" className="btn btn-lg orange-btn margin-top-50" onClick={this.registerPageClick}>Create Account</button>
                             </div>
                         </div>
                     </div>
@@ -88,7 +92,8 @@ var Landing = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                <h1 className="margin-top-90 margin-bottom-50">How it Works</h1>
+                                <h1 className="margin-top-90">How it Works</h1>
+                                <hr />
                             </div>
                         </div>
                         <div className="row">
@@ -119,7 +124,7 @@ var Landing = React.createClass({
                                 <i className="fa fa-globe fa-fw text-orange"></i>
                                 <h3>Showcase Your Profile.</h3>
                                 <p>Your impact will be visible to others on your profile. Whether you're a student or a professional, show others the work you've put in. </p>
-                                <button type="button" className="btn btn-lg orange-btn margin-top-50">Create Profile</button>
+                                <button type="button" className="btn btn-lg orange-btn margin-top-50" onClick={this.registerPageClick}>Create Profile</button>
                             </div>
                             <div className="col-md-6">
                                 <i className="fa fa-comments fa-fw text-orange"></i>

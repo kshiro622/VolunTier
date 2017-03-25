@@ -10,8 +10,18 @@ body {
     margin-top: 10px;
 }
 
+.login-button {
+    margin-bottom: 10px;
+    background: #2AA057;
+    color: white;
+}
+
 .login-panel-margin {
     margin-top: 20px;
+}
+
+.black-text {
+    color: black;
 }
 
 
@@ -35,6 +45,15 @@ body {
     border-color: #6564DA;
 }
 
+.main-nav {
+    background: #6564DA;
+    color: white;
+}
+
+.white-icon {
+    color: white;
+}
+
 .scroll-link {
     color: white;
 }
@@ -47,6 +66,10 @@ body {
 /*.scroll-link.scrolled {
     color: #4c4a58;
 }*/
+
+.navbar {
+    margin-bottom: 0px;
+}
 
 .nav>li>a:focus,
 .nav>li>a:hover {
@@ -119,7 +142,7 @@ hr {
 }
 
 .green-btn {
-    background: #6AD34C;
+    background: #2AA057;
     color: white;
 }
 
@@ -162,7 +185,8 @@ hr {
 }
 
 .img-circle {
-    border-radius: 50%;
+    border-radius: 25px;
+    margin-top: 25px;
 }
 
 
@@ -184,6 +208,10 @@ hr {
     font-style: italic;
 }
 
+.white-text {
+    color: white;
+}
+
 
 /*.text-left {
     text-align: left;
@@ -202,8 +230,8 @@ hr {
 /*How it Works*/
 
 #how-it-works {
-    height: 500px;
-    background-color: #585858;
+    height: 550px;
+    background-color: #737373;
     color: white;
     text-align: center;
 }
@@ -258,6 +286,19 @@ textarea {
     max-width: 100%;
 }
 
+.main-background {
+    background: #eaedf2;
+}
+
+.cal-panel-margin-top {
+    margin-top: 70px;
+}
+
+.panel-default>.panel-heading {
+    background: white;
+    color: #323a45;
+}
+
 
 /*FOOTER*/
 
@@ -270,7 +311,7 @@ textarea {
 
 .footer-bottom {
     background: #484848;
-    height: 70px;
+    height: 50px;
     color: white;
 }
 
@@ -296,12 +337,31 @@ html {
 }
 
 body {
-    margin-bottom: 50px;
+    margin-bottom: 150px;
 }
 
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 150px;
+}
+
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu {
+    margin-top: 15px;
+}
+
+.dropdown-toggle {
+    padding-top: 17px !important;
+    padding-bottom: 18px !important;
+}
+
+.dropdown-user {
+    margin-top: 0px;
 }

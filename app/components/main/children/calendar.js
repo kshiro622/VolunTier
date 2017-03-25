@@ -17,8 +17,10 @@ var Calendar = React.createClass({
                 <div className="panel panel-default cal-panel-margin-top">
                     <div className="panel-heading">
                         <p className="panel-title">
-                            <i className="fa fa-calendar fa-fw"></i> Calendar</p>
-                        </div>
+                            <i className="fa fa-calendar fa-fw"></i>
+                            Calendar
+                        </p>
+                    </div>
                     <div className="panel-body">
                         <div id="calendar"></div>
                     </div>

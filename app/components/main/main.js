@@ -5,9 +5,9 @@ var axios = require("axios");
 
 // Include children components
 var Calendar = require("./children/calendar");
-var GoalTracker = require("./children/goalTracker");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
+var Upcoming = require("./children/upcoming");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -47,267 +47,169 @@ var Main = React.createClass({
     render: function () {
         return (
             <span>
-                <nav className="navbar navbar-default navbar-static-top" role="navigation" style={{ marginBottom: 0 }}>
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        <a className="navbar-brand" href="#">Noble</a>
-                    </div>
-
-                    <ul className="nav navbar-top-links navbar-right">
-                        <li className="dropdown">
-                            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i className="fa fa-envelope fa-fw"></i> <i className="fa fa-caret-down"></i>
-                            </a>
-                            <ul className="dropdown-menu dropdown-messages">
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <strong>John Smith</strong>
-                                            <span className="pull-right text-muted">
-                                                <em>Yesterday</em>
-                                            </span>
-                                        </div>
-                                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <strong>John Smith</strong>
-                                            <span className="pull-right text-muted">
-                                                <em>Yesterday</em>
-                                            </span>
-                                        </div>
-                                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <strong>John Smith</strong>
-                                            <span className="pull-right text-muted">
-                                                <em>Yesterday</em>
-                                            </span>
-                                        </div>
-                                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a className="text-center" href="#">
-                                        <strong>Read All Messages</strong>
-                                        <i className="fa fa-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="dropdown">
-                            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i className="fa fa-tasks fa-fw"></i> <i className="fa fa-caret-down"></i>
-                            </a>
-                            <ul className="dropdown-menu dropdown-tasks">
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 1</strong>
-                                                <span className="pull-right text-muted">40% Complete</span>
-                                            </p>
-                                            <div className="progress progress-striped active">
-                                                <div className="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                    style={{ width: "40%" }}>
-                                                    <span className="sr-only">40% Complete (success)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 2</strong>
-                                                <span className="pull-right text-muted">20% Complete</span>
-                                            </p>
-                                            <div className="progress progress-striped active">
-                                                <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{ width: "20%" }}>
-                                                    <span className="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 3</strong>
-                                                <span className="pull-right text-muted">60% Complete</span>
-                                            </p>
-                                            <div className="progress progress-striped active">
-                                                <div className="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                    style={{ width: "60%" }}>
-                                                    <span className="sr-only">60% Complete (warning)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                <strong>Task 4</strong>
-                                                <span className="pull-right text-muted">80% Complete</span>
-                                            </p>
-                                            <div className="progress progress-striped active">
-                                                <div className="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                    style={{ width: "80%" }}>
-                                                    <span className="sr-only">80% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a className="text-center" href="#">
-                                        <strong>See All Tasks</strong>
-                                        <i className="fa fa-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="dropdown">
-                            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i className="fa fa-bell fa-fw"></i> <i className="fa fa-caret-down"></i>
-                            </a>
-                            <ul className="dropdown-menu dropdown-alerts">
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <i className="fa fa-comment fa-fw"></i> New Comment
-                                <span className="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <i className="fa fa-twitter fa-fw"></i> 3 New Followers
-                                <span className="pull-right text-muted small">12 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <i className="fa fa-envelope fa-fw"></i> Message Sent
-                                <span className="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <i className="fa fa-tasks fa-fw"></i> New Task
-                                <span className="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <i className="fa fa-upload fa-fw"></i> Server Rebooted
-                                <span className="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li className="divider"></li>
-                                <li>
-                                    <a className="text-center" href="#">
-                                        <strong>See All Alerts</strong>
-                                        <i className="fa fa-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="dropdown">
-                            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i className="fa fa-user fa-fw"></i> <i className="fa fa-caret-down"></i>
-                            </a>
-                            <ul className="dropdown-menu dropdown-user">
-                                <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
-                                </li>
-                                <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
-                                </li>
-                                <li className="divider"></li>
-                                <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8">
-                            <Calendar />
+                <nav className="main-nav navbar navbar-default navbar-fixed-top" role="navigation" >
+                    <div className="container">
+                        <div className="navbar-header">
+                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span className="sr-only">Toggle navigation</span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                            </button>
+                            <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
+                            <a className="navbar-brand" id="nav-brand" href="#">VolunTier</a>
                         </div>
-                        <div className="col-md-4">
-                            <div className="panel panel-default">
-                                <div className="panel-heading">
-                                    <p className="panel-title">Upcoming Events</p>
-                                </div>
-                                <div className="panel-body">
-                                    <p>This is a placeholder for the events component.</p>
-                                </div>
+                        <ul className="nav navbar-top-links navbar-right">
+                            <li className="dropdown">
+                                <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i className="fa fa-tasks fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
+                                </a>
+                                <ul className="dropdown-menu dropdown-tasks">
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    <strong>Task 1</strong>
+                                                    <span className="pull-right text-muted">40% Complete</span>
+                                                </p>
+                                                <div className="progress progress-striped active">
+                                                    <div className="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                                                        style={{ width: "40%" }}>
+                                                        <span className="sr-only">40% Complete (success)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    <strong>Task 2</strong>
+                                                    <span className="pull-right text-muted">20% Complete</span>
+                                                </p>
+                                                <div className="progress progress-striped active">
+                                                    <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{ width: "20%" }}>
+                                                        <span className="sr-only">20% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    <strong>Task 3</strong>
+                                                    <span className="pull-right text-muted">60% Complete</span>
+                                                </p>
+                                                <div className="progress progress-striped active">
+                                                    <div className="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                        style={{ width: "60%" }}>
+                                                        <span className="sr-only">60% Complete (warning)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    <strong>Task 4</strong>
+                                                    <span className="pull-right text-muted">80% Complete</span>
+                                                </p>
+                                                <div className="progress progress-striped active">
+                                                    <div className="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                                        style={{ width: "80%" }}>
+                                                        <span className="sr-only">80% Complete (danger)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="divider"></li>
+                                    <li>
+                                        <a className="text-center" href="#">
+                                            <strong>See All Tasks</strong>
+                                            <i className="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="dropdown">
+                                <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i className="fa fa-user fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
+                                </a>
+                                <ul className="dropdown-menu dropdown-user">
+                                    <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
+                                    </li>
+                                    <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
+                                    </li>
+                                    <li className="divider"></li>
+                                    <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div className="main-background">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-8">
+                                <Calendar />
+                            </div>
+                            <div className="col-md-4">
+                                <Upcoming />
                             </div>
                         </div>
-                    </div>
-                    <Search />
-                    <div className="row">
-                        <div className="col-md-7">
-                            <GoalTracker />
+                        <Search />
+                        <div className="row">
+                            <div className="col-md-6"></div>
+                            <div className="col-md-6">
+                                <GoalsList />
+                            </div>
                         </div>
-                        <div className="col-md-5">
-                            <GoalsList />
-                        </div>
-                    </div>
 
+                    </div>
                 </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
-                    <div className="container">
-                        <div className="row">
+                    <div className="row footer-top">
+                        <div className="container">
+                            <div className="col-md-4">
+                                <h4 className="footer-top-text">Help Us Grow</h4>
+                            </div>
+                            <div className="col-md-4">
+                                <h4 className="footer-top-text">Join The Discussion</h4>
+                            </div>
+                            <div className="col-md-4">
+                                <h4 className="footer-top-text">Connect</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row footer-bottom">
+                        <div className="container">
                             <div className="col-sm-12 footer-txt">
                                 Made by&nbsp;&nbsp;
-                                <a target="_blank" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
+                                <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" href="https://github.com/aishaprograms">Aisha Ahmad</a>
+                                <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">Aisha Ahmad</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" href="https://github.com/kshiro622">Katie Shiro</a>
+                                <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" href="https://github.com/hadicodes">Hadi</a>
-                                <span className="pull-right">Noble &copy; 2017</span>
+                                <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
+                                <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>
                         </div>
                     </div>
                 </footer>
-            </span>
+            </span >
         );
     }
 });

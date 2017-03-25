@@ -1,8 +1,10 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
+import { Link } from 'react-router'
 
-
+// Include children components
+var Login = require("./../landing/children/Login");
 
 // Creating the Register component
 var Register = React.createClass({
@@ -128,7 +130,7 @@ var Register = React.createClass({
     render: function () {
         return (
             <span>
-                <nav className="navbar navbar-default navbar-static-top purple-nav" role="navigation" style={{ marginBottom: 0 }}>
+                <nav className="main-nav navbar navbar-default navbar-static-top" role="navigation" >
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -137,9 +139,17 @@ var Register = React.createClass({
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <img src="assets/images/purpleicon.png" id="icon" height="30px" alt="Icon" />
-                            <a className="navbar-brand" id="nav-brand-purple" href="#">VolunTier</a>
+                            <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
+                            <a className="navbar-brand" id="nav-brand" href="#">Volun<span id="nav-brand-2">Tier</span></a>
                         </div>
+                        <ul className="nav navbar-top-links navbar-right">
+                            <li className="dropdown">
+                                <Link to="/" className="scroll-link">
+                                    Home
+                                </Link>
+                            </li>
+                            <Login />
+                        </ul>
                     </div>
                 </nav>
 
@@ -199,6 +209,19 @@ var Register = React.createClass({
                 </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
+                    <div className="row footer-top">
+                        <div className="container">
+                            <div className="col-md-4">
+                                <h4 className="footer-top-text">Help Us Grow</h4>
+                            </div>
+                            <div className="col-md-4">
+                                <h4 className="footer-top-text">Join The Discussion</h4>
+                            </div>
+                            <div className="col-md-4">
+                                <h4 className="footer-top-text">Connect</h4>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row footer-bottom">
                         <div className="container">
                             <div className="col-sm-12 footer-txt">

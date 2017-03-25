@@ -18,7 +18,7 @@ var Register = React.createClass({
             interest1: "",
             interest2: "",
             interest3: "",
-            message: "Register",
+            message: "Submit",
             error: ""
         };
     },
@@ -128,25 +128,30 @@ var Register = React.createClass({
     render: function () {
         return (
             <span>
-                <nav className="navbar navbar-default navbar-static-top" role="navigation" style={{ marginBottom: 0 }}>
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        <a className="navbar-brand" href="#">Noble</a>
+                <nav className="navbar navbar-default navbar-static-top purple-nav" role="navigation" style={{ marginBottom: 0 }}>
+                    <div className="container">
+                        <div className="navbar-header">
+                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span className="sr-only">Toggle navigation</span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                            </button>
+                            <img src="assets/images/purpleicon.png" id="icon" height="30px" alt="Icon" />
+                            <a className="navbar-brand" id="nav-brand-purple" href="#">VolunTier</a>
+                        </div>
                     </div>
                 </nav>
 
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
+                            <h1>Register</h1>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
                             <div className="login-panel panel panel-default">
-                                <div className="panel-heading">
-                                    <h3 className="panel-title">Registration</h3>
-                                </div>
                                 <div className="panel-body">
                                     <form role="form" onSubmit={this.handleRegisterSubmit} data-toggle="validator">
                                         <fieldset>
@@ -184,7 +189,7 @@ var Register = React.createClass({
                                                 <label htmlFor="password">Confirm Password</label>
                                                 <input data-minlength="6" className="form-control" placeholder="" name="confirm-password" type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange} required />
                                             </div>
-                                            <button href="index.html" className="btn btn-lg btn-success btn-block">{this.state.message}</button>
+                                            <button href="index.html" className="btn btn-lg green-btn">{this.state.message}</button>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -194,18 +199,18 @@ var Register = React.createClass({
                 </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
-                    <div className="container">
-                        <div className="row">
+                    <div className="row footer-bottom">
+                        <div className="container">
                             <div className="col-sm-12 footer-txt">
                                 Made by&nbsp;&nbsp;
-                                <a target="_blank" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
+                                <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" href="https://github.com/aishaprograms">Aisha Ahmad</a>
+                                <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">Aisha Ahmad</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" href="https://github.com/kshiro622">Katie Shiro</a>
+                                <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
                                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" href="https://github.com/hadicodes">Hadi</a>
-                                <span className="pull-right">Noble &copy; 2017</span>
+                                <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
+                                <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>
                         </div>
                     </div>

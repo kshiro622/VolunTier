@@ -144,7 +144,7 @@ var Landing = React.createClass({
                     </div>
                 </div>
 
-                <footer className="footer navbar navbar-default navbar-static-bottom" role="navigation" style={{ marginBottom: 0 }}>
+                <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="row footer-top">
                         <div className="container">
                             <div className="col-md-4">

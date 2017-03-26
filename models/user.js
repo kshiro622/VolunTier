@@ -13,6 +13,7 @@ var userSchema = new Schema({
     username: String,
     password: String,
     bio: String,
+    goal_week: Number,
     interests: Array,
     connections: Array,
     events: Array,

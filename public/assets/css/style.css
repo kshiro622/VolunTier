@@ -360,8 +360,21 @@ body {
 .dropdown-toggle {
     padding-top: 17px !important;
     padding-bottom: 18px !important;
+    margin-left: 10px;
 }
 
 .dropdown-user {
     margin-top: 0px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-password {
+    margin-bottom: 5px !important;
+}
+
+.register-form-padding-top {
+    padding-top: 0px;
 }

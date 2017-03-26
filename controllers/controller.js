@@ -151,5 +151,95 @@ router.get("/user/:id", function (req, res) {
     })
 });
 
+// =======================================================
+// Upcoming Events routes
+// =======================================================
+// get all events by user id
+router.get("/api/events/:userId", function (req, res) {
+    // Using the id passed in the id parameter, prepare a query that finds the
+    // matching one in our db...
+    user.findOne({ "_id": req.params.userId })
+        // ..and populate all of the events associated with it
+        .populate("events")
+        // now, execute our query
+        .exec(function (error, doc) {
+            // Log any errors
+            if (error) {
+                console.log(error);
+            } else {
+                // Otherwise, send the doc to the browser as a json object
+                res.json(doc);
+            }
+        });
+});
+
+// Create a new Event
+router.post("/api/events/:userId", function (req, res) {
+    // Create a new Event and pass the req.body to the entry
+    var createEvent = Event.create(req.body, function (error, eventDoc) {
+        // Log any errors
+        if (error) {
+            console.log(error);
+        }
+    });
+    createEvent.then(function (response) {
+        // Use the User id to find and update it's Event
+        user.findOneAndUpdate({
+            "_id": req.params.userId
+        }, {
+                $push: {
+                    "events": response._id
+                }
+            }, {
+                safe: true,
+                upsert: true,
+                new: true
+            })
+            // ..and populate all of the events associated with it
+            .populate("events")
+            // Execute the above query
+            .exec(function (err, doc) {
+                // Log any errors
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.json(doc);
+                }
+            });
+    });
+});
+
+router.delete("/api/events/:userId/:eventId", function (req, res) {
+    Event.findByIdAndRemove(req.params.eventId, function (error, eventDoc) {
+        // Log any errors
+        if (error) {
+            console.log(error);
+        } else {
+            user.findOneAndUpdate({
+                "_id": req.params.userId
+            }, {
+                    $pull: {
+                        "events": eventDoc._id
+                    }
+                }, {
+                    safe: true,
+                    new: true
+                })
+                // ..and populate all of the events associated with it
+                .populate("events")
+                // Execute the above query
+                .exec(function (err, doc) {
+                    // Log any errors
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        res.json(doc);
+                    }
+                });
+        }
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;

@@ -9,17 +9,19 @@ var GoalsList = React.createClass({
     },
     componentDidMount: function () {
         const userId= sessionStorage.getItem('do_good_id');
-        goalsListHelper.getSavedGoals().then(function (response) {
+        goalsListHelper.getSavedGoals(userId).then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));
     },
     deleteGoalAndUpdate: function (deletedGoal) {
-        goalsListHelper.deleteGoal(deletedGoal).then(function (response) {
+        const userId= sessionStorage.getItem('do_good_id');
+        goalsListHelper.deleteGoal(deletedGoal, userId).then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));
         },
     addGoal: function (newGoal) {
-        goalsListHelper.addGoal(newGoal).then(function(response){
+        const userId= sessionStorage.getItem('do_good_id');
+        goalsListHelper.addGoal(newGoal, userId).then(function(response){
             this.setState({ goals: response.data.goals });   
         }.bind(this));
     },

@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var user = require('./../models/user.js');
 var Goal = require('./../models/goal.js');
+var Event = require('./../models/event.js');
 
 
 // =======================================================

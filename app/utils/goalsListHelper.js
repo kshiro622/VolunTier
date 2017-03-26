@@ -2,7 +2,6 @@
 // alternative to request)
 var axios = require("axios");
 
-const userId= sessionStorage.getItem('do_good_id');
 // Helper Functions
 var helper = {
     // retrieves saved Goals from server

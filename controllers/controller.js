@@ -15,6 +15,7 @@ router.post('/register', function (req, res) {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         bio: req.body.bio,
+        goal_week: req.body.goal_week,
         interests: req.body.interests
     }), req.body.password, function (err, user) {
         if (err) {

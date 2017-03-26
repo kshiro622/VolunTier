@@ -1,14 +1,26 @@
 var React = require("react");
+var eventHelper = require("../../../utils/eventsHelper.js")
 
 var Calendar = React.createClass({
+
+    getInitialState: function () {
+        return { events: [] };
+    },
+
     componentDidMount: function () {
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next',
-                center: 'title',
-                right: 'agendaDay,agendaWeek,month'
-            }
-        });
+        const userId = sessionStorage.getItem('do_good_id');
+        eventHelper.getSavedEvents(userId).then(function (response) {
+            this.setState({ events: response.data.events });
+            var eventsArr = this.state.events;
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'agendaDay,agendaWeek,month'
+                },
+                events: eventsArr
+            });
+        }.bind(this));
     },
 
     render: function () {

@@ -1,5 +1,5 @@
 var React = require("react");
-var goalsListHelper = require("../../../utils/goalsListHelper.js")
+var goalsListHelper = require("../../../utils/goalsListHelper.js");
 var GoalsForm = require("./grandchildren/goalsForm");
 var Goal = require('./grandchildren/goal.js');
 
@@ -8,21 +8,21 @@ var GoalsList = React.createClass({
         return { goals: [] };
     },
     componentDidMount: function () {
-        const userId= sessionStorage.getItem('do_good_id');
+        const userId = sessionStorage.getItem('do_good_id');
         goalsListHelper.getSavedGoals(userId).then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));
     },
     deleteGoalAndUpdate: function (deletedGoal) {
-        const userId= sessionStorage.getItem('do_good_id');
+        const userId = sessionStorage.getItem('do_good_id');
         goalsListHelper.deleteGoal(deletedGoal, userId).then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));
-        },
+    },
     addGoal: function (newGoal) {
-        const userId= sessionStorage.getItem('do_good_id');
-        goalsListHelper.addGoal(newGoal, userId).then(function(response){
-            this.setState({ goals: response.data.goals });   
+        const userId = sessionStorage.getItem('do_good_id');
+        goalsListHelper.addGoal(newGoal, userId).then(function (response) {
+            this.setState({ goals: response.data.goals });
         }.bind(this));
     },
     render: function () {
@@ -32,10 +32,10 @@ var GoalsList = React.createClass({
                     <p className="panel-title">My Goals List</p>
                 </div>
                 <div className="panel-body">
-                    <GoalsForm addGoal={this.addGoal}/>
-                    <hr/>
+                    <GoalsForm addGoal={this.addGoal} />
+                    <hr />
                     {
-                        this.state.goals.length===0 &&
+                        this.state.goals.length === 0 &&
                         (
                             <div>
                                 <p><em>No goals yet!</em></p>
@@ -47,14 +47,14 @@ var GoalsList = React.createClass({
                     }
                     {
                         this.state.goals &&
-                        this.state.goals.map(function(element, index){
+                        this.state.goals.map(function (element, index) {
                             return (
-                                <Goal key={index} 
-                                goalText={element.goalText} 
-                                id={element._id} 
-                                deleteGoalAndUpdate={this.deleteGoalAndUpdate}/>
+                                <Goal key={index}
+                                    goalText={element.goalText}
+                                    id={element._id}
+                                    deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
                             );
-                        },this)
+                        }, this)
                     }
                 </div >
             </div>

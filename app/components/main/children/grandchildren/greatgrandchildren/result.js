@@ -1,37 +1,112 @@
 // Include React
 var React = require("react");
+var eventHelper = require("../../../../../utils/eventsHelper.js");
 
 
 var Result = React.createClass({
     getInitialState: function(){
-        return {url:'', title:'', description:'', organization:'', availability:''};
+        return {url:'', title:'', organization:'', description:'', availability:{}, start:'', end:'', startDate:'', startTime:'', endDate:'', endTime:''};
+    },
+    componentDidMount: function(){
+        this.setState({url:this.props.url, title:this.props.title, description:this.props.description, organization:this.props.organization, availability:this.props.availability});
+    },
+    startDateChange: function(){
+        this.setState({startDate: event.target.value});
+    },
+    startTimeChange: function(){
+        this.setState({startTime: event.target.value});
+    },
+    endDateChange: function(){
+        this.setState({endDate: event.target.value});
+    },
+    endTimeChange: function(){
+        this.setState({endTime: event.target.value});
     },
     // Saves oppportunity and shows alert
     handleSave: function(event){
         event.preventDefault();
+        $('#'+this.props.modalId).modal('show');
+        // this.showAlert();
+    },
+    saveEvent: function(){
         // var oppportunity = {
         //     title: this.state.title,
-        //     url: this.state.url,
+        //     start: ,
+        //     end: ,
+        //     allDay:,
+        //     url:,
         // };
-        // helpers.addSavedOppportunities(oppportunity);
-        // this.showAlert();
+        eventHelper.addEvent(event);
     },
     showAlert: function(){
         var alert = '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> You added an opportunity!</div>';
         // $('#alert-area').append(alert);
         // $(".alert").alert();
     },
-    componentDidMount: function(){
-        this.setState({url:this.props.url, title:this.props.title, description:this.props.description, organization:this.props.organization, availability:this.props.availability});
-    },
     render: function(){
         return (
             <div>
-                {/*<button className="btn btn-primary btn-xs pull-right" onClick={this.handleSave}>Save</button>*/}
-                <h4>{this.state.organization}</h4>
-                <a href={this.state.url} target="_blank"><p>{this.state.title}</p></a>
-                <p>{this.state.description}</p>
-                <hr />
+                <div className="modal fade" tabIndex="-1" role="dialog" id={this.props.modalId}>
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 className="modal-title">When will you go to this event?</h4>
+                    </div>
+                    <div className="modal-body">
+                        <form action="">
+                            <div className="formGroup row">
+                                <div className="col-sm-6">
+                                    <label htmlFor="">Start Date</label>
+                                    <input 
+                                    type="date"
+                                    onChange={this.startDateChange}
+                                    value={this.state.availability.startDate ? this.state.availability.startDate : ''} 
+                                    required/>
+                                </div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="">Start Time</label>
+                                    <input 
+                                    type="time" 
+                                    onChange={this.startTimeChange}
+                                    value={this.state.availability.startTime ? this.state.availability.startTime : ''} 
+                                    required/>
+                                </div>
+                            </div>
+                            <div className="formGroup row">
+                                <div className="col-sm-6">
+                                    <label htmlFor="">End Date</label>
+                                    <input 
+                                    type="date" 
+                                    onChange={this.endDateChange}
+                                    value={this.state.availability.endDate ? this.state.availability.endDate : ''} 
+                                    required/>
+                                </div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="">End Time</label>
+                                    <input 
+                                    type="time" 
+                                    onChange={this.endTimeChange}
+                                    value={this.state.availability.endTime ? this.state.availability.endTime : ''} 
+                                    required/>
+                                </div>
+                            </div>
+                            <button className="btn" type="submit" onClick={this.saveEvent}>Save Event</button>
+                        </form>
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div>
+                    <button className="btn btn-primary btn-xs pull-right" onClick={this.handleSave}>Add to Event</button>
+                    <h4>{this.state.organization}</h4>
+                    <a href={this.state.url} target="_blank"><p>{this.state.title}</p></a>
+                    <p>{this.state.description}</p>
+                    <hr />
+                </div>
             </div>
         );
     }

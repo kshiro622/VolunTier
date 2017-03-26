@@ -11,6 +11,7 @@ module.exports = {
     // This section desribes the transformations we will perform
     module: {
         loaders: [{
+            exclude: /node_modules/,
             // Only working with files that in in a .js or .jsx extension
             test: /\.jsx?$/,
             // Webpack will only process files in our app folder. This avoids processing

@@ -3,12 +3,12 @@ var goalsListHelper = require("../../../utils/goalsListHelper.js")
 var GoalsForm = require("./grandchildren/goalsForm");
 var Goal = require('./grandchildren/goal.js');
 
-
 var GoalsList = React.createClass({
     getInitialState: function () {
         return { goals: [] };
     },
     componentDidMount: function () {
+        const userId= sessionStorage.getItem('do_good_id');
         goalsListHelper.getSavedGoals().then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));

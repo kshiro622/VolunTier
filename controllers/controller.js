@@ -72,30 +72,30 @@ router.post("/api/goals/:userId", function (req, res) {
             console.log(error);
         }
     });
-    createGoal.then(function(response){
+    createGoal.then(function (response) {
         // Use the User id to find and update it's goal
-            user.findOneAndUpdate({
-                "_id": req.params.userId
+        user.findOneAndUpdate({
+            "_id": req.params.userId
+        }, {
+                $push: {
+                    "goals": response._id
+                }
             }, {
-                    $push: {
-                        "goals": response._id
-                    }
-                }, {
-                    safe: true,
-                    upsert: true,
-                    new: true
-                })
-                // ..and populate all of the goals associated with it
-                .populate("goals")
-                // Execute the above query
-                .exec(function (err, doc) {
-                    // Log any errors
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        res.json(doc);
-                    }
-                });
+                safe: true,
+                upsert: true,
+                new: true
+            })
+            // ..and populate all of the goals associated with it
+            .populate("goals")
+            // Execute the above query
+            .exec(function (err, doc) {
+                // Log any errors
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.json(doc);
+                }
+            });
     });
 });
 
@@ -111,7 +111,7 @@ router.delete("/api/goals/:userId/:goalId", function (req, res) {
                     $pull: {
                         "goals": goalDoc._id
                     }
-                },{
+                }, {
                     safe: true,
                     new: true
                 })
@@ -123,7 +123,7 @@ router.delete("/api/goals/:userId/:goalId", function (req, res) {
                     if (err) {
                         console.log(err);
                     }
-                    else{
+                    else {
                         res.json(doc);
                     }
                 });
@@ -138,6 +138,17 @@ router.delete("/api/goals/:userId/:goalId", function (req, res) {
 //         }
 //     });
 // });
+
+// =======================================================
+// Main routes
+// =======================================================
+router.get("/user/:id", function (req, res) {
+    user.findOne({ '_id': req.params.id }, function (err, user) {
+        if (err) return handleError(err);
+        console.log(user);
+        res.send(user);
+    })
+});
 
 // Export routes for server.js to use.
 module.exports = router;

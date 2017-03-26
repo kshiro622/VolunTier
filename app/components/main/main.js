@@ -8,6 +8,7 @@ var Calendar = require("./children/calendar");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var Upcoming = require("./children/upcoming");
+var GoalTracker = require("./children/goalTracker");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -15,14 +16,26 @@ var Main = React.createClass({
     // Sets the initial state of the component.
     getInitialState: function () {
         return {
-            // initial state variables (page load)
+            first_name: "",
+            last_name: ""
         };
     },
 
     componentWillMount: function () {
-        if (sessionStorage.getItem('do_good_id') === null) {
+        var currentUser = sessionStorage.getItem('do_good_id');
+        if (currentUser === null) {
             this.context.router.push('/');
         }
+
+        var userRoute = '/user/' + currentUser;
+
+        axios.get(userRoute)
+            .then(function (response) {
+                this.setState({
+                    first_name: response.data.first_name,
+                    last_name: response.data.last_name
+                });
+            }.bind(this));
     },
 
     componentDidMount: function () {
@@ -60,85 +73,8 @@ var Main = React.createClass({
                             <a className="navbar-brand" id="nav-brand" href="#">VolunTier</a>
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
-                            <li className="dropdown">
-                                <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i className="fa fa-tasks fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
-                                </a>
-                                <ul className="dropdown-menu dropdown-tasks">
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <p>
-                                                    <strong>Task 1</strong>
-                                                    <span className="pull-right text-muted">40% Complete</span>
-                                                </p>
-                                                <div className="progress progress-striped active">
-                                                    <div className="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                        style={{ width: "40%" }}>
-                                                        <span className="sr-only">40% Complete (success)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <p>
-                                                    <strong>Task 2</strong>
-                                                    <span className="pull-right text-muted">20% Complete</span>
-                                                </p>
-                                                <div className="progress progress-striped active">
-                                                    <div className="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{ width: "20%" }}>
-                                                        <span className="sr-only">20% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <p>
-                                                    <strong>Task 3</strong>
-                                                    <span className="pull-right text-muted">60% Complete</span>
-                                                </p>
-                                                <div className="progress progress-striped active">
-                                                    <div className="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                        style={{ width: "60%" }}>
-                                                        <span className="sr-only">60% Complete (warning)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <p>
-                                                    <strong>Task 4</strong>
-                                                    <span className="pull-right text-muted">80% Complete</span>
-                                                </p>
-                                                <div className="progress progress-striped active">
-                                                    <div className="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                        style={{ width: "80%" }}>
-                                                        <span className="sr-only">80% Complete (danger)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="divider"></li>
-                                    <li>
-                                        <a className="text-center" href="#">
-                                            <strong>See All Tasks</strong>
-                                            <i className="fa fa-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <li>
+                                {this.state.first_name} {this.state.last_name}
                             </li>
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -165,7 +101,12 @@ var Main = React.createClass({
                                 <Calendar />
                             </div>
                             <div className="col-md-4">
-                                <Upcoming />
+                                <div className="row">
+                                    <Upcoming />
+                                </div>
+                                <div className="row">
+                                    <GoalTracker />
+                                </div>
                             </div>
                         </div>
                         <Search />

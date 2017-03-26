@@ -360,6 +360,7 @@ body {
 .dropdown-toggle {
     padding-top: 17px !important;
     padding-bottom: 18px !important;
+    margin-left: 10px;
 }
 
 .dropdown-user {

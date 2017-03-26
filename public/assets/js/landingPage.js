@@ -5,9 +5,11 @@ $(document).ready(function () {
         if ($(window).scrollTop() > startY) {
             $('.navbar').addClass("scrolled");
             $('#nav-brand').addClass("scrolled");
+            $('.scroll-link').addClass("scrolled");
         } else {
             $('.navbar').removeClass("scrolled");
             $('#nav-brand').removeClass("scrolled");
+            $('.scroll-link').removeClass("scrolled");
         }
     }
 

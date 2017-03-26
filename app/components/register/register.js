@@ -148,7 +148,7 @@ var Register = React.createClass({
                                 <span className="icon-bar"></span>
                             </button>
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
-                            <a className="navbar-brand" id="nav-brand" href="#">Volun<span id="nav-brand-2">Tier</span></a>
+                            <a className="navbar-brand" href="#">VolunTier</a>
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
                             <li className="dropdown">
@@ -260,7 +260,7 @@ var Register = React.createClass({
                         </div>
                     </div>
                 </footer>
-            </span>
+            </span >
         );
     }
 });

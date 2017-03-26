@@ -32,6 +32,7 @@ var Results = React.createClass({
                             description={element.plaintextDescription}
                             organization={element.parentOrg.name}
                             availability={element.availability}
+                            modalId={'id-'+index}
                             />
                         );
                     })}

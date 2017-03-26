@@ -21,12 +21,15 @@ var userSchema = new Schema({
     goal_year_goal: Number,
     interests: Array,
     connections: Array,
-    events: Array,
     updated: { type: Date, default: Date.now },
     created: { type: Date, default: Date.now },
     goals: [{
         type: Schema.Types.ObjectId,
         ref: 'Goal'
+    }],
+    events: [{
+        type:Schema.Types.ObjectId,
+        ref:"Event"
     }]
 });
 

@@ -5,15 +5,15 @@ var axios = require("axios");
 // Helper Functions
 var helper = {
     // retrieves saved Goals from server
-    getSavedGoals: function () {
+    getSavedGoals: function (userId) {
         return axios.get('/api/goals/'+userId);
     },
     // adds Goal to database
-    addGoal: function (goal) {
+    addGoal: function (goal, userId) {
         return axios.post('/api/goals/'+userId, {'goalText':goal});
     },
     //deletes Goal from db
-    deleteGoal: function (goalId) {
+    deleteGoal: function (goalId, userId) {
         return axios.delete('/api/goals/'+userId + '/' + goalId );
     },
     //update Goal

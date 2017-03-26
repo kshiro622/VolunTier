@@ -152,6 +152,14 @@ router.get("/user/:id", function (req, res) {
     })
 });
 
+router.get("/user/goaltracker/:id", function (req, res) {
+    user.findOne({ '_id': req.params.id }, function (err, user) {
+        if (err) return handleError(err);
+
+        res.send(user);
+    })
+});
+
 // =======================================================
 // Upcoming Events routes
 // =======================================================

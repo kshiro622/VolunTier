@@ -76,7 +76,7 @@ var Landing = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <img src="assets/images/chart-light.jpg" height="450px" alt="" />
+                                <img src="assets/images/colo-graph.png" height="450px" alt="" />
                             </div>
                             <div className="col-md-6">
                                 <h1 className="margin-top-130">Helping You Give Back</h1>

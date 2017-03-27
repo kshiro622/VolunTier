@@ -7,11 +7,7 @@ var Results = React.createClass({
     render: function () {
         const numResults = (this.props.results.length);
         return (
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    <p className="panel-title"><i className="fa fa-list-ul fa-fw" ></i>Volunteer Opportunites</p>
-                </div>
-                <div className="panel-body">
+            <span>
                     {/*If there are no results, display message*/}
                     {numResults === 0 &&
                         (
@@ -36,8 +32,7 @@ var Results = React.createClass({
                             />
                         );
                     })}
-                </div>
-            </div>
+                </span>
         );
     }
 });

@@ -25,13 +25,25 @@ var Search = React.createClass({
     },
     render: function(){
         return(
-            <div className="row">
-                <div className="col-sm-12 col-md-5">
-                    <Form searchVM={this.searchVM} />
-                </div>
-                <div className="col-sm-12 col-md-7">
-                    <div id="alert-area"></div>
-                    <Results results={this.state.results} />
+            <div className="col-sm-12 col-md-8">
+                <div className="panel panel-default">
+                    <div className="panel-heading">
+                        <p className="panel-title"><i className="fa fa-search fa-fw" ></i>I want to help</p>
+                    </div>
+                    <div className="panel-body">
+                        <ul className="nav nav-tabs" role="tablist">
+                            <li role="presentation" className="active"><a href="#search-pane" aria-controls="search-pane" role="tab" data-toggle="tab">Search</a></li>
+                            <li role="presentation"><a href="#matches-pane" aria-controls="matches-pane" role="tab" data-toggle="tab">Matches</a></li>
+                        </ul>
+                        <div className="tab-content">
+                            <div role="tabpanel" className="tab-pane active" id="search-pane">
+                                <Form searchVM={this.searchVM} />
+                            </div>
+                            <div role="tabpanel" className="tab-pane" id="matches-pane">
+                                <Results results={this.state.results} />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

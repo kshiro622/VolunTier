@@ -50,7 +50,7 @@ var CurrentGoal = React.createClass({
                 <div className="panel panel-default dash-panel-margin-top">
                     <h5 className="your-weekly-goal">
                         <i className="fa fa-star fa-fw"></i>
-                        Your goal is <span id="goal">{this.state.week_goal_current} hours</span> per week
+                        My goal is <span id="goal">{this.state.week_goal_current} hours</span> per week
                     </h5>
                     <button className="btn btn-xs btn-edit pull-right" onClick={this.handleEdit}><i className="fa fa-edit fa-fw"></i></button>
                 </div>

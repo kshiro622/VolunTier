@@ -9,6 +9,8 @@ var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var Upcoming = require("./children/upcoming");
 var GoalTracker = require("./children/goalTracker");
+var Today = require("./children/today");
+var CurrentGoal = require("./children/currentGoal");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -97,15 +99,26 @@ var Main = React.createClass({
                 <div className="main-background">
                     <div className="container">
                         <div className="row">
+                            <div className="col-md-2">
+                                <Today />
+                            </div>
+                            <div className="col-md-6"></div>
+                            <div className="col-md-4">
+                                <div className="row">
+                                    <CurrentGoal />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
                             <div className="col-md-8">
                                 <Calendar />
                             </div>
                             <div className="col-md-4">
                                 <div className="row">
-                                    <Upcoming />
+                                    <GoalTracker />
                                 </div>
                                 <div className="row">
-                                    <GoalTracker />
+                                    <Upcoming />
                                 </div>
                             </div>
                         </div>

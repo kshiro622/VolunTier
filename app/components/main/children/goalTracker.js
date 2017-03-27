@@ -16,6 +16,9 @@ var GoalTracker = React.createClass({
             week_goal_current_percent: "",
             month_goal_current_percent: "",
             year_goal_current_percent: "",
+            week_goal_current: "",
+            month_goal_current: "",
+            year_goal_current: ""
         };
     },
 
@@ -28,11 +31,18 @@ var GoalTracker = React.createClass({
                 var userWeekGoal = checkMax(Math.floor((response.data.goal_week_current / response.data.goal_week_goal) * 100));
                 var userMonthGoal = checkMax(Math.floor((response.data.goal_month_current / response.data.goal_month_goal) * 100));
                 var userYearGoal = checkMax(Math.floor((response.data.goal_year_current / response.data.goal_year_goal) * 100));
+                var currentWeekGoal = response.data.goal_week_goal;
+                var currentMonthGoal = response.data.goal_month_goal;
+                var currentYearGoal = response.data.goal_year_goal;
+
 
                 this.setState({
                     week_goal_current_percent: userWeekGoal,
                     month_goal_current_percent: userMonthGoal,
-                    year_goal_current_percent: userYearGoal
+                    year_goal_current_percent: userYearGoal,
+                    week_goal_current: currentWeekGoal,
+                    month_goal_current: currentMonthGoal,
+                    year_goal_current: currentYearGoal
                 });
 
             }.bind(this));
@@ -49,23 +59,25 @@ var GoalTracker = React.createClass({
                         </p>
                     </div>
                     <div className="panel-body">
-                        <div className="col-sm-4">
-                            <div className="text-center tracker-text">Week</div>
-                            <CircularProgressbar percentage={this.state.week_goal_current_percent} classForPercentage={(percentage) => {
-                                return percentage === 100 ? 'complete' : 'incomplete';
-                            }} />
-                        </div>
-                        <div className="col-sm-4">
-                            <div className="text-center tracker-text">Month</div>
-                            <CircularProgressbar percentage={this.state.month_goal_current_percent} classForPercentage={(percentage) => {
-                                return percentage === 100 ? 'complete' : 'incomplete';
-                            }} />
-                        </div>
-                        <div className="col-sm-4">
-                            <div className="text-center tracker-text">Year</div>
-                            <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {
-                                return percentage === 100 ? 'complete' : 'incomplete';
-                            }} />
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <div className="text-center tracker-text">{this.state.week_goal_current} hrs/week</div>
+                                <CircularProgressbar percentage={this.state.week_goal_current_percent} classForPercentage={(percentage) => {
+                                    return percentage === 100 ? 'complete' : 'incomplete';
+                                }} />
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="text-center tracker-text">{this.state.month_goal_current} hrs/month</div>
+                                <CircularProgressbar percentage={this.state.month_goal_current_percent} classForPercentage={(percentage) => {
+                                    return percentage === 100 ? 'complete' : 'incomplete';
+                                }} />
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="text-center tracker-text">{this.state.year_goal_current} hrs/year</div>
+                                <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {
+                                    return percentage === 100 ? 'complete' : 'incomplete';
+                                }} />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -15,24 +15,28 @@ var GoalsForm = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                <form role="form" onSubmit={this.handleSubmit} className="form-inline">
-                    <div className="form-group">
-                        <input
-                            placeholder="My new goal is..."
-                            type="text"
-                            className="form-control"
-                            id="newGoal"
-                            value={this.state.goalInput}
-                            onChange={this.handleChange}
-                            required
-                        />
-                        <button
-                            className="btn btn-default green-btn"
-                            type="submit">Submit</button>
+            <span>
+                <div className="col-sm-12">
+                    <div className="row">
+                        <form role="form" onSubmit={this.handleSubmit} className="form-inline">
+                            <div className="form-group">
+                                <input
+                                    placeholder="My new goal is..."
+                                    type="text"
+                                    className="form-control form-control-goal goal-input-width"
+                                    id="newGoal"
+                                    value={this.state.goalInput}
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                                <button
+                                    className="btn btn-default green-btn"
+                                    type="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
+                </div>
+            </span>
         )
     }
 });

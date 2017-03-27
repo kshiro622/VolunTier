@@ -607,11 +607,19 @@ body {
 }
 
 .dropdown-user {
-    margin-top: 0px;
+    margin-top: 3px;
 }
 
 .form-control {
     margin-bottom: 15px;
+}
+
+.form-control-goal {
+    margin-bottom: 0px;
+}
+
+.goal-input-width {
+    width: 440px !important;
 }
 
 .form-password {

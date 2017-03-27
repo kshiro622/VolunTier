@@ -459,6 +459,21 @@ blockquote p:after {
 }
 
 
+/*Volunteer Level Panel*/
+
+.level-panel {
+    text-align: center;
+}
+
+.fa-heart-o,
+.fa-search,
+.fa-list-ul,
+.fa-calendar,
+.fa-sliders {
+    margin-right: 4px;
+}
+
+
 /*Circular Progress Bar*/
 
 .CircularProgressbar {

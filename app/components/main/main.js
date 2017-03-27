@@ -11,6 +11,7 @@ var Upcoming = require("./children/upcoming");
 var GoalTracker = require("./children/goalTracker");
 var Today = require("./children/today");
 var CurrentGoal = require("./children/currentGoal");
+var VolunteerLevel = require("./children/volunteerLevel");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -124,7 +125,9 @@ var Main = React.createClass({
                         </div>
                         <Search />
                         <div className="row">
-                            <div className="col-md-6"></div>
+                            <div className="col-md-6">
+                                <VolunteerLevel />
+                            </div>
                             <div className="col-md-6">
                                 <GoalsList />
                             </div>

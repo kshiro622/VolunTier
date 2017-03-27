@@ -92,6 +92,11 @@ border-color: rgba(255, 255, 255, 0.9);*/
     background-color: rgba(0, 0, 0, 0);
 }
 
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
+
 
 /*a:focus,
 a:hover {
@@ -192,12 +197,35 @@ hr {
     color: white;
 }
 
+.light-orange-btn {
+    background: #FF7B26;
+    color: white;
+}
+
+.light-orange-btn:hover,
+.light-orange-btn:focus {
+    background: #FF9C2E;
+    color: white;
+}
+
 
 /*.green-btn-outline {
     border: 2px solid #6AD34C;
     background: rgba(0, 0, 0, 0);
     color: black;
 }*/
+
+.modal-save-btn {
+    margin-top: 30px;
+    background: #14AEF5;
+    color: white;
+}
+
+.modal-save-btn:hover,
+.modal-save-btn:focus {
+    background: #09D2FF;
+    color: white;
+}
 
 .orange-btn {
     background: #fc4a1a;
@@ -232,6 +260,14 @@ hr {
 
 .margin-top-50 {
     margin-top: 50px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
 }
 
 .margin-bottom-50 {

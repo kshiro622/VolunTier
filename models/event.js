@@ -5,28 +5,28 @@ var Schema = mongoose.Schema;
 
 // Create the Event schema
 var EventSchema = new Schema({
-    title:{
+    title: {
         type: String,
         required: true
     },
-    start:{
-        type: String,
-        required:true
-    },
-    end:{
-        type:String,
-        required: true
-    },
-    url:{
+    start: {
         type: String,
         required: true
     },
-    color:{
+    end: {
         type: String,
-        default: "white"
+        required: true
     },
-    textColor:{
-        type:String,
+    url: {
+        type: String,
+        required: true
+    },
+    color: {
+        type: String,
+        default: '#F8F78B'
+    },
+    textColor: {
+        type: String,
         default: 'black'
     }
 

@@ -38,7 +38,7 @@ var Form = React.createClass({
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
-          <p className="panel-title">I want to help</p>
+          <p className="panel-title"><i className="fa fa-search fa-fw" ></i>I want to help</p>
         </div>
         <div className="panel-body">
           <form onSubmit={this.handleSubmit}>

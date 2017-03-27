@@ -400,14 +400,114 @@ blockquote p:after {
     background: #eaedf2;
 }
 
-.cal-panel-margin-top {
-    margin-top: 70px;
-}
-
 .panel-default>.panel-heading {
     background: white;
     color: #323a45;
 }
+
+.dash-panel-margin-top {
+    margin-top: 70px;
+    border-radius: 25px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+#goal {
+    font-size: 16px;
+    font-weight: bold;
+    /*color: #0DD4E7;*/
+}
+
+.fa-sun-o,
+.fa-star {
+    margin-left: 15px;
+    margin-right: 7px;
+    margin-top: 2px;
+}
+
+.your-weekly-goal {
+    display: inline-block
+}
+
+.btn-edit {
+    border: none;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    height: 20px;
+    width: 27px;
+    background: white;
+}
+
+.btn-edit:hover,
+.btn-edit:focus {
+    color: #0DD4E7;
+}
+
+.btn-edit:active {
+    color: #6564DA;
+}
+
+.modal-title,
+.close {
+    display: inline-block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+
+/*Circular Progress Bar*/
+
+.CircularProgressbar {
+    /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   *
+   * If you're not using "display: flex", you can remove this style.
+   */
+    width: 100%;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: #3e98c7;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: #d6d6d6;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+    fill: #3e98c7;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+
+.tracker-text {
+    margin-bottom: 5px;
+}
+
+.CircularProgressbar.incomplete .CircularProgressbar-path {
+    stroke: #f66;
+}
+
+.CircularProgressbar.complete .CircularProgressbar-path {
+    stroke: #6AD34C;
+}
+
+
+/*.panel-title-small {
+    font-size: 14px;
+    display: inline-block;
+}
+.btn-goal-update {
+    display: inline-block;
+}*/
 
 
 /*FOOTER*/
@@ -424,11 +524,6 @@ blockquote p:after {
     height: 50px;
     color: white;
 }
-
-
-/*.footer-link {
-color: white;
-}*/
 
 .footer-txt {
     margin-top: 12px;
@@ -513,47 +608,20 @@ body {
 }
 
 
-/*
- * react-circular-progressbar styles
- *
- * All of the styles in this file are optional and configurable!
- */
+/*Fix for blue outline and yellow highlight*/
 
-.CircularProgressbar {
-    /*
-   * This fixes an issue where the CircularProgressbar svg has
-   * 0 width inside a "display: flex" container, and thus not visible.
-   *
-   * If you're not using "display: flex", you can remove this style.
-   */
-    width: 100%;
-}
-
-.CircularProgressbar .CircularProgressbar-path {
-    stroke: #3e98c7;
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.5s ease 0s;
-}
-
-.CircularProgressbar .CircularProgressbar-trail {
-    stroke: #d6d6d6;
-}
-
-.CircularProgressbar .CircularProgressbar-text {
-    fill: #3e98c7;
-    font-size: 20px;
-    dominant-baseline: middle;
-    text-anchor: middle;
-}
-
-.tracker-text {
-    margin-bottom: 5px;
-}
-
-.CircularProgressbar.incomplete .CircularProgressbar-path {
-    stroke: #f66;
-}
-
-.CircularProgressbar.complete .CircularProgressbar-path {
-    stroke: #6AD34C;
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    -webkit-appearance: none;
 }

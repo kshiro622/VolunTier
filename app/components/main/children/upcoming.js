@@ -3,7 +3,7 @@ var React = require("react");
 var Upcoming = React.createClass({
     render: function () {
         return (
-            <div className="panel panel-default cal-panel-margin-top">
+            <div className="panel panel-default">
                 <div className="panel-heading">
                     <p className="panel-title">Upcoming Events</p>
                 </div>

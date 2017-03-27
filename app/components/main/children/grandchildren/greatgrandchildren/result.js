@@ -71,16 +71,16 @@ var Result = React.createClass({
                             <div className="modal-body">
                                 <form onSubmit={this.saveEvent}>
                                     <div className="formGroup row">
-                                        <div className="col-sm-6">
-                                            <label htmlFor="">Start Date</label>
+                                        <div className="col-sm-6 margin-top-10">
+                                            <label htmlFor="" className="margin-right-10">Start Date</label>
                                             <input
                                                 type="date"
                                                 onChange={this.startDateChange}
                                                 value={this.state.availability.startDate ? this.state.availability.startDate : ''}
                                                 required />
                                         </div>
-                                        <div className="col-sm-6">
-                                            <label htmlFor="">Start Time</label>
+                                        <div className="col-sm-6 margin-top-10">
+                                            <label htmlFor="" className="margin-right-10">Start Time</label>
                                             <input
                                                 type="time"
                                                 onChange={this.startTimeChange}
@@ -89,16 +89,16 @@ var Result = React.createClass({
                                         </div>
                                     </div>
                                     <div className="formGroup row">
-                                        <div className="col-sm-6">
-                                            <label htmlFor="">End Date</label>
+                                        <div className="col-sm-6 margin-top-10">
+                                            <label htmlFor="" className="margin-right-10">End Date</label>
                                             <input
                                                 type="date"
                                                 onChange={this.endDateChange}
                                                 value={this.state.availability.endDate ? this.state.availability.endDate : ''}
                                                 required />
                                         </div>
-                                        <div className="col-sm-6">
-                                            <label htmlFor="">End Time</label>
+                                        <div className="col-sm-6 margin-top-10">
+                                            <label htmlFor="" className="margin-right-10">End Time</label>
                                             <input
                                                 type="time"
                                                 onChange={this.endTimeChange}
@@ -106,17 +106,14 @@ var Result = React.createClass({
                                                 required />
                                         </div>
                                     </div>
-                                    <button className="btn" type="submit">Save Event</button>
+                                    <button className="btn modal-save-btn" type="submit">Save Event</button>
                                 </form>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button className="btn btn-primary btn-xs pull-right" onClick={this.handleSave}>Add to Event</button>
+                    <button className="btn light-orange-btn btn-xs pull-right" onClick={this.handleSave}><i className="fa fa-plus fa-fw"></i>Add Event</button>
                     <h4>{this.state.organization}</h4>
                     <a href={this.state.url} target="_blank"><p>{this.state.title}</p></a>
                     <p>{this.state.description}</p>

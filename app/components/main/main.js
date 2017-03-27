@@ -74,7 +74,7 @@ var Main = React.createClass({
                         </div>
                         <ul className="nav navbar-top-links navbar-right">
                             <li>
-                                {this.state.first_name} {this.state.last_name}
+                                Hi {this.state.first_name} {this.state.last_name}!
                             </li>
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">

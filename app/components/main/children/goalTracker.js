@@ -51,15 +51,21 @@ var GoalTracker = React.createClass({
                     <div className="panel-body">
                         <div className="col-sm-4">
                             <div className="text-center tracker-text">Week</div>
-                            <CircularProgressbar percentage={this.state.week_goal_current_percent} />
+                            <CircularProgressbar percentage={this.state.week_goal_current_percent} classForPercentage={(percentage) => {
+                                return percentage === 100 ? 'complete' : 'incomplete';
+                            }} />
                         </div>
                         <div className="col-sm-4">
                             <div className="text-center tracker-text">Month</div>
-                            <CircularProgressbar percentage={this.state.month_goal_current_percent} />
+                            <CircularProgressbar percentage={this.state.month_goal_current_percent} classForPercentage={(percentage) => {
+                                return percentage === 100 ? 'complete' : 'incomplete';
+                            }} />
                         </div>
                         <div className="col-sm-4">
                             <div className="text-center tracker-text">Year</div>
-                            <CircularProgressbar percentage={this.state.year_goal_current_percent} />
+                            <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {
+                                return percentage === 100 ? 'complete' : 'incomplete';
+                            }} />
                         </div>
                     </div>
                 </div>

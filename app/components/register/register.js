@@ -234,27 +234,31 @@ var Register = React.createClass({
                     <div className="row footer-top">
                         <div className="container">
                             <div className="col-md-4">
-                                <h4 className="footer-top-text">Help Us Grow</h4>
+                                <h4 className="footer-top-text">Made By</h4>
                             </div>
                             <div className="col-md-4">
-                                <h4 className="footer-top-text">Join The Discussion</h4>
+                                <div className="row top-link">
+                                    <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">Aisha Ahmad</a>
+                                </div>
+                                <div className="row bottom-link">
+                                    <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
+                                </div>
                             </div>
                             <div className="col-md-4">
-                                <h4 className="footer-top-text">Connect</h4>
+                                <div className="row top-link">
+                                    <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
+                                </div>
+                                <div className="row bottom-link">
+                                    <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="row footer-bottom">
                         <div className="container">
                             <div className="col-sm-12 footer-txt">
-                                Made by&nbsp;&nbsp;
-                                <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
-                                <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">Aisha Ahmad</a>
-                                <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
-                                <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                                <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
+                                Join The Discussion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="email" id="email" placeholder="&nbsp;Email" />
                                 <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>
                         </div>

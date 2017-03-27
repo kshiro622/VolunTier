@@ -117,12 +117,13 @@ a:hover {
     margin-top: 7px;
 }
 
-#nav-brand-purple {
+
+/*#nav-brand-purple {
     color: #6564DA;
     font-size: 25px;
     float: none;
     display: inline-block;
-}
+}*/
 
 #nav-brand.scrolled {
     background: -webkit-linear-gradient(left, #6564DA, #A553E7);
@@ -511,4 +512,12 @@ body {
 
 .tracker-text {
     margin-bottom: 5px;
+}
+
+.CircularProgressbar.incomplete .CircularProgressbar-path {
+    stroke: #f66;
+}
+
+.CircularProgressbar.complete .CircularProgressbar-path {
+    stroke: #6AD34C;
 }

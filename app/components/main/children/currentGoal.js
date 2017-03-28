@@ -1,6 +1,5 @@
 var React = require("react");
 var axios = require("axios");
-// var updateGoalHelper = require("../../../utils/updateGoalHelper.js");
 
 var CurrentGoal = React.createClass({
     getInitialState: function () {
@@ -30,18 +29,28 @@ var CurrentGoal = React.createClass({
         $('#edit-hours').modal('show');
     },
 
-    handleChange: function () {
+    handleChange: function (event) {
         this.setState({ week_hour_goal: event.target.value });
     },
 
     editHours: function (event) {
-        // event.preventDefault();
-        // const userId = sessionStorage.getItem('do_good_id');
-        // var event = {
-        //     weeklyGoal: this.state.week_hour_goal
-        // }
-        // updateGoalHelper.updateGoal(event, userId);
-        $('#edit-hours').modal('hide');
+
+        event.preventDefault();
+
+        const userId = sessionStorage.getItem('do_good_id');
+        var userRoute = 'goalupdate/' + userId;
+        var updatedGoal = {
+            user: userId,
+            newGoal: this.state.week_hour_goal,
+        }
+
+        axios.put(userRoute, updatedGoal)
+            .then(function (response) {
+                this.setState({
+                    week_goal_current: this.state.week_hour_goal
+                });
+                $('#edit-hours').modal('hide');
+            }.bind(this));
     },
 
     render: function () {
@@ -72,6 +81,7 @@ var CurrentGoal = React.createClass({
                                                 type="number"
                                                 min="0"
                                                 onChange={this.handleChange}
+                                                value={this.state.week_hour_goal}
                                                 required />
                                             <p className="inline">&nbsp;hrs/week </p>
                                         </div>

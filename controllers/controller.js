@@ -252,5 +252,19 @@ router.delete("/api/events/:userId/:eventId", function (req, res) {
     });
 });
 
+router.put('/goalupdate/:id', function (req, res) {
+    console.log(req.body);
+    user.findOneAndUpdate({ _id: req.body.user }, {
+        $set: {
+            goal_week_goal: req.body.newGoal,
+            goal_month_goal: req.body.newGoal * 4,
+            goal_year_goal: req.body.newGoal * 52
+        }
+    }, function (err, user) {
+        if (err) console.log(err);
+        res.send('updated record');
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;

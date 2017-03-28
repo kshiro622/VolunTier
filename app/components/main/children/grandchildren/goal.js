@@ -16,8 +16,7 @@ var Goal = React.createClass({
             <div>
                 <span><strong> {this.state.goalText} </strong></span>
                 <button className="btn btn-default" type="button" onClick={this.handleDelete}> <i className="fa fa-trash"></i>
-                 </button>
-                <hr />
+                </button>
             </div>
         )
     }

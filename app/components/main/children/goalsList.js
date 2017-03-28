@@ -33,7 +33,6 @@ var GoalsList = React.createClass({
                 </div>
                 <div className="panel-body">
                     <GoalsForm addGoal={this.addGoal} />
-                    <hr />
                     {
                         this.state.goals.length === 0 &&
                         (

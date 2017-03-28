@@ -200,6 +200,7 @@ hr {
 .light-orange-btn {
     background: #FF7B26;
     color: white;
+    margin-right: 10px;
 }
 
 .light-orange-btn:hover,
@@ -262,12 +263,24 @@ hr {
     margin-top: 50px;
 }
 
+.margin-top-20 {
+    margin-top: 20px;
+}
+
 .margin-top-10 {
     margin-top: 10px;
 }
 
 .margin-right-10 {
     margin-right: 10px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.margin-bottom-30 {
+    margin-bottom: 30px;
 }
 
 .margin-bottom-50 {
@@ -463,6 +476,7 @@ blockquote p:after {
 
 .level-panel {
     text-align: center;
+    height: 390px;
 }
 
 .fa-heart-o,
@@ -618,10 +632,6 @@ body {
     margin-bottom: 0px;
 }
 
-.goal-input-width {
-    width: 440px !important;
-}
-
 .form-password {
     margin-bottom: 5px !important;
 }
@@ -647,4 +657,13 @@ label:focus,
 .btn.active {
     outline: 0px !important;
     -webkit-appearance: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.scrollbox {
+    height: 440px;
+    overflow: auto;
 }

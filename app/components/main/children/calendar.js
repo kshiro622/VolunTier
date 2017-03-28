@@ -16,7 +16,7 @@ var Calendar = React.createClass({
                 header: {
                     left: 'prev,next',
                     center: 'title',
-                    right: 'agendaDay,agendaWeek,month'
+                    right: 'agendaDay,agendaWeek,month,listWeek'
                 },
                 events: eventsArr
             });

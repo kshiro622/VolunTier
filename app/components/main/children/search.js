@@ -10,22 +10,22 @@ var Results = require('./grandchildren/results');
 
 var Search = React.createClass({
     // initial state
-    getInitialState: function() {
-        return {results: []};
+    getInitialState: function () {
+        return { results: [] };
     },
     // a search term was entered
-    searchVM: function(options){
+    searchVM: function (options) {
         //run the query for the search term
-        helpers.searchOpportunities(options).then(function(response) {
-        if (response !== this.state.results) {
-            this.setState({results: response.data.opportunities});
-        }
+        helpers.searchOpportunities(options).then(function (response) {
+            if (response !== this.state.results) {
+                this.setState({ results: response.data.opportunities });
+            }
         }.bind(this));
-        this.setState({results:[]});
+        this.setState({ results: [] });
     },
-    render: function(){
-        return(
-            <div className="col-sm-12 col-md-8">
+    render: function () {
+        return (
+            <div className="col-sm-12">
                 <div className="panel panel-default">
                     <div className="panel-heading">
                         <p className="panel-title"><i className="fa fa-search fa-fw" ></i>I want to help</p>
@@ -40,7 +40,9 @@ var Search = React.createClass({
                                 <Form searchVM={this.searchVM} />
                             </div>
                             <div role="tabpanel" className="tab-pane" id="matches-pane">
-                                <Results results={this.state.results} />
+                                <div className="scrollbox">
+                                    <Results results={this.state.results} />
+                                </div>
                             </div>
                         </div>
                     </div>

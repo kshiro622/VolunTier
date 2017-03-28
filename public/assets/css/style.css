@@ -636,8 +636,14 @@ body {
     margin-bottom: 5px !important;
 }
 
+/*Register*/
+
 .register-form-padding-top {
     padding-top: 0px;
+}
+
+.semi-opaque{
+    opacity: 0.96;
 }
 
 

@@ -20,7 +20,7 @@ var GoalsForm = React.createClass({
                     <div className="row">
                         <form role="form" onSubmit={this.handleSubmit} className="form-group">
                             <div className="form-group">
-                                <textarea
+                                <input
                                     placeholder="My new goal is..."
                                     type="text"
                                     className="form-control form-control-goal"
@@ -29,9 +29,9 @@ var GoalsForm = React.createClass({
                                     onChange={this.handleChange}
                                     required
                                 />
-                                <button
-                                    className="btn btn-default green-btn pull-right margin-top-10 margin-bottom-20"
-                                    type="submit">Submit</button>
+                                <span><button
+                                    className="btn btn-default green-btn pull-left margin-top-10 margin-bottom-20"
+                                    type="submit">Submit</button></span>
                             </div>
                         </form>
                     </div>

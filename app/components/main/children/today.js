@@ -8,7 +8,10 @@ var Today = React.createClass({
     },
 
     componentDidMount: function () {
-        var newDate = new Date().toJSON().slice(5, 10).replace(/-/g, '/');
+        var MyDate = new Date();
+        MyDate.setDate(MyDate.getDate());
+
+        var newDate = ('0' + (MyDate.getMonth() + 1)).slice(-2) + '/' + ('0' + MyDate.getDate()).slice(-2);
         this.setState({
             currentDate: newDate
         });

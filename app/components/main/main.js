@@ -1,6 +1,8 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
+var eventHelper = require("../../utils/eventsHelper.js")
+
 
 
 // Include children components
@@ -19,7 +21,8 @@ var Main = React.createClass({
     getInitialState: function () {
         return {
             first_name: "",
-            last_name: ""
+            last_name: "",
+            events:[]
         };
     },
 
@@ -38,6 +41,19 @@ var Main = React.createClass({
                     last_name: response.data.last_name
                 });
             }.bind(this));
+
+        eventHelper.getSavedEvents(currentUser).then(function (response) {
+            this.setState({ events: response.data.events });
+            var eventsArr = this.state.events;
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'agendaDay,agendaWeek,month,listWeek'
+                },
+                events: eventsArr
+            });
+        }.bind(this));
     },
 
     componentDidMount: function () {
@@ -56,6 +72,21 @@ var Main = React.createClass({
             .then(function (response) {
                 this.context.router.push('/');
             }.bind(this))
+    },
+    updateEvents: function(){
+        var currentUser = sessionStorage.getItem('do_good_id');
+        eventHelper.getSavedEvents(currentUser).then(function (response) {
+            this.setState({ events: response.data.events });
+            var eventsArr = this.state.events;
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'agendaDay,agendaWeek,month,listWeek'
+                },
+                events: eventsArr
+            });
+        }.bind(this));
     },
 
     // Here we render the function
@@ -125,7 +156,7 @@ var Main = React.createClass({
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="row">
-                                    <Search />
+                                    <Search updateEvents={this.updateEvents}/>
                                 </div>
                             </div>
                             <div className="col-md-4">

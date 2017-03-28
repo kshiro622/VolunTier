@@ -6,31 +6,61 @@ var dateInputPolyfill = require("date-input-polyfill");
 
 var Result = React.createClass({
     getInitialState: function () {
-        return { url: '', title: '', organization: '', description: '', availability: {}, startDate: '', startTime: '', endDate: '', endTime: '' };
+        return { 
+            url: '', 
+            title: '', 
+            organization: '', 
+            description: '', 
+            availability: {}, 
+            startDate: '', 
+            startTime: '', 
+            endDate: '', 
+            endTime: '' 
+        };
     },
     componentDidMount: function () {
-        this.setState({
-            url: this.props.url,
-            title: this.props.title,
-            description: this.props.description,
-            organization: this.props.organization,
-            availability: this.props.availability,
-            startDate: this.props.availability.startDate,
-            startTime: this.props.availability.startTime,
-            endDate: this.props.availability.endDate,
-            endTime: this.props.availability.endTime
-        });
+        // this.setState({
+        //     url: this.props.url,
+        //     title: this.props.title,
+        //     description: this.props.description,
+        //     organization: this.props.organization,
+        //     availability: this.props.availability
+        // });
+        // if(this.props.availability.startDate!==null){
+        //     this.setState({startDate: this.props.availability.startDate});
+        // }
+        // else{
+        //     this.setState({startDate: ''});
+        // }
+        // if(this.props.availability.endDate!==null){
+        //     this.setState({endDate: this.props.availability.endDate});
+        // }
+        // else{
+        //     this.setState({startDate: ''});
+        // }
+        // if(this.props.availability.startTime!==null){
+        //     this.setState({startTime: this.props.availability.startTime});
+        // }
+        // else{
+        //     this.setState({startDate: ''});
+        // }
+        // if(this.props.availability.endTime!==null){
+        //     this.setState({endTime: this.props.availability.endTime});
+        // }
+        // else{
+        //     this.setState({startDate: ''});
+        // }
     },
-    startDateChange: function () {
+    startDateChange: function (event) {
         this.setState({ startDate: event.target.value });
     },
-    startTimeChange: function () {
+    startTimeChange: function (event) {
         this.setState({ startTime: event.target.value });
     },
-    endDateChange: function () {
+    endDateChange: function (event) {
         this.setState({ endDate: event.target.value });
     },
-    endTimeChange: function () {
+    endTimeChange: function (event) {
         this.setState({ endTime: event.target.value });
     },
     // Saves oppportunity and shows alert
@@ -52,6 +82,7 @@ var Result = React.createClass({
         };
         eventHelper.addEvent(event, userId);
         $('#' + this.props.modalId).modal('hide');
+        this.props.updateEvents();
     },
     showAlert: function () {
         var alert = '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> You added an opportunity!</div>';
@@ -74,17 +105,17 @@ var Result = React.createClass({
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">Start Date</label>
                                             <input
-                                                type="date"
+                                                type="text"
                                                 onChange={this.startDateChange}
-                                                value={this.state.availability.startDate ? this.state.availability.startDate : ''}
+                                                value={this.state.startDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">Start Time</label>
                                             <input
-                                                type="time"
+                                                type="text"
                                                 onChange={this.startTimeChange}
-                                                value={this.state.availability.startTime ? this.state.availability.startTime : ''}
+                                                value={this.state.startTime}
                                                 required />
                                         </div>
                                     </div>
@@ -92,17 +123,17 @@ var Result = React.createClass({
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">End Date</label>
                                             <input
-                                                type="date"
+                                                type="text"
                                                 onChange={this.endDateChange}
-                                                value={this.state.availability.endDate ? this.state.availability.endDate : ''}
+                                                value={this.state.endDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">End Time</label>
                                             <input
-                                                type="time"
+                                                type="text"
                                                 onChange={this.endTimeChange}
-                                                value={this.state.availability.endTime ? this.state.availability.endTime : ''}
+                                                value={this.state.endTime}
                                                 required />
                                         </div>
                                     </div>
@@ -114,9 +145,9 @@ var Result = React.createClass({
                 </div>
                 <div>
                     <button className="btn light-orange-btn btn-xs pull-right" onClick={this.handleSave}><i className="fa fa-plus fa-fw"></i>Add Event</button>
-                    <h4>{this.state.organization}</h4>
-                    <a href={this.state.url} target="_blank"><p>{this.state.title}</p></a>
-                    <p>{this.state.description}</p>
+                    <h4>{this.props.organization}</h4>
+                    <a href={this.props.url} target="_blank"><p>{this.props.title}</p></a>
+                    <p>{this.props.description}</p>
                     <hr />
                 </div>
             </div>

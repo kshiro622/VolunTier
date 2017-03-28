@@ -674,7 +674,22 @@ body {
     opacity: 0.96;
 }
 
+/*Search*/
+.input-group-btn>.btn {
+    margin-top: 25px;
+}
 
+.gray-txt{
+    color: gray;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background-color:#6564DA;
+}
+
+.nav-pills>li>a {
+    color: #6564DA;
+}
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 
 textarea:hover,

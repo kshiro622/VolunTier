@@ -7,7 +7,6 @@ var axios = require("axios");
 var Calendar = require("./children/calendar");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
-var Upcoming = require("./children/upcoming");
 var GoalTracker = require("./children/goalTracker");
 var Today = require("./children/today");
 var CurrentGoal = require("./children/currentGoal");
@@ -119,20 +118,22 @@ var Main = React.createClass({
                                     <GoalTracker />
                                 </div>
                                 <div className="row">
-                                    <Upcoming />
+                                    <VolunteerLevel />
                                 </div>
                             </div>
                         </div>
-                        <Search />
                         <div className="row">
-                            <div className="col-md-6">
-                                <VolunteerLevel />
+                            <div className="col-md-8">
+                                <div className="row">
+                                    <Search />
+                                </div>
                             </div>
-                            <div className="col-md-6">
-                                <GoalsList />
+                            <div className="col-md-4">
+                                <div className="row">
+                                    <GoalsList />
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 

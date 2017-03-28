@@ -26,6 +26,12 @@ var Register = React.createClass({
         };
     },
 
+    componentDidMount: function(){
+        $('body').attr('id', 'registerPage');
+        $('body#registerPage').css('background-image', 'url(/assets/images/volunteers-team.jpg)');
+        $('body#registerPage').css('background-size', 'cover');
+    },
+
     handleUsernameChange: function (event) {
         this.setState({
             username: event.target.value
@@ -163,13 +169,12 @@ var Register = React.createClass({
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12">
-                            <h1>Register</h1>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-9">
-                            <div className="login-panel panel panel-default">
+                        <div className="col-md-1"></div>
+                        <div className="col-sm-12 col-md-10">
+                            <div className="login-panel panel panel-default semi-opaque">
+                                  <div className="panel-heading">
+                                    <h1 className="panel-title text-center large-h1 ">Start VolunTiering</h1>
+                                </div>
                                 <div className="panel-body">
                                     <form role="form" onSubmit={this.handleRegisterSubmit} data-toggle="validator">
                                         <fieldset>
@@ -185,20 +190,47 @@ var Register = React.createClass({
                                                 </div>
                                                 <div className="col-sm-4">
                                                     <div htmlFor="last_name">Goal (hr/week)</div>
-                                                    <input className="form-control" placeholder="" name="goal_week" type="number" value={this.state.goal_week} onChange={this.handleGoalChange} required />
+                                                    <input className="form-control" placeholder="" name="goal_week" type="number" value={this.state.goal_week} onChange={this.handleGoalChange} data-toggle="tooltip" data-placement="bottom" title="How many hours/week are you looking to volunteer? We use this for goal tracking purposes." required />
                                                 </div>
                                                 <div className="col-sm-12">
                                                     <div htmlFor="bio">Bio</div>
-                                                    <textarea className="form-control" rows="4" placeholder="" name="bio" type="text" value={this.state.bio} onChange={this.handleBioChange} required />
+                                                    <textarea className="form-control" rows="4" placeholder="" name="bio" type="text" value={this.state.bio} onChange={this.handleBioChange} data-toggle="tooltip" data-placement="bottom" title="Who are you as a volunteer? This information will be displayed on your profile page to be shared with others." required />
                                                 </div>
                                             </div>
                                             <div className="form-group">
                                                 <div className="col-sm-12">
                                                     <div htmlFor="interests">Interests</div>
                                                     <div className="row">
-                                                        <div className="col-sm-4"><input className="form-control" placeholder="" name="interest1" type="text" value={this.state.interest1} onChange={this.handleInterest1Change} required /></div>
-                                                        <div className="col-sm-4"><input className="form-control" placeholder="" name="interest2" type="text" value={this.state.interest2} onChange={this.handleInterest2Change} required /></div>
-                                                        <div className="col-sm-4"><input className="form-control" placeholder="" name="interest3" type="text" value={this.state.interest3} onChange={this.handleInterest3Change} required /></div>
+                                                        <div className="col-sm-4">
+                                                            <input className="form-control" 
+                                                            placeholder="" 
+                                                            name="interest1" 
+                                                            type="text" 
+                                                            value={this.state.interest1} 
+                                                            onChange={this.handleInterest1Change} 
+                                                            required 
+                                                            data-toggle="tooltip" 
+                                                            data-placement="bottom" 
+                                                            title="What are your interests? Your interests will be used to suggest volunteering opportunities to you."/>
+                                                        </div>
+                                                        <div className="col-sm-4"><input 
+                                                            className="form-control" 
+                                                            placeholder="" 
+                                                            name="interest2" 
+                                                            type="text" 
+                                                            value={this.state.interest2} 
+                                                            onChange={this.handleInterest2Change} 
+                                                            required />
+                                                        </div>
+                                                        <div className="col-sm-4"><input 
+                                                            className="form-control" 
+                                                            placeholder="" 
+                                                            name="interest3" 
+                                                            type="text" 
+                                                            value={this.state.interest3} 
+                                                            onChange={this.handleInterest3Change} 
+                                                            required />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,6 +259,7 @@ var Register = React.createClass({
                                 </div>
                             </div>
                         </div>
+                        <div className="col-md-1"></div>
                     </div>
                 </div>
 

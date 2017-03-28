@@ -29,9 +29,10 @@ var Results = React.createClass({
                             organization={element.parentOrg.name}
                             availability={element.availability}
                             modalId={'id-' + index}
+                            updateEvents={this.props.updateEvents}
                         />
                     );
-                })}
+                }, this)}
             </span>
         );
     }

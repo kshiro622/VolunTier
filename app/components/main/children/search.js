@@ -41,7 +41,7 @@ var Search = React.createClass({
                             </div>
                             <div role="tabpanel" className="tab-pane" id="matches-pane">
                                 <div className="scrollbox">
-                                    <Results results={this.state.results} />
+                                    <Results results={this.state.results} updateEvents={this.props.updateEvents}/>
                                 </div>
                             </div>
                         </div>

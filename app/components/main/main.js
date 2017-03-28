@@ -75,17 +75,13 @@ var Main = React.createClass({
     },
     updateEvents: function(){
         var currentUser = sessionStorage.getItem('do_good_id');
+        console.log('updating events');
         eventHelper.getSavedEvents(currentUser).then(function (response) {
             this.setState({ events: response.data.events });
             var eventsArr = this.state.events;
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next',
-                    center: 'title',
-                    right: 'agendaDay,agendaWeek,month,listWeek'
-                },
-                events: eventsArr
-            });
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', eventsArr);
+            $('#calendar').fullCalendar('rerenderEvents');
         }.bind(this));
     },
 

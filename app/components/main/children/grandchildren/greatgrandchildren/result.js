@@ -7,11 +7,6 @@ var dateInputPolyfill = require("date-input-polyfill");
 var Result = React.createClass({
     getInitialState: function () {
         return { 
-            url: '', 
-            title: '', 
-            organization: '', 
-            description: '', 
-            availability: {}, 
             startDate: '', 
             startTime: '', 
             endDate: '', 
@@ -19,37 +14,7 @@ var Result = React.createClass({
         };
     },
     componentDidMount: function () {
-        // this.setState({
-        //     url: this.props.url,
-        //     title: this.props.title,
-        //     description: this.props.description,
-        //     organization: this.props.organization,
-        //     availability: this.props.availability
-        // });
-        // if(this.props.availability.startDate!==null){
-        //     this.setState({startDate: this.props.availability.startDate});
-        // }
-        // else{
-        //     this.setState({startDate: ''});
-        // }
-        // if(this.props.availability.endDate!==null){
-        //     this.setState({endDate: this.props.availability.endDate});
-        // }
-        // else{
-        //     this.setState({startDate: ''});
-        // }
-        // if(this.props.availability.startTime!==null){
-        //     this.setState({startTime: this.props.availability.startTime});
-        // }
-        // else{
-        //     this.setState({startDate: ''});
-        // }
-        // if(this.props.availability.endTime!==null){
-        //     this.setState({endTime: this.props.availability.endTime});
-        // }
-        // else{
-        //     this.setState({startDate: ''});
-        // }
+
     },
     startDateChange: function (event) {
         this.setState({ startDate: event.target.value });
@@ -72,13 +37,13 @@ var Result = React.createClass({
     saveEvent: function (event) {
         event.preventDefault();
         const userId = sessionStorage.getItem('do_good_id');
-        var startDateTime = this.state.startDate + 'T' + this.state.startTime;
-        var endDateTime = this.state.endDate + 'T' + this.state.endTime;
+        var startDateTime = (this.state.startDate===''? this.props.availability.startDate : this.state.startDate) + 'T' + (this.state.startTime===''? this.props.availability.startTime : this.state.startTime);
+        var endDateTime = (this.state.endDate===''? this.props.availability.endDate : this.state.endDate) + 'T' + (this.state.endTime===''? this.props.availability.endTime : this.state.endTime);
         var event = {
-            title: this.state.title,
+            title: this.props.title,
             start: startDateTime,
             end: endDateTime,
-            url: this.state.url
+            url: this.props.url
         };
         eventHelper.addEvent(event, userId);
         $('#' + this.props.modalId).modal('hide');
@@ -105,17 +70,17 @@ var Result = React.createClass({
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">Start Date</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 onChange={this.startDateChange}
-                                                value={this.state.startDate}
+                                                value={this.props.availability.startDate ? this.props.availability.startDate : this.state.startDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">Start Time</label>
                                             <input
-                                                type="text"
+                                                type="time"
                                                 onChange={this.startTimeChange}
-                                                value={this.state.startTime}
+                                                value={this.props.availability.startTime ? this.props.availability.startTime : this.state.startTime}
                                                 required />
                                         </div>
                                     </div>
@@ -123,17 +88,17 @@ var Result = React.createClass({
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">End Date</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 onChange={this.endDateChange}
-                                                value={this.state.endDate}
+                                                value={this.props.availability.endDate ? this.props.availability.endDate : this.state.endDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">End Time</label>
                                             <input
-                                                type="text"
+                                                type="time"
                                                 onChange={this.endTimeChange}
-                                                value={this.state.endTime}
+                                                value={this.props.availability.endTime ? this.props.availability.endTime : this.state.endTime}
                                                 required />
                                         </div>
                                     </div>

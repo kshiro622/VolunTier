@@ -318,6 +318,10 @@ color: black;
     margin-top: 15px;
 }
 
+.pad-top {
+    margin-top: 5px
+}
+
 .add-input-margin {
     margin-top: 5px;
 }

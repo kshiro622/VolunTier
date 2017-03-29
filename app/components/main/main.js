@@ -96,7 +96,7 @@ var Main = React.createClass({
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
                             <a className="navbar-brand" href="#">VolunTier</a>
                         </div>
-                        <ul className="nav navbar-top-links navbar-right">
+                        <ul className="nav navbar-top-links navbar-right pad-top">
                             <li>
                                 Hi {this.state.first_name} {this.state.last_name}!
                             </li>
@@ -110,8 +110,6 @@ var Main = React.createClass({
                                             <i className="fa fa-user fa-fw"></i>
                                             Profile
                                          </Link>
-                                    </li>
-                                    <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                                     </li>
                                     <li className="divider"></li>
                                     <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>

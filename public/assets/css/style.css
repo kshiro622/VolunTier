@@ -43,7 +43,7 @@ body {
     /*background: rgba(255, 255, 255, 0.9);
 border-color: rgba(255, 255, 255, 0.9);*/
     background: white;
-    border-color: white;
+    /*border-color: white;*/
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
@@ -85,6 +85,10 @@ border-color: rgba(255, 255, 255, 0.9);*/
     float: none;
     display: inline-block;
     margin-top: 7px;
+}
+
+.navbar-default {
+    border: none;
 }
 
 .nav>li>a:focus,

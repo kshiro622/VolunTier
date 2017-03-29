@@ -315,6 +315,10 @@ hr {
     margin-top: 5px;
 }
 
+.padding-fix {
+    padding-left: 0px;
+}
+
 
 /*text*/
 

@@ -10,7 +10,6 @@ var Calendar = require("./children/calendar");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var GoalTracker = require("./children/goalTracker");
-var CurrentGoal = require("./children/currentGoal");
 var VolunteerLevel = require("./children/volunteerLevel");
 
 // Creating the Main component
@@ -76,18 +75,6 @@ var Main = React.createClass({
         }.bind(this));
     },
 
-    updateTracker: function () {
-        var currentUser = sessionStorage.getItem('do_good_id');
-        var userRoute = '/user/' + currentUser;
-
-        axios.get(userRoute)
-            .then(function (response) {
-                this.setState({
-
-                });
-            }.bind(this))
-    },
-
     // Here we render the function
     render: function () {
         return (
@@ -134,6 +121,9 @@ var Main = React.createClass({
                             </div>
                             <div className="col-sm-4">
                                 <GoalTracker />
+                            </div>
+                            <div className="col-sm-4 padding-fix">
+                                <VolunteerLevel />
                             </div>
                         </div>
                         <div className="row">

@@ -260,9 +260,12 @@ router.put('/goalupdate/:id', function (req, res) {
             goal_month_goal: req.body.newGoal * 4,
             goal_year_goal: req.body.newGoal * 52
         }
-    }, function (err, user) {
+    }, function (err, respon) {
         if (err) console.log(err);
-        res.send('updated record');
+        user.findOne({ '_id': req.body.user }, function (err, user) {
+            if (err) return handleError(err);
+            res.send(user);
+        })
     });
 });
 

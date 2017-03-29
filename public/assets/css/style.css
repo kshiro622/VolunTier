@@ -701,3 +701,8 @@ textarea {
 .fa.fa-circle-o {
     color: #03c7f4;
 }
+
+.list-group-item {
+    border: none;
+    padding-bottom: 28px;
+}

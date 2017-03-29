@@ -15,6 +15,10 @@ var Profile = React.createClass({
         };
     },
 
+    componentWillMount: function () {
+
+    },
+
 
     // Here we render the function
     render: function () {

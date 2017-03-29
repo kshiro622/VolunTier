@@ -12,6 +12,7 @@ var userSchema = new Schema({
     last_name: String,
     username: String,
     password: String,
+    image_url: String,
     bio: String,
     goal_week_current: { type: Number, default: 0 },
     goal_month_current: { type: Number, default: 0 },
@@ -28,8 +29,8 @@ var userSchema = new Schema({
         ref: 'Goal'
     }],
     events: [{
-        type:Schema.Types.ObjectId,
-        ref:"Event"
+        type: Schema.Types.ObjectId,
+        ref: "Event"
     }]
 });
 

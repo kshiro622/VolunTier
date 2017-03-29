@@ -101,7 +101,7 @@ var Profile = React.createClass({
         if (this.state.image_url !== "") {
             userImage = <img src={this.state.image_url} className="img-circle margin-top-50 user-img" height="200px" alt="user image" />
         } else {
-            userImage = <img src="assets/images/defaultuser.png" className="img-circle margin-top-50 user-img" height="200px" alt="default image" />
+            userImage = <img src="http://wpshowdown.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" className="img-circle margin-top-50 user-img" height="200px" alt="default image" />
         }
 
         // component to be rendered
@@ -119,7 +119,7 @@ var Profile = React.createClass({
                             <img src="assets/images/icon.png" id="icon" height="30px" alt="Icon" />
                             <a className="navbar-brand" href="#">VolunTier</a>
                         </div>
-                        <ul className="nav navbar-top-links navbar-right">
+                        <ul className="nav navbar-top-links navbar-right pad-top">
                             <li className="dropdown">
                                 <a className="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <i className="fa fa-user fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
@@ -128,10 +128,8 @@ var Profile = React.createClass({
                                     <li>
                                         <Link to="/" className="scroll-link">
                                             <i className="fa fa-dashboard fa-fw"></i>
-                                            Dashboard
+                                            &nbsp;Dashboard
                                          </Link>
-                                    </li>
-                                    <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                                     </li>
                                     <li className="divider"></li>
                                     <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>

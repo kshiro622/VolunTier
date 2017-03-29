@@ -717,8 +717,6 @@ body {
 }
 
 .card{
-    border: 1px lightblue solid;
-    border-radius: 2px;
     padding: 20px;
 }
 
@@ -739,10 +737,6 @@ body {
 }
 .bold{
     font-weight: bold;
-}
-hr.green{
-    width: 100%;
-    border-top-color: #2AA057;
 }
 
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/

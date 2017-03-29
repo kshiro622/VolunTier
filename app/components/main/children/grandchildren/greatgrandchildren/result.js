@@ -122,12 +122,12 @@ var Result = React.createClass({
                     </a>
                     <div className="collapse" id={this.props.collapsableId}>
                     <div className="card card-block">
-                        <a href={this.props.url} target="_blank" className="purple-txt pointer-link">Read about this opportunity on Volunteer Match.</a>
+                        <a href={this.props.url} target="_blank" className="purple-txt pointer-link bold">Apply Now</a>
                         <h5>Organization: {this.props.organization}</h5>
                         <p>Description: {this.props.description}</p>
                     </div>
                     </div>
-                    <hr className="green"/>
+                    <hr />
                 </div>
             </div>
         );

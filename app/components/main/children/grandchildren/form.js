@@ -50,6 +50,12 @@ var Form = React.createClass({
     document.getElementById("vm-form").reset();
 
   },
+  handleVirtualSearch: function(){
+      let optionsObj = {};
+      optionsObj["virtual"] = true;
+      optionsObj["numberOfResults"] = 10;
+      this.props.searchVM(optionsObj);
+  },
   // Here we describe this component's render method
   render: function () {
     return (
@@ -106,7 +112,7 @@ var Form = React.createClass({
               onChange={this.handleCategoryChange}
               data-toggle="tooltip" 
               data-placement="top" 
-              title="Select one category. This is optional."
+              title="Select a volunteering category. This is optional."
             >
               <option value="23">Advocacy & Human Rights</option>
               <option value="30">Animals</option>
@@ -142,6 +148,9 @@ var Form = React.createClass({
             Submit
           </button>
         </form>
+        <br />
+        <p><small className="gray-txt">If you wish to volunteer remotely, you may search virtual opportunities instead.</small></p>
+        <a onClick={this.handleVirtualSearch} className="pointer-link purple-txt bold">Search virtual opportunities.</a>
       </span>
     );
   }

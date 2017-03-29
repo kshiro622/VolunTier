@@ -13,7 +13,7 @@ var Results = React.createClass({
                 {numResults === 0 &&
                     (
                         <div>
-                           <p><small className="gray-txt">No matches have been found for your search.</small></p>
+                           <p><small className="gray-txt">You have not entered the right search terms or no matches have been found for your search.</small></p>
                             <p><small className="gray-txt"> - Try a different location</small></p>
                             <p><small className="gray-txt"> - Enter a new keyword</small></p>
                             <p><small className="gray-txt"> - Select a different category</small></p>
@@ -31,6 +31,7 @@ var Results = React.createClass({
                             organization={element.parentOrg.name}
                             availability={element.availability}
                             modalId={'id-' + index}
+                            collapsableId = {'id-collapsable-' + index}
                             updateEvents={this.props.updateEvents}
                         />
                     );

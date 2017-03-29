@@ -2,7 +2,7 @@
 var React = require("react");
 var eventHelper = require("../../../../../utils/eventsHelper.js");
 var dateInputPolyfill = require("date-input-polyfill");
-
+var lineClamp = require('line-clamp');
 
 var Result = React.createClass({
     getInitialState: function () {
@@ -14,7 +14,13 @@ var Result = React.createClass({
         };
     },
     componentDidMount: function () {
-
+        let collapsableId = this.props.collapsableId;
+        $('#'+collapsableId).on('shown.bs.collapse', function () {
+            $('#'+collapsableId+'-button').text('Show less');
+        });
+        $('#'+collapsableId).on('hidden.bs.collapse', function () {
+            $('#'+collapsableId+'-button').text('See more');
+        });
     },
     startDateChange: function (event) {
         this.setState({ startDate: event.target.value });
@@ -110,10 +116,18 @@ var Result = React.createClass({
                 </div>
                 <div>
                     <button className="btn light-orange-btn btn-xs pull-right" onClick={this.handleSave}><i className="fa fa-plus fa-fw"></i>Add Event</button>
-                    <h4>{this.props.organization}</h4>
-                    <a href={this.props.url} target="_blank"><p>{this.props.title}</p></a>
-                    <p>{this.props.description}</p>
-                    <hr />
+                    <h4>{this.props.title}</h4>
+                    <a data-toggle="collapse" href={'#'+this.props.collapsableId} aria-expanded="false" aria-controls="collapseExample" id={this.props.collapsableId+'-button'} className="gray-txt pointer-link">
+                        See more
+                    </a>
+                    <div className="collapse" id={this.props.collapsableId}>
+                    <div className="card card-block">
+                        <a href={this.props.url} target="_blank" className="purple-txt pointer-link">Read about this opportunity on Volunteer Match.</a>
+                        <h5>Organization: {this.props.organization}</h5>
+                        <p>Description: {this.props.description}</p>
+                    </div>
+                    </div>
+                    <hr className="green"/>
                 </div>
             </div>
         );

@@ -166,6 +166,9 @@ var GoalTracker = React.createClass({
                                                         min="0"
                                                         onChange={this.handleGoalChange}
                                                         value={this.state.current_goal}
+                                                        data-toggle="tooltip" 
+                                                        data-placement="top" 
+                                                        title="Looking to update your goal? Enter your new goal here."
                                                         required />
                                                     <p className="inline">&nbsp;hrs/week </p>
                                                 </div>
@@ -219,6 +222,9 @@ var GoalTracker = React.createClass({
                                                     min="0"
                                                     onChange={this.handleChange}
                                                     value={this.state.add_hours}
+                                                    data-toggle="tooltip" 
+                                                    data-placement="bottom" 
+                                                    title="Have you completed some hours of volunteering? Congrats! Enter your hours to update your progress."
                                                     required />
                                                 <button className="btn modal-update-btn pull-right" type="submit">Add</button>
                                             </div>

@@ -683,6 +683,22 @@ body {
     color: gray;
 }
 
+.gray-txt:hover{
+    color: gray;
+}
+
+.gray-txt:active{
+    color: gray;
+}
+
+.gray-txt:visited{
+    color: gray;
+}
+
+.gray-txt:link{
+    color: gray;
+}
+
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
     background-color:#6564DA;
 }
@@ -690,6 +706,45 @@ body {
 .nav-pills>li>a {
     color: #6564DA;
 }
+
+.scrollbox {
+    height: 480px;
+    overflow: auto;
+}
+
+.pointer-link:hover{
+    cursor: pointer;
+}
+
+.card{
+    border: 1px lightblue solid;
+    border-radius: 2px;
+    padding: 20px;
+}
+
+.purple-txt{
+    color:#6564DA;
+}
+.purple-txt:hover{
+    color:#6564DA;
+}
+.purple-txt:active{
+    color:#6564DA;
+}
+.purple-txt:visited{
+    color:#6564DA;
+}
+.purple-txt:link{
+    color:#6564DA;
+}
+.bold{
+    font-weight: bold;
+}
+hr.green{
+    width: 100%;
+    border-top-color: #2AA057;
+}
+
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 
 textarea:hover,
@@ -712,7 +767,3 @@ textarea {
     resize: none;
 }
 
-.scrollbox {
-    height: 440px;
-    overflow: auto;
-}

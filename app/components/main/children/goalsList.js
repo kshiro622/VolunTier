@@ -44,19 +44,21 @@ var GoalsList = React.createClass({
                             </div>
                         )
                     }
-                    <ol className="list-group">
-
-                        {
-                            this.state.goals &&
-                            this.state.goals.map(function (element, index) {
-                                return (
-                                    <Goal key={index}
-                                        goalText={element.goalText}
-                                        id={element._id}
-                                        deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
-                                );
-                            }, this)
-                        }</ol>
+                    <div>
+                        <ol className="list-group sortable">
+                            {
+                                this.state.goals &&
+                                this.state.goals.map(function (element, index) {
+                                    return (
+                                        <Goal key={index}
+                                            goalText={element.goalText}
+                                            id={element._id}
+                                            deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
+                                    );
+                                }, this)
+                            }
+                        </ol>
+                    </div>
                 </div >
             </div>
         )

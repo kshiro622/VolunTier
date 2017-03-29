@@ -9,13 +9,13 @@ var Goal = React.createClass({
     },
     handleDelete: function (event) {
         event.preventDefault();
-        this.props.deleteGoalAndUpdate(this.state.id);
+        this.props.deleteGoalAndUpdate(this.    state.id);
     },
     render: function () {
         return (
             <li className="list-group-item goal-item grow">
                 <span>
-                    <i className="fa fa-circle-o" aria-hidden="true"></i>
+                    <i className="fa fa-bars" aria-hidden="true"></i>
                     <strong> {this.state.goalText}</strong>
                     <button className="btn btn-default" type="button" onClick={this.handleDelete}> <i className="fa fa-trash"></i></button>
                 </span>

@@ -41,7 +41,26 @@
     <!--Full Calendar JavaScript-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js'></script>
-
+    <!--<script src="https://johnny.github.io/jquery-sortable/js/jquery-sortable.js"></script>
+    <script>
+        $(function () {
+            $("ol#sortable").sortable({
+                vertical: true
+            });
+        });
+    </script>-->
+    <!--Jquery UI for sortable-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" type="text/javascript" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <!--Jquery Sortable Script-->
+    <script>
+        $(function () {
+            $(".sortable").sortable({
+                axis: 'y',
+                containment: "parent"
+            }).disableSelection();
+        });
+    </script>
 </head>
 
 <body>

@@ -698,11 +698,18 @@ textarea {
     border-color: #adadad;
 }
 
-.fa.fa-circle-o {
-    color: #03c7f4;
-}
+
 
 .list-group-item {
     border: none;
     padding-bottom: 28px;
+    cursor: move;
+}
+
+.list-group-item:hover {
+    color: #03c7f4;
+}
+
+ol.sortable{
+    position:relative;
 }

@@ -129,9 +129,6 @@ var Main = React.createClass({
                             <div className="col-sm-4">
                                 <GoalTracker />
                             </div>
-                            <div className="col-sm-4 padding-fix">
-                                <VolunteerLevel />
-                            </div>
                         </div>
                         <div className="row">
                             <div className="col-md-8">
@@ -140,6 +137,9 @@ var Main = React.createClass({
                                 </div>
                             </div>
                             <div className="col-md-4">
+                                <div className="row">
+                                    <VolunteerLevel />
+                                </div>
                                 <div className="row">
                                     <GoalsList />
                                 </div>

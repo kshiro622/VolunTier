@@ -51,6 +51,13 @@ var Main = React.createClass({
                 events: eventsArr
             });
         }.bind(this));
+
+        var userId = {
+            id: currentUser
+        }
+        axios.put('/resetcheck', userId).then(function (response) {
+
+        }.bind(this));
     },
 
     logout: function () {

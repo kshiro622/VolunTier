@@ -20,6 +20,7 @@ var Search = React.createClass({
             if (response !== this.state.results) {
                 this.setState({ results: response.data.opportunities });
             }
+            $('#matches-tab').tab('show');
         }.bind(this));
         this.setState({ results: [] });
     },
@@ -31,9 +32,9 @@ var Search = React.createClass({
                         <p className="panel-title"><i className="fa fa-search fa-fw" ></i>I want to help</p>
                     </div>
                     <div className="panel-body">
-                        <ul className="nav nav-tabs" role="tablist">
-                            <li role="presentation" className="active"><a href="#search-pane" aria-controls="search-pane" role="tab" data-toggle="tab">Search</a></li>
-                            <li role="presentation"><a href="#matches-pane" aria-controls="matches-pane" role="tab" data-toggle="tab">Matches</a></li>
+                        <ul className="nav nav-pills" role="tablist">
+                            <li role="presentation" className="active"><a href="#search-pane" aria-controls="search-pane" role="tab" data-toggle="pill" id="search-tab">Search</a></li>
+                            <li role="presentation"><a href="#matches-pane" aria-controls="matches-pane" role="tab" data-toggle="pill" id="matches-tab">Matches</a></li>
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane active" id="search-pane">
@@ -41,7 +42,7 @@ var Search = React.createClass({
                             </div>
                             <div role="tabpanel" className="tab-pane" id="matches-pane">
                                 <div className="scrollbox">
-                                    <Results results={this.state.results} />
+                                    <Results results={this.state.results} updateEvents={this.props.updateEvents}/>
                                 </div>
                             </div>
                         </div>

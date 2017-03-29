@@ -20,26 +20,50 @@ var Form = React.createClass({
   handleLocationChange: function (event) {
     this.setState({ location: event.target.value });
   },
+  getLocation: function(event){
+    var ipURL = 'http://ipinfo.io';
+    var cityState = '';
+    $.getJSON({ url: ipURL }).done(function(response) {
+        cityState = response.city + ', ' + response.region;
+    })
+    .then(function(){
+      $('input[type="text"]#location').val(cityState);
+      this.setState({location: cityState});
+    }.bind(this));
+  },
   // When a user submits...
   handleSubmit: function (event) {
     // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
     // clicking the button
     event.preventDefault();
     let optionsObj = {};
-    optionsObj["keywords"] = [this.state.keyword];
-    optionsObj["categoryIds"] = [this.state.category];
+    if(this.state.keyword!==''){
+      optionsObj["keywords"] = [this.state.keyword];
+    }
+    if(this.state.category!==''){
+        optionsObj["categoryIds"] = [this.state.category];  
+    }
     optionsObj["location"] = this.state.location;
-    optionsObj["numberOfResults"] = 5;
+    optionsObj["numberOfResults"] = 10;
     this.props.searchVM(optionsObj);
     this.setState({ keyword: "", category: "", location: "" });
-    $('#matches-pane').tab('show');
+    document.getElementById("vm-form").reset();
+
+  },
+  handleVirtualSearch: function(){
+      let optionsObj = {};
+      optionsObj["virtual"] = true;
+      optionsObj["numberOfResults"] = 10;
+      this.props.searchVM(optionsObj);
   },
   // Here we describe this component's render method
   render: function () {
     return (
       <span>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
+        <br />
+        <p><small className="gray-txt">Start searching for volunteer opportunities. Enter your location, enter a keyword, or browse by category. Your search results will be found in matches.</small></p>
+        <form onSubmit={this.handleSubmit} role="form" id="vm-form">
+          <div className="form-group input-group">
             {/*Location is required*/}
             <label htmlFor="location">Location</label>
             <input
@@ -48,25 +72,47 @@ var Form = React.createClass({
               className="form-control"
               id="location"
               onChange={this.handleLocationChange}
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Enter your City, State or your Zipcode. This is required."
               required
             />
+            <span className="input-group-btn">
+                <button 
+                className="btn btn-default" 
+                type="button" 
+                onClick={this.getLocation}
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Detect your location">
+                  <i className="fa fa-map-marker"></i>
+                </button>
+            </span>
+          </div>
+          <div className="form-group">
             {/*Search by keyword*/}
-            <label htmlFor="searchkeyword">Search</label>
+            <label htmlFor="searchkeyword">Search by Keyword</label>
             <input
               value={this.state.keyword}
               type="text"
               className="form-control"
               id="searchkeyword"
               onChange={this.handleKeywordChange}
-              required
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Enter a keyword or keywords separated by spaces e.g. cats dogs. This is optional."
             />
-            <label htmlFor="category">Browse</label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="category">Browse by Category</label>
             <select
               className="form-control"
               size="7"
               id="category"
               onChange={this.handleCategoryChange}
-              required
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Select a volunteering category. This is optional."
             >
               <option value="23">Advocacy & Human Rights</option>
               <option value="30">Animals</option>
@@ -94,15 +140,17 @@ var Form = React.createClass({
               <option value="43">Veterans & Military Families</option>
               <option value="3">Women</option>
             </select>
-            <br />
-            <button
-              className="btn green-btn"
-              type="submit"
-            >
-              Submit
-            </button>
           </div>
+          <button
+            className="btn green-btn"
+            type="submit"
+          >
+            Submit
+          </button>
         </form>
+        <br />
+        <p><small className="gray-txt">If you wish to volunteer remotely, you may search virtual opportunities instead.</small></p>
+        <a onClick={this.handleVirtualSearch} className="pointer-link purple-txt bold">Search virtual opportunities.</a>
       </span>
     );
   }

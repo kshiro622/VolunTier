@@ -1,6 +1,8 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
+var eventHelper = require("../../utils/eventsHelper.js")
+
 
 
 // Include children components
@@ -8,8 +10,6 @@ var Calendar = require("./children/calendar");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var GoalTracker = require("./children/goalTracker");
-var Today = require("./children/today");
-var CurrentGoal = require("./children/currentGoal");
 var VolunteerLevel = require("./children/volunteerLevel");
 
 // Creating the Main component
@@ -19,7 +19,9 @@ var Main = React.createClass({
     getInitialState: function () {
         return {
             first_name: "",
-            last_name: ""
+            last_name: "",
+            events: [],
+
         };
     },
 
@@ -38,15 +40,19 @@ var Main = React.createClass({
                     last_name: response.data.last_name
                 });
             }.bind(this));
-    },
 
-    componentDidMount: function () {
-        // what to do when the component mounts
-    },
-
-
-    componentDidUpdate: function () {
-        // what to do when component updates    
+        eventHelper.getSavedEvents(currentUser).then(function (response) {
+            this.setState({ events: response.data.events });
+            var eventsArr = this.state.events;
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'agendaDay,agendaWeek,month,listWeek'
+                },
+                events: eventsArr
+            });
+        }.bind(this));
     },
 
     logout: function () {
@@ -56,6 +62,17 @@ var Main = React.createClass({
             .then(function (response) {
                 this.context.router.push('/');
             }.bind(this))
+    },
+    updateEvents: function () {
+        var currentUser = sessionStorage.getItem('do_good_id');
+        console.log('updating events');
+        eventHelper.getSavedEvents(currentUser).then(function (response) {
+            this.setState({ events: response.data.events });
+            var eventsArr = this.state.events;
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', eventsArr);
+            $('#calendar').fullCalendar('rerenderEvents');
+        }.bind(this));
     },
 
     // Here we render the function
@@ -99,33 +116,20 @@ var Main = React.createClass({
                 <div className="main-background">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-2">
-                                <Today />
-                            </div>
-                            <div className="col-md-6"></div>
-                            <div className="col-md-4">
-                                <div className="row">
-                                    <CurrentGoal />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-8">
+                            <div className="col-sm-8">
                                 <Calendar />
                             </div>
-                            <div className="col-md-4">
-                                <div className="row">
-                                    <GoalTracker />
-                                </div>
-                                <div className="row">
-                                    <VolunteerLevel />
-                                </div>
+                            <div className="col-sm-4">
+                                <GoalTracker />
+                            </div>
+                            <div className="col-sm-4 padding-fix">
+                                <VolunteerLevel />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="row">
-                                    <Search />
+                                    <Search updateEvents={this.updateEvents} />
                                 </div>
                             </div>
                             <div className="col-md-4">

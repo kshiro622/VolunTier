@@ -2,35 +2,36 @@
 var React = require("react");
 var eventHelper = require("../../../../../utils/eventsHelper.js");
 var dateInputPolyfill = require("date-input-polyfill");
-
+var lineClamp = require('line-clamp');
 
 var Result = React.createClass({
     getInitialState: function () {
-        return { url: '', title: '', organization: '', description: '', availability: {}, startDate: '', startTime: '', endDate: '', endTime: '' };
+        return { 
+            startDate: '', 
+            startTime: '', 
+            endDate: '', 
+            endTime: '' 
+        };
     },
     componentDidMount: function () {
-        this.setState({
-            url: this.props.url,
-            title: this.props.title,
-            description: this.props.description,
-            organization: this.props.organization,
-            availability: this.props.availability,
-            startDate: this.props.availability.startDate,
-            startTime: this.props.availability.startTime,
-            endDate: this.props.availability.endDate,
-            endTime: this.props.availability.endTime
+        let collapsableId = this.props.collapsableId;
+        $('#'+collapsableId).on('shown.bs.collapse', function () {
+            $('#'+collapsableId+'-button').text('Show less');
+        });
+        $('#'+collapsableId).on('hidden.bs.collapse', function () {
+            $('#'+collapsableId+'-button').text('See more');
         });
     },
-    startDateChange: function () {
+    startDateChange: function (event) {
         this.setState({ startDate: event.target.value });
     },
-    startTimeChange: function () {
+    startTimeChange: function (event) {
         this.setState({ startTime: event.target.value });
     },
-    endDateChange: function () {
+    endDateChange: function (event) {
         this.setState({ endDate: event.target.value });
     },
-    endTimeChange: function () {
+    endTimeChange: function (event) {
         this.setState({ endTime: event.target.value });
     },
     // Saves oppportunity and shows alert
@@ -42,16 +43,17 @@ var Result = React.createClass({
     saveEvent: function (event) {
         event.preventDefault();
         const userId = sessionStorage.getItem('do_good_id');
-        var startDateTime = this.state.startDate + 'T' + this.state.startTime;
-        var endDateTime = this.state.endDate + 'T' + this.state.endTime;
+        var startDateTime = (this.state.startDate===''? this.props.availability.startDate : this.state.startDate) + 'T' + (this.state.startTime===''? this.props.availability.startTime : this.state.startTime);
+        var endDateTime = (this.state.endDate===''? this.props.availability.endDate : this.state.endDate) + 'T' + (this.state.endTime===''? this.props.availability.endTime : this.state.endTime);
         var event = {
-            title: this.state.title,
+            title: this.props.title,
             start: startDateTime,
             end: endDateTime,
-            url: this.state.url
+            url: this.props.url
         };
         eventHelper.addEvent(event, userId);
         $('#' + this.props.modalId).modal('hide');
+        this.props.updateEvents();
     },
     showAlert: function () {
         var alert = '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> You added an opportunity!</div>';
@@ -76,7 +78,7 @@ var Result = React.createClass({
                                             <input
                                                 type="date"
                                                 onChange={this.startDateChange}
-                                                value={this.state.availability.startDate ? this.state.availability.startDate : ''}
+                                                value={this.props.availability.startDate ? this.props.availability.startDate : this.state.startDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
@@ -84,7 +86,7 @@ var Result = React.createClass({
                                             <input
                                                 type="time"
                                                 onChange={this.startTimeChange}
-                                                value={this.state.availability.startTime ? this.state.availability.startTime : ''}
+                                                value={this.props.availability.startTime ? this.props.availability.startTime : this.state.startTime}
                                                 required />
                                         </div>
                                     </div>
@@ -94,7 +96,7 @@ var Result = React.createClass({
                                             <input
                                                 type="date"
                                                 onChange={this.endDateChange}
-                                                value={this.state.availability.endDate ? this.state.availability.endDate : ''}
+                                                value={this.props.availability.endDate ? this.props.availability.endDate : this.state.endDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
@@ -102,7 +104,7 @@ var Result = React.createClass({
                                             <input
                                                 type="time"
                                                 onChange={this.endTimeChange}
-                                                value={this.state.availability.endTime ? this.state.availability.endTime : ''}
+                                                value={this.props.availability.endTime ? this.props.availability.endTime : this.state.endTime}
                                                 required />
                                         </div>
                                     </div>
@@ -114,9 +116,17 @@ var Result = React.createClass({
                 </div>
                 <div>
                     <button className="btn light-orange-btn btn-xs pull-right" onClick={this.handleSave}><i className="fa fa-plus fa-fw"></i>Add Event</button>
-                    <h4>{this.state.organization}</h4>
-                    <a href={this.state.url} target="_blank"><p>{this.state.title}</p></a>
-                    <p>{this.state.description}</p>
+                    <h4>{this.props.title}</h4>
+                    <a data-toggle="collapse" href={'#'+this.props.collapsableId} aria-expanded="false" aria-controls="collapseExample" id={this.props.collapsableId+'-button'} className="gray-txt pointer-link">
+                        See more
+                    </a>
+                    <div className="collapse" id={this.props.collapsableId}>
+                    <div className="card card-block">
+                        <a href={this.props.url} target="_blank" className="purple-txt pointer-link bold">Apply Now</a>
+                        <h5>Organization: {this.props.organization}</h5>
+                        <p>Description: {this.props.description}</p>
+                    </div>
+                    </div>
                     <hr />
                 </div>
             </div>

@@ -252,5 +252,38 @@ router.delete("/api/events/:userId/:eventId", function (req, res) {
     });
 });
 
+router.put('/goalupdate/:id', function (req, res) {
+    console.log(req.body);
+    user.findOneAndUpdate({ _id: req.body.user }, {
+        $set: {
+            goal_week_goal: req.body.newGoal,
+            goal_month_goal: req.body.newGoal * 4,
+            goal_year_goal: req.body.newGoal * 52
+        }
+    }, function (err, respon) {
+        if (err) console.log(err);
+        user.findOne({ '_id': req.body.user }, function (err, user) {
+            if (err) return handleError(err);
+            res.send(user);
+        })
+    });
+});
+
+router.post('/addhours', function (req, res) {
+    user.findOneAndUpdate({ _id: req.body.id }, {
+        $set: {
+            goal_week_current: Number(req.body.current_week) + Number(req.body.hours),
+            goal_month_current: Number(req.body.current_month) + Number(req.body.hours),
+            goal_year_current: Number(req.body.current_year) + Number(req.body.hours)
+        }
+    }, function (err, respon) {
+        if (err) console.log(err);
+        user.findOne({ '_id': req.body.id }, function (err, user) {
+            if (err) return handleError(err);
+            res.send(user);
+        })
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;

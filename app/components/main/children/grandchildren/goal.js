@@ -21,6 +21,7 @@ var Goal = React.createClass({
                 </span>
 
             </li >
+
         )
     }
 });

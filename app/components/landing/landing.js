@@ -66,7 +66,7 @@ var Landing = React.createClass({
                         <div className="col-md-12">
                             <h1 className="margin-top-220 large-h1"> VolunTier </h1>
                             <hr />
-                            <h4> Measuring your impact made easy. </h4>
+                            <h4>Measuring your impact made easy</h4>
                             <button type="button" className="btn btn-lg btn-outline-success margin-top-50" onClick={this.registerPageClick}>Get Started</button>
                         </div>
                     </div>

@@ -16,7 +16,6 @@ var Register = React.createClass({
             confirmPassword: "",
             first_name: "",
             last_name: "",
-            image_url: "",
             bio: "",
             interest1: "",
             interest2: "",
@@ -29,7 +28,7 @@ var Register = React.createClass({
 
     componentDidMount: function () {
         $('body').attr('id', 'registerPage');
-        $('body#registerPage').css('background-image', 'url(/assets/images/volunteers-team-darken.jpg)');
+        $('body#registerPage').css('background-image', 'url(/assets/images/volunteers-team.jpg)');
         $('body#registerPage').css('background-size', 'cover');
     },
 
@@ -60,12 +59,6 @@ var Register = React.createClass({
     handleLast_NameChange: function (event) {
         this.setState({
             last_name: event.target.value
-        });
-
-    },
-    handleImageUrlChange: function (event) {
-        this.setState({
-            image_url: event.target.value
         });
 
     },
@@ -129,7 +122,6 @@ var Register = React.createClass({
                 password: this.state.password,
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
-                image_url: this.state.image_url,
                 bio: this.state.bio,
                 goal_week: this.state.goal_week,
                 interests: usrInterests,
@@ -200,20 +192,6 @@ var Register = React.createClass({
                                                     <div htmlFor="last_name">Goal (hr/week)</div>
                                                     <input className="form-control" placeholder="" name="goal_week" type="number" value={this.state.goal_week} onChange={this.handleGoalChange} data-toggle="tooltip" data-placement="bottom" title="How many hours/week are you looking to volunteer? We use this for goal tracking purposes." required />
                                                 </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="col-sm-6">
-                                                    <div htmlFor="username">Username</div>
-                                                    <input className="form-control" placeholder="" name="username" type="username" value={this.state.username} onChange={this.handleUsernameChange} required />
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="col-sm-6">
-                                                    <div htmlFor="image-url">Image URL</div>
-                                                    <input className="form-control" placeholder="" name="image-url" type="text" value={this.state.image_url} onChange={this.handleImageUrlChange} required />
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
                                                 <div className="col-sm-12">
                                                     <div htmlFor="bio">Bio</div>
                                                     <textarea className="form-control" rows="4" placeholder="" name="bio" type="text" value={this.state.bio} onChange={this.handleBioChange} data-toggle="tooltip" data-placement="bottom" title="Who are you as a volunteer? This information will be displayed on your profile page to be shared with others." required />
@@ -254,6 +232,12 @@ var Register = React.createClass({
                                                             required />
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div className="form-group">
+                                                <div className="col-sm-12">
+                                                    <div htmlFor="username">Username</div>
+                                                    <input className="form-control" placeholder="" name="username" type="username" value={this.state.username} onChange={this.handleUsernameChange} required />
                                                 </div>
                                             </div>
                                             <div className="form-group">

@@ -689,6 +689,12 @@ body {
     padding-top: 0px;
 }
 
+#register-page {
+    background-image: url('../images/volunteers-team-darken.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .semi-opaque {
     opacity: 0.96;
     margin-top: 30px;

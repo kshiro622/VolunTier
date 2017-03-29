@@ -11,14 +11,23 @@ var Profile = React.createClass({
     // Sets the initial state of the component.
     getInitialState: function () {
         return {
-
+            username: "",
+            first_name: "",
+            last_name: "",
+            image_url: "",
+            bio: "",
+            interest1: "",
+            interest2: "",
+            interest3: "",
+            goal_week: "",
+            goal_week_current: "",
+            goal_year_current: "",
         };
     },
 
     componentWillMount: function () {
-
+        //axios call to get user information
     },
-
 
     // Here we render the function
     render: function () {
@@ -58,11 +67,10 @@ var Profile = React.createClass({
                                 <div className="row">
                                     <div className="col-md-3">
                                         <h4 className="text-orange">username</h4>
-                                        <h4>Location:</h4>
+                                        <h4>Weekly Goal:</h4>
                                     </div>
                                     <div className="col-md-6">
-                                        <h4>Weekly Goal:</h4>
-                                        <h4>Progress:</h4>
+                                        <h4>Goal Progress:</h4>
                                         <h4>Total hours this year:</h4>
                                     </div>
                                     <div className="col-md-3">
@@ -128,7 +136,6 @@ var Profile = React.createClass({
 
                         </div>
                     </div>
-
                 </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>

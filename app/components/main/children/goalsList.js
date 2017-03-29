@@ -29,7 +29,7 @@ var GoalsList = React.createClass({
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    <p className="panel-title">My Goals List</p>
+                    <p className="panel-title"><i className="fa fa-list-alt" aria-hidden="true"></i>  My Goals List</p>
                 </div>
                 <div className="panel-body">
                     <GoalsForm addGoal={this.addGoal} />

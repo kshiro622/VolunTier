@@ -13,11 +13,15 @@ var Goal = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                <span><strong> {this.state.goalText} </strong></span>
-                <button className="btn btn-default pull-right" type="button" onClick={this.handleDelete}> <i className="fa fa-trash"></i>
-                </button>
-            </div>
+            <li className="list-group-item goal-item grow">
+                <span>
+                    <i className="fa fa-bars" aria-hidden="true"></i>
+                    <strong> {this.state.goalText}</strong>
+                    <button className="btn btn-default" type="button" onClick={this.handleDelete}> <i className="fa fa-trash"></i></button>
+                </span>
+
+            </li >
+
         )
     }
 });

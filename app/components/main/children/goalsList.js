@@ -29,7 +29,7 @@ var GoalsList = React.createClass({
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    <p className="panel-title">My Goals List</p>
+                    <p className="panel-title"><i className="fa fa-list-alt" aria-hidden="true"></i>  My Goals List</p>
                 </div>
                 <div className="panel-body">
                     <GoalsForm addGoal={this.addGoal} />
@@ -44,17 +44,21 @@ var GoalsList = React.createClass({
                             </div>
                         )
                     }
-                    {
-                        this.state.goals &&
-                        this.state.goals.map(function (element, index) {
-                            return (
-                                <Goal key={index}
-                                    goalText={element.goalText}
-                                    id={element._id}
-                                    deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
-                            );
-                        }, this)
-                    }
+                    <div>
+                        <ol className="list-group sortable">
+                            {
+                                this.state.goals &&
+                                this.state.goals.map(function (element, index) {
+                                    return (
+                                        <Goal key={index}
+                                            goalText={element.goalText}
+                                            id={element._id}
+                                            deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
+                                    );
+                                }, this)
+                            }
+                        </ol>
+                    </div>
                 </div >
             </div>
         )

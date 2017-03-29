@@ -1,9 +1,8 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
-var eventHelper = require("../../utils/eventsHelper.js")
-
-
+var eventHelper = require("../../utils/eventsHelper.js");
+import { Link } from 'react-router'
 
 // Include children components
 var Calendar = require("./children/calendar");
@@ -21,7 +20,6 @@ var Main = React.createClass({
             first_name: "",
             last_name: "",
             events: [],
-
         };
     },
 
@@ -100,7 +98,11 @@ var Main = React.createClass({
                                     <i className="fa fa-user fa-fw white-icon"></i> <i className="fa fa-caret-down white-icon"></i>
                                 </a>
                                 <ul className="dropdown-menu dropdown-user">
-                                    <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
+                                    <li>
+                                        <Link to="/profile" className="scroll-link">
+                                            <i className="fa fa-user fa-fw"></i>
+                                            Profile
+                                         </Link>
                                     </li>
                                     <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                                     </li>

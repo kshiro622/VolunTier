@@ -22,6 +22,7 @@ var IndexRoute = router.IndexRoute;
 var Main = require("../components/main/Main");
 var Landing = require("../components/landing/Landing");
 var Register = require("../components/register/register.js");
+var Profile = require("../components/profile/profile.js");
 
 
 
@@ -36,6 +37,9 @@ module.exports = (
         </Route>
         <Route path="/register" component={Register}>
             <IndexRoute component={Register} />
+        </Route>
+        <Route path="/profile" component={Profile}>
+            <IndexRoute component={Profile} />
         </Route>
     </Router>
 );

@@ -98,18 +98,18 @@ var Landing = React.createClass({
                         </div>
                         <div className="row">
                             <div className="col-md-4">
-                                <img src="assets/images/search.jpg" className="img-circle" height="180px" alt="" />
+                                <img src="assets/images/search.jpg" className="img-circle margin-top-25" height="180px" alt="" />
                                 <h4 className="text-green caps">Search for Events</h4>
                                 <p>Browse upcoming events in any area and add them to your volunteer calendar.</p>
                             </div>
                             <div className="col-md-4">
                                 {/*<i className="fa fa-wrench fa-fw text-green"></i>*/}
-                                <img src="assets/images/volunteers2.jpg" className="img-circle" height="180px" alt="" />
+                                <img src="assets/images/volunteers2.jpg" className="img-circle margin-top-25" height="180px" alt="" />
                                 <h4 className="text-green caps">Volunteer</h4>
                                 <p>Attend events to meet your volunteer hour goal.</p>
                             </div>
                             <div className="col-md-4">
-                                <img src="assets/images/laptop3.jpg" className="img-circle" height="180px" alt="" />
+                                <img src="assets/images/laptop3.jpg" className="img-circle margin-top-25" height="180px" alt="" />
                                 <h4 className="text-green caps">Track Progress</h4>
                                 <p>Visualize your impact with our trackers.</p>
                             </div>

@@ -270,12 +270,28 @@ hr {
     margin-top: 130px;
 }
 
+.margin-top-110 {
+    margin-top: 110px;
+}
+
 .margin-top-90 {
     margin-top: 90px;
 }
 
+.margin-top-80 {
+    margin-top: 80px;
+}
+
+.margin-top-70 {
+    margin-top: 70px;
+}
+
 .margin-top-50 {
     margin-top: 50px;
+}
+
+.margin-top-25 {
+    margin-top: 25px;
 }
 
 .margin-top-20 {
@@ -304,7 +320,6 @@ hr {
 
 .img-circle {
     border-radius: 25px;
-    margin-top: 25px;
 }
 
 .hours-input-margin {
@@ -822,4 +837,12 @@ ol.sortable{
 .tab-content {
     margin-top: 10px;
 }
+<<<<<<< HEAD
 >>>>>>> updates margins
+=======
+
+.profile-top {
+    background: white;
+    height: 300px;
+}
+>>>>>>> creates profile component

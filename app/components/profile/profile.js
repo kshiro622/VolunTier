@@ -44,57 +44,87 @@ var Profile = React.createClass({
                 </nav>
 
                 <div className="profile-top">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="container">
-                                <img src="" className="" alt="" />
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-3">
+                                <img src="assets/images/defaultuser.png" className="img-circle margin-top-50" height="200px" alt="" />
                             </div>
-                            <div className="col-md-8">
-                                <div className="container">
-                                    {/*Name*/}
-                                    {/*Location*/}
-                                    {/*Interests*/}
+                            <div className="col-md-9">
+                                <h1 className="margin-top-80">Name</h1>
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <h4 className="text-orange">username</h4>
+                                        <h4>Location:</h4>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h4>Weekly Goal:</h4>
+                                        <h4>Progress:</h4>
+                                        <h4>Total hours this year:</h4>
+                                    </div>
+                                    <div className="col-md-3">
+                                        <h4>Interests:</h4>
+                                        <h6>Interest1</h6>
+                                        <h6>Interest2</h6>
+                                        <h6>Interest3</h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div className="profile-body">
-                    <div className="row">
-                        <div className="col-md-7">
-                            <div className="container">
-                                {/*Bio*/}
+                <div className="profile-body margin-top-20">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-7">
+                                <div className="panel panel-default">
+                                    <div className="panel-heading">
+                                        About:
+                                        </div>
+                                    <div className="panel-body">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-5">
-                            <div className="container">
-                                {/*Hour Goal*/}
-                                {/*Progress on goal*/}
-                                {/*Total Lifetime hours*/}
+                            <div className="col-md-5">
+                                <div className="panel panel-default">
+                                    <div className="panel-heading">
+                                        Level
+                                    </div>
+                                    <div className="panel-body">
+                                        <p>Level info here</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div className="profile-contact">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="container">
-                                {/*Past Events*/}
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div className="panel panel-default">
+                                    <div className="panel-heading">
+                                        Past Events
+                                    </div>
+                                    <div className="panel-body">
+                                        <p>Past events here</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="container">
-                                {/*Upcoming Events*/}
+                            <div className="col-md-6">
+                                <div className="panel panel-default">
+                                    <div className="panel-heading">
+                                        Upcoming Events
+                                    </div>
+                                    <div className="panel-body">
+                                        <p>Upcoming events here</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="container">
-                                {/*Level*/}
-                            </div>
+
                         </div>
                     </div>
+
                 </div>
 
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>

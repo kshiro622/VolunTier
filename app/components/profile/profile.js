@@ -67,7 +67,7 @@ var Profile = React.createClass({
             for (var i = 0; i < eventsArr.length; i++) {
                 var eventDay = parseInt(eventsArr[i].start.slice(8, 10));
                 var eventMonth = parseInt(eventsArr[i].start.slice(5, 7));
-                var event = eventsArr[i].title;
+                var event = { title: eventsArr[i].title, url: eventsArr[i].url };
                 if (eventMonth < todaysMonth) {
                     pastEvents.push(event);
                 } else if (eventMonth > todaysMonth) {
@@ -171,6 +171,7 @@ var Profile = React.createClass({
                             <div className="col-md-7">
                                 <div className="panel panel-default">
                                     <div className="panel-heading">
+                                        <i className="fa fa-user fa-fw"></i>
                                         About:
                                         </div>
                                     <div className="panel-body">
@@ -181,6 +182,7 @@ var Profile = React.createClass({
                             <div className="col-md-5">
                                 <div className="panel panel-default">
                                     <div className="panel-heading">
+                                        <i className="fa fa-heart-o fa-fw"></i>
                                         Level
                                     </div>
                                     <div className="panel-body center-align">
@@ -197,12 +199,13 @@ var Profile = React.createClass({
                             <div className="col-md-6">
                                 <div className="panel panel-default">
                                     <div className="panel-heading">
+                                        <i className="fa fa-calendar-o fa-fw"></i>
                                         Past Events
                                     </div>
                                     <div className="panel-body">
                                         {
                                             this.state.past_events.map(function (event, index) {
-                                                return <li key={index}>{event}</li>
+                                                return <li key={index}><a href={event.url} target="blank" className="event-link">{event.title}</a></li>
                                             })
                                         }
                                     </div>
@@ -211,12 +214,13 @@ var Profile = React.createClass({
                             <div className="col-md-6">
                                 <div className="panel panel-default">
                                     <div className="panel-heading">
+                                        <i className="fa fa-calendar fa-fw"></i>
                                         Upcoming Events
                                     </div>
                                     <div className="panel-body">
                                         {
                                             this.state.upcoming_events.map(function (event, index) {
-                                                return <li key={index}>{event}</li>
+                                                return <li key={index}><a href={event.url} target="blank" className="event-link">{event.title}</a></li>
                                             })
                                         }
                                     </div>

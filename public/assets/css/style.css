@@ -795,6 +795,9 @@ textarea {
     overflow: auto;
 }
 
+
+/*Profile Page*/
+
 .center-align {
     text-align: center;
 }
@@ -803,6 +806,20 @@ textarea {
     background: white;
     height: 300px;
 }
+
+.event-link {
+    color: #f96868;
+}
+
+.event-link:hover,
+.event-link:focus,
+.event-link:active {
+    color: #6564DA;
+    text-decoration: none;
+}
+
+
+/*GoalList*/
 
 .interest-font {
     font-size: 13px;

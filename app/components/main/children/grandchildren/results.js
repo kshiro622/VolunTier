@@ -8,14 +8,16 @@ var Results = React.createClass({
         const numResults = (this.props.results.length);
         return (
             <span>
+                <br />
                 {/*If there are no results, display message*/}
                 {numResults === 0 &&
                     (
                         <div>
-                            <em>
-                                There are no results to display. Enter a new search to see some results.
-                                </em>
-                            <img className="fit-img" src="/assets/images/volunteerhands.png" alt="Volunteer hands" />
+                           <p><small className="gray-txt">You have not entered the right search terms or no matches have been found for your search.</small></p>
+                            <p><small className="gray-txt"> - Try a different location</small></p>
+                            <p><small className="gray-txt"> - Enter a new keyword</small></p>
+                            <p><small className="gray-txt"> - Select a different category</small></p>
+                            <img className="fit-img" src="/assets/images/volunteerhands2.png" alt="Volunteer hands" />
                         </div>
                     )
                 }
@@ -29,6 +31,7 @@ var Results = React.createClass({
                             organization={element.parentOrg.name}
                             availability={element.availability}
                             modalId={'id-' + index}
+                            collapsableId = {'id-collapsable-' + index}
                             updateEvents={this.props.updateEvents}
                         />
                     );

@@ -674,6 +674,70 @@ body {
     opacity: 0.96;
 }
 
+/*Search*/
+.input-group-btn>.btn {
+    margin-top: 25px;
+}
+
+.gray-txt{
+    color: gray;
+}
+
+.gray-txt:hover{
+    color: gray;
+}
+
+.gray-txt:active{
+    color: gray;
+}
+
+.gray-txt:visited{
+    color: gray;
+}
+
+.gray-txt:link{
+    color: gray;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background-color:#6564DA;
+}
+
+.nav-pills>li>a {
+    color: #6564DA;
+}
+
+.scrollbox {
+    height: 480px;
+    overflow: auto;
+}
+
+.pointer-link:hover{
+    cursor: pointer;
+}
+
+.card{
+    padding: 20px;
+}
+
+.purple-txt{
+    color:#6564DA;
+}
+.purple-txt:hover{
+    color:#6564DA;
+}
+.purple-txt:active{
+    color:#6564DA;
+}
+.purple-txt:visited{
+    color:#6564DA;
+}
+.purple-txt:link{
+    color:#6564DA;
+}
+.bold{
+    font-weight: bold;
+}
 
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 
@@ -697,7 +761,3 @@ textarea {
     resize: none;
 }
 
-.scrollbox {
-    height: 440px;
-    overflow: auto;
-}

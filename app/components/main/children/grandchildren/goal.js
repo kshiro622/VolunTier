@@ -9,7 +9,7 @@ var Goal = React.createClass({
     },
     handleDelete: function (event) {
         event.preventDefault();
-        this.props.deleteGoalAndUpdate(this.    state.id);
+        this.props.deleteGoalAndUpdate(this.state.id);
     },
     render: function () {
         return (

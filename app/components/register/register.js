@@ -211,7 +211,7 @@ var Register = React.createClass({
                                                             required 
                                                             data-toggle="tooltip" 
                                                             data-placement="bottom" 
-                                                            title="What are your interests? Your interests will be used to suggest volunteering opportunities to you."/>
+                                                            title="What are your interests in volunteering?"/>
                                                         </div>
                                                         <div className="col-sm-4"><input 
                                                             className="form-control" 

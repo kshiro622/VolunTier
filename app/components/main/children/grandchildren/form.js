@@ -66,6 +66,9 @@ var Form = React.createClass({
               className="form-control"
               id="location"
               onChange={this.handleLocationChange}
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Enter your City, State or your Zipcode. This is required."
               required
             />
             <span className="input-group-btn">
@@ -89,6 +92,9 @@ var Form = React.createClass({
               className="form-control"
               id="searchkeyword"
               onChange={this.handleKeywordChange}
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Enter a keyword or keywords separated by spaces e.g. cats dogs. This is optional."
             />
           </div>
           <div className="form-group">
@@ -98,6 +104,9 @@ var Form = React.createClass({
               size="7"
               id="category"
               onChange={this.handleCategoryChange}
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Select one category. This is optional."
             >
               <option value="23">Advocacy & Human Rights</option>
               <option value="30">Animals</option>

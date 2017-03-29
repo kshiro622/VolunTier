@@ -4,7 +4,8 @@ var passport = require('passport');
 var user = require('./../models/user.js');
 var Goal = require('./../models/goal.js');
 var Event = require('./../models/event.js');
-
+var moment = require('moment');
+// moment().format();
 
 // =======================================================
 // Passport routes
@@ -20,7 +21,10 @@ router.post('/register', function (req, res) {
         goal_week_goal: req.body.goal_week,
         goal_month_goal: req.body.goal_week * 4,
         goal_year_goal: req.body.goal_week * 52,
-        interests: req.body.interests
+        interests: req.body.interests,
+        week_goal_last_update: moment().format('x'),
+        month_goal_last_update: moment().format('x'),
+        year_goal_last_update: moment().format('x'),
     }), req.body.password, function (err, user) {
         if (err) {
             console.log(err);
@@ -36,6 +40,52 @@ router.post('/login', function (req, res, next) {
         if (!user) res.send("INVALID LOGIN");
         if (user) res.send(user._id);
     })(req, res, next);
+});
+
+router.put('/resetcheck', function (req, res) {
+
+    user.findOne({ '_id': req.body.id }, function (err, respon) {
+        if (err) return handleError(err);
+
+        var thisMoment = moment().format('x');
+
+        var weekDiff = Math.floor((thisMoment - respon.week_goal_last_update) / 86400000);
+        console.log(Math.floor((thisMoment - respon.week_goal_last_update) / 86400000));
+        var monthDiff = Math.floor((thisMoment - respon.month_goal_last_update) / 86400000);
+        var yearDiff = Math.floor((thisMoment - respon.year_goal_last_update) / 86400000);
+
+        if (weekDiff >= 7) {
+            user.findOneAndUpdate({ _id: req.body.id }, {
+                $set: {
+                    week_goal_last_update: moment().format('x'),
+                    goal_week_current: 0
+                }
+            }, function (err, respon) {
+                if (err) console.log(err);
+            });
+        }
+        if (monthDiff >= 31) {
+            user.findOneAndUpdate({ _id: req.body.id }, {
+                $set: {
+                    month_goal_last_update: moment().format('x'),
+                    goal_month_current: 0
+                }
+            }, function (err, respon) {
+                if (err) console.log(err);
+            });
+        }
+        if (yearDiff >= 365) {
+            user.findOneAndUpdate({ _id: req.body.id }, {
+                $set: {
+                    year_goal_last_update: moment().format('x'),
+                    goal_year_current: 0
+                }
+            }, function (err, respon) {
+                if (err) console.log(err);
+            });
+        }
+        res.send('check completed');
+    })
 });
 
 
@@ -158,7 +208,6 @@ router.get("/user/:id", function (req, res) {
 router.get("/user/goaltracker/:id", function (req, res) {
     user.findOne({ '_id': req.params.id }, function (err, user) {
         if (err) return handleError(err);
-
         res.send(user);
     })
 });

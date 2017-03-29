@@ -1,7 +1,7 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
-var ProfileEvent = require("./profileEvent.js");
+var Level = require("../main/children/grandchildren/level.js");
 var eventHelper = require("../../utils/eventsHelper.js");
 import { Link } from 'react-router'
 
@@ -17,15 +17,14 @@ var Profile = React.createClass({
             name: "",
             image_url: "",
             bio: "",
-            past_events: "",
-            upcoming_events: "",
+            past_events: [],
+            upcoming_events: [],
             interest1: "",
             interest2: "",
             interest3: "",
             goal_week: "",
             goal_week_current: "",
             goal_year_current: "",
-            level: ""
         };
     },
 
@@ -36,7 +35,6 @@ var Profile = React.createClass({
         axios.get(userRoute)
             .then(function (response) {
                 var name = response.data.first_name + " " + response.data.last_name;
-                var totalHoursThisYear = response.data.goal_year_current;
 
                 this.setState({
                     name: name,
@@ -49,7 +47,6 @@ var Profile = React.createClass({
                     goal_week: response.data.goal_week_goal,
                     goal_week_current: response.data.goal_week_current,
                     goal_year_current: response.data.goal_year_current,
-                    level: totalHoursThisYear
                 });
 
             }.bind(this));
@@ -65,11 +62,12 @@ var Profile = React.createClass({
             // separate events into past and upcoming
             var pastEvents = [];
             var upcomingEvents = [];
-            var eventsArr = response.data.events
+            var eventsArr = response.data.events;
+            console.log(eventsArr);
             for (var i = 0; i < eventsArr.length; i++) {
                 var eventDay = parseInt(eventsArr[i].start.slice(8, 10));
                 var eventMonth = parseInt(eventsArr[i].start.slice(5, 7));
-                var event = eventsArr[i];
+                var event = eventsArr[i].title;
                 if (eventMonth < todaysMonth) {
                     pastEvents.push(event);
                 } else if (eventMonth > todaysMonth) {
@@ -82,72 +80,31 @@ var Profile = React.createClass({
                     }
                 }
             }
-            console.log(pastEvents);
-            console.log(upcomingEvents);
             this.setState({ past_events: pastEvents, upcoming_events: upcomingEvents });
         }.bind(this));
     },
 
+    logout: function () {
+        event.preventDefault();
+        sessionStorage.clear();
+        axios.get('/logout')
+            .then(function (response) {
+                this.context.router.push('/');
+            }.bind(this))
+    },
+
     // Here we render the function
     render: function () {
-        var tier = this.state.level;
 
-        var currentLevel = null;
-        if (tier === 0) {
-            currentLevel = (
-                <div>
-                    <h2>Beginner Level</h2>
-                    <img src="assets/images/tier0.png" height="150px" className="margin-bottom-30 margin-top-20" alt="Level 0 badge" />
-                    <p>Start getting some hours in!</p>
-                </div>
-            );
-        } else if (1 <= tier && tier < 10) {
-            currentLevel = (
-                <div>
-                    <h2>Level 1</h2>
-                    <p>1-9 hours</p>
-                    <img src="assets/images/tier1.png" height="150px" className="margin-bottom-30 margin-top-20" alt="Level 1 badge" />
-                    <h5 className="level-text">Great start! You are already making a difference. Every hour counts!</h5>
-                </div>
-            );
-        } else if (10 <= tier && tier < 20) {
-            currentLevel = (
-                <div>
-                    <h2>Level 2</h2>
-                    <p>10-19 hours</p>
-                    <img src="assets/images/tier2.png" height="150px" className="margin-bottom-30 margin-top-20" alt="Level 2 badge" />
-                    <h5 className="level-text">You are really making an impact!</h5>
-                </div>
-            );
-        } else if (20 <= tier && tier < 50) {
-            currentLevel = (
-                <div>
-                    <h2>Level 3</h2>
-                    <p>20-49 hours</p>
-                    <img src="assets/images/tier3.png" height="150px" className="margin-bottom-30 margin-top-20" alt="Level 3 badge" />
-                    <h5 className="level-text">Now you can really start to see what you have accomplished!</h5>
-                </div>
-            );
-        } else if (50 <= tier && tier < 100) {
-            currentLevel = (
-                <div>
-                    <h2>Level 4</h2>
-                    <p>50-99 hours</p>
-                    <img src="assets/images/tier4.png" height="150px" className="margin-bottom-30 margin-top-20" alt="Level 4 badge" />
-                    <h5 className="level-text">What an amazing feat, you are almost to the top!</h5>
-                </div>
-            );
-        } else if (100 <= tier) {
-            currentLevel = (
-                <div>
-                    <h2>Level 5</h2>
-                    <p>100 hours or more</p>
-                    <img src="assets/images/tier5.png" height="150px" className="margin-bottom-30 margin-top-20" alt="Level 5 badge" />
-                    <h5 className="level-text">You have reached the top! The world is a better place because of you!</h5>
-                </div>
-            );
+        // set user image to default if no url exists
+        var userImage;
+        if (this.state.image_url !== "") {
+            userImage = <img src={this.state.image_url} className="img-circle margin-top-50" height="200px" alt="user image" />
+        } else {
+            userImage = <img src="assets/images/defaultuser.png" className="img-circle margin-top-50" height="200px" alt="default image" />
         }
 
+        // component to be rendered
         return (
             <span>
                 <nav className="main-nav navbar navbar-default navbar-static-top" role="navigation" >
@@ -188,25 +145,20 @@ var Profile = React.createClass({
                 <div className="profile-top">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-3">
-                                <img src="assets/images/defaultuser.png" className="img-circle margin-top-50" height="200px" alt="" />
+                            <div className="col-md-4">
+                                {userImage}
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-md-8">
                                 <h1 className="margin-top-80">{this.state.name}</h1>
                                 <div className="row">
-                                    <div className="col-md-4">
+                                    <div className="col-md-6">
                                         <h4 className="text-orange">{this.state.username}</h4>
+                                        <h4>Interests: <span className="interest-font">{this.state.interest1}, {this.state.interest2}, {this.state.interest3}</span></h4>
                                     </div>
-                                    <div className="col-md-5">
-                                        <h4>Weekly Goal: {this.state.goal_week} hrs</h4>
-                                        <h4>Goal Progress: {this.state.goal_week_current} hrs</h4>
-                                        <h4>Total Hours This Year: {this.state.goal_year_current} hrs</h4>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <h4>Interests:</h4>
-                                        <h6>{this.state.interest1}</h6>
-                                        <h6>{this.state.interest2}</h6>
-                                        <h6>{this.state.interest3}</h6>
+                                    <div className="col-md-6">
+                                        <h4>Weekly Goal: <span className="text-orange">{this.state.goal_week}</span> hrs</h4>
+                                        <h4>Goal Progress: <span className="text-orange">{this.state.goal_week_current}</span> hrs</h4>
+                                        <h4>Total Hours This Year: <span className="text-orange">{this.state.goal_year_current}</span> hrs</h4>
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +184,7 @@ var Profile = React.createClass({
                                         Level
                                     </div>
                                     <div className="panel-body center-align">
-                                        {currentLevel}
+                                        <Level />
                                     </div>
                                 </div>
                             </div>
@@ -248,14 +200,11 @@ var Profile = React.createClass({
                                         Past Events
                                     </div>
                                     <div className="panel-body">
-                                        <ul>
-                                            {/*{
-                                                this.state.past_events.map(function (object, i) {
-                                                    return <ProfileEvent object={object} key={i} />
-                                                }, this)
-                                            }*/}
-
-                                        </ul>
+                                        {
+                                            this.state.past_events.map(function (event, index) {
+                                                return <li key={index}>{event}</li>
+                                            })
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -265,14 +214,11 @@ var Profile = React.createClass({
                                         Upcoming Events
                                     </div>
                                     <div className="panel-body">
-                                        <ul>
-                                            {/*{
-                                                this.state.upcoming_events.map(function (object, i) {
-                                                    return <ProfileEvent object={object} key={i} />
-                                                }, this)
-                                            }*/}
-
-                                        </ul>
+                                        {
+                                            this.state.upcoming_events.map(function (event, index) {
+                                                return <li key={index}>{event}</li>
+                                            })
+                                        }
                                     </div>
                                 </div>
                             </div>

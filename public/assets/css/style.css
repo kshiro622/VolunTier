@@ -270,20 +270,12 @@ hr {
     margin-top: 130px;
 }
 
-.margin-top-110 {
-    margin-top: 110px;
-}
-
 .margin-top-90 {
     margin-top: 90px;
 }
 
 .margin-top-80 {
     margin-top: 80px;
-}
-
-.margin-top-70 {
-    margin-top: 70px;
 }
 
 .margin-top-50 {
@@ -685,14 +677,14 @@ body {
 
 /*Register*/
 
-.register-form-padding-top {
-    padding-top: 0px;
-}
-
 #register-page {
     background-image: url('../images/volunteers-team.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.register-form-padding-top {
+    padding-top: 0px;
 }
 
 .semi-opaque {
@@ -701,33 +693,37 @@ body {
     margin-bottom: 100px;
 }
 
+
 /*Search*/
+
 .input-group-btn>.btn {
     margin-top: 25px;
 }
 
-.gray-txt{
+.gray-txt {
     color: gray;
 }
 
-.gray-txt:hover{
+.gray-txt:hover {
     color: gray;
 }
 
-.gray-txt:active{
+.gray-txt:active {
     color: gray;
 }
 
-.gray-txt:visited{
+.gray-txt:visited {
     color: gray;
 }
 
-.gray-txt:link{
+.gray-txt:link {
     color: gray;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
-    background-color:#6564DA;
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+    background-color: #6564DA;
 }
 
 .nav-pills>li>a {
@@ -739,32 +735,38 @@ body {
     overflow: auto;
 }
 
-.pointer-link:hover{
+.pointer-link:hover {
     cursor: pointer;
 }
 
-.card{
+.card {
     padding: 20px;
 }
 
-.purple-txt{
-    color:#6564DA;
+.purple-txt {
+    color: #6564DA;
 }
-.purple-txt:hover{
-    color:#6564DA;
+
+.purple-txt:hover {
+    color: #6564DA;
 }
-.purple-txt:active{
-    color:#6564DA;
+
+.purple-txt:active {
+    color: #6564DA;
 }
-.purple-txt:visited{
-    color:#6564DA;
+
+.purple-txt:visited {
+    color: #6564DA;
 }
-.purple-txt:link{
-    color:#6564DA;
+
+.purple-txt:link {
+    color: #6564DA;
 }
-.bold{
+
+.bold {
     font-weight: bold;
 }
+
 
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 
@@ -793,8 +795,20 @@ textarea {
     overflow: auto;
 }
 
-<<<<<<< HEAD
-.goal-item{
+.center-align {
+    text-align: center;
+}
+
+.profile-top {
+    background: white;
+    height: 300px;
+}
+
+.interest-font {
+    font-size: 13px;
+}
+
+.goal-item {
     overflow: hidden;
     float: left;
     width: 100%;
@@ -805,15 +819,18 @@ textarea {
 
 .goal-item span {
     line-height: 34px;
-    
 }
 
-.grow { transition: all .2s ease-in-out;}
-.grow:hover {transform: translateY(-3px);
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: translateY(-3px);
 }
 
 .goal-item .btn {
-    right:0;
+    right: 0;
     position: absolute;
     border: 0px solid transparent;
 }
@@ -823,8 +840,6 @@ textarea {
     /* background-color: #e6e6e6; */
     border-color: #adadad;
 }
-
-
 
 .list-group-item {
     border: none;
@@ -836,26 +851,10 @@ textarea {
     color: #03c7f4;
 }
 
-ol.sortable{
-    position:relative;
+ol.sortable {
+    position: relative;
 }
-=======
+
 .tab-content {
     margin-top: 10px;
 }
-<<<<<<< HEAD
->>>>>>> updates margins
-=======
-
-.profile-top {
-    background: white;
-    height: 300px;
-}
-<<<<<<< HEAD
->>>>>>> creates profile component
-=======
-
-.center-align {
-    text-align: center;
-}
->>>>>>> adds axios call to set states for profile component

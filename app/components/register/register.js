@@ -16,6 +16,7 @@ var Register = React.createClass({
             confirmPassword: "",
             first_name: "",
             last_name: "",
+            image_url: "",
             bio: "",
             interest1: "",
             interest2: "",
@@ -24,12 +25,6 @@ var Register = React.createClass({
             message: "Submit",
             error: ""
         };
-    },
-
-    componentDidMount: function () {
-        $('body').attr('id', 'registerPage');
-        $('body#registerPage').css('background-image', 'url(/assets/images/volunteers-team.jpg)');
-        $('body#registerPage').css('background-size', 'cover');
     },
 
     handleUsernameChange: function (event) {
@@ -65,6 +60,12 @@ var Register = React.createClass({
     handleBioChange: function (event) {
         this.setState({
             bio: event.target.value
+        });
+
+    },
+    handleImageUrlChange: function (event) {
+        this.setState({
+            image_url: event.target.value
         });
 
     },
@@ -123,6 +124,7 @@ var Register = React.createClass({
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 bio: this.state.bio,
+                image_url: this.state.image_url,
                 goal_week: this.state.goal_week,
                 interests: usrInterests,
             }
@@ -167,99 +169,109 @@ var Register = React.createClass({
                     </div>
                 </nav>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-1"></div>
-                        <div className="col-sm-12 col-md-10">
-                            <div className="login-panel panel panel-default semi-opaque">
-                                <div className="panel-heading">
-                                    <h1 className="panel-title text-center large-h1 ">Start VolunTiering</h1>
-                                </div>
-                                <div className="panel-body">
-                                    <form role="form" onSubmit={this.handleRegisterSubmit} data-toggle="validator">
-                                        <fieldset>
-                                            {this.state.error}
-                                            <div className="form-group">
-                                                <div className="col-sm-4">
-                                                    <div htmlFor="first_name">First Name</div>
-                                                    <input className="form-control" placeholder="" name="first_name" type="text" value={this.state.first_name} onChange={this.handleFirst_NameChange} autoFocus required />
+                <div id="register-page">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-1"></div>
+                            <div className="col-sm-12 col-md-10">
+                                <div className="login-panel panel panel-default semi-opaque">
+                                    <div className="panel-heading">
+                                        <h1 className="panel-title text-center large-h1 ">Start VolunTiering</h1>
+                                    </div>
+                                    <div className="panel-body">
+                                        <form role="form" onSubmit={this.handleRegisterSubmit} data-toggle="validator">
+                                            <fieldset>
+                                                {this.state.error}
+                                                <div className="form-group">
+                                                    <div className="col-sm-6">
+                                                        <div htmlFor="first_name">First Name</div>
+                                                        <input className="form-control" placeholder="" name="first_name" type="text" value={this.state.first_name} onChange={this.handleFirst_NameChange} autoFocus required />
+                                                    </div>
+                                                    <div className="col-sm-6">
+                                                        <div htmlFor="last_name">Last Name</div>
+                                                        <input className="form-control" placeholder="" name="last_name" type="text" value={this.state.last_name} onChange={this.handleLast_NameChange} required />
+                                                    </div>
                                                 </div>
-                                                <div className="col-sm-4">
-                                                    <div htmlFor="last_name">Last Name</div>
-                                                    <input className="form-control" placeholder="" name="last_name" type="text" value={this.state.last_name} onChange={this.handleLast_NameChange} required />
+                                                <div className="form-group">
+                                                    <div className="col-sm-6">
+                                                        <div htmlFor="username">Username</div>
+                                                        <input className="form-control" placeholder="" name="username" type="username" value={this.state.username} onChange={this.handleUsernameChange} required />
+                                                    </div>
+                                                    <div className="col-sm-6">
+                                                        <div htmlFor="last_name">Goal (hr/week)</div>
+                                                        <input className="form-control" placeholder="" name="goal_week" type="number" value={this.state.goal_week} onChange={this.handleGoalChange} data-toggle="tooltip" data-placement="bottom" title="How many hours/week are you looking to volunteer? We use this for goal tracking purposes." required />
+                                                    </div>
                                                 </div>
-                                                <div className="col-sm-4">
-                                                    <div htmlFor="last_name">Goal (hr/week)</div>
-                                                    <input className="form-control" placeholder="" name="goal_week" type="number" value={this.state.goal_week} onChange={this.handleGoalChange} data-toggle="tooltip" data-placement="bottom" title="How many hours/week are you looking to volunteer? We use this for goal tracking purposes." required />
+                                                <div className="form-group">
+                                                    <div className="col-sm-12">
+                                                        <div htmlFor="bio">Bio</div>
+                                                        <textarea className="form-control" rows="4" placeholder="" name="bio" type="text" value={this.state.bio} onChange={this.handleBioChange} data-toggle="tooltip" data-placement="bottom" title="Who are you as a volunteer? This information will be displayed on your profile page to be shared with others." required />
+                                                    </div>
                                                 </div>
-                                                <div className="col-sm-12">
-                                                    <div htmlFor="bio">Bio</div>
-                                                    <textarea className="form-control" rows="4" placeholder="" name="bio" type="text" value={this.state.bio} onChange={this.handleBioChange} data-toggle="tooltip" data-placement="bottom" title="Who are you as a volunteer? This information will be displayed on your profile page to be shared with others." required />
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="col-sm-12">
-                                                    <div htmlFor="interests">Interests</div>
-                                                    <div className="row">
-                                                        <div className="col-sm-4">
-                                                            <input className="form-control"
+                                                <div className="form-group">
+                                                    <div className="col-sm-12">
+                                                        <div htmlFor="interests">Interests</div>
+                                                        <div className="row">
+                                                            <div className="col-sm-4">
+                                                                <input className="form-control"
+                                                                    placeholder=""
+                                                                    name="interest1"
+                                                                    type="text"
+                                                                    value={this.state.interest1}
+                                                                    onChange={this.handleInterest1Change}
+                                                                    required
+                                                                    data-toggle="tooltip"
+                                                                    data-placement="bottom"
+                                                                    title="What are your interests in volunteering?" />
+                                                            </div>
+                                                            <div className="col-sm-4"><input
+                                                                className="form-control"
                                                                 placeholder=""
-                                                                name="interest1"
+                                                                name="interest2"
                                                                 type="text"
-                                                                value={this.state.interest1}
-                                                                onChange={this.handleInterest1Change}
-                                                                required
-                                                                data-toggle="tooltip"
-                                                                data-placement="bottom"
-                                                                title="What are your interests in volunteering?" />
-                                                        </div>
-                                                        <div className="col-sm-4"><input
-                                                            className="form-control"
-                                                            placeholder=""
-                                                            name="interest2"
-                                                            type="text"
-                                                            value={this.state.interest2}
-                                                            onChange={this.handleInterest2Change}
-                                                            required />
-                                                        </div>
-                                                        <div className="col-sm-4"><input
-                                                            className="form-control"
-                                                            placeholder=""
-                                                            name="interest3"
-                                                            type="text"
-                                                            value={this.state.interest3}
-                                                            onChange={this.handleInterest3Change}
-                                                            required />
+                                                                value={this.state.interest2}
+                                                                onChange={this.handleInterest2Change}
+                                                                required />
+                                                            </div>
+                                                            <div className="col-sm-4"><input
+                                                                className="form-control"
+                                                                placeholder=""
+                                                                name="interest3"
+                                                                type="text"
+                                                                value={this.state.interest3}
+                                                                onChange={this.handleInterest3Change}
+                                                                required />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="col-sm-12">
-                                                    <div htmlFor="username">Username</div>
-                                                    <input className="form-control" placeholder="" name="username" type="username" value={this.state.username} onChange={this.handleUsernameChange} required />
+                                                <div className="form-group">
+                                                    <div className="col-sm-12">
+                                                        <div htmlFor="image_url">Image URL</div>
+                                                        <input className="form-control" placeholder="" name="image_url" type="text" value={this.state.image_url} onChange={this.handleImageUrlChange} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="col-sm-6">
-                                                    <div htmlFor="password">Password</div>
-                                                    <input data-minlength="6" className="form-control form-password" placeholder="" name="password" type="password" value={this.state.password} onChange={this.handlePasswordChange} required />
-                                                    <div className="help-block">Minimum of 6 characters</div>
+                                                <div className="form-group">
+                                                    <div className="col-sm-6">
+                                                        <div htmlFor="password">Password</div>
+                                                        <input data-minlength="6" className="form-control form-password" placeholder="" name="password" type="password" value={this.state.password} onChange={this.handlePasswordChange} required />
+                                                        <div className="help-block">Minimum of 6 characters</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="col-sm-6">
-                                                    <div htmlFor="password">Confirm Password</div>
-                                                    <input data-minlength="6" className="form-control" placeholder="" name="confirm-password" type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange} required />
+                                                <div className="form-group">
+                                                    <div className="col-sm-6">
+                                                        <div htmlFor="password">Confirm Password</div>
+                                                        <input data-minlength="6" className="form-control" placeholder="" name="confirm-password" type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange} required />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <button href="#" className="btn btn-lg green-btn btn-block">{this.state.message}</button>
-                                        </fieldset>
-                                    </form>
+                                                <button href="#" className="btn btn-lg green-btn btn-block">{this.state.message}</button>
+                                            </fieldset>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="col-md-1"></div>
                         </div>
-                        <div className="col-md-1"></div>
                     </div>
                 </div>
 

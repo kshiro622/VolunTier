@@ -1,6 +1,7 @@
 // Include the Main React Dependency
 var React = require("react");
 var axios = require("axios");
+var ProfileEvent = require("./profileEvent.js");
 var eventHelper = require("../../utils/eventsHelper.js");
 import { Link } from 'react-router'
 
@@ -24,8 +25,7 @@ var Profile = React.createClass({
             goal_week: "",
             goal_week_current: "",
             goal_year_current: "",
-            level: "",
-            events: ""
+            level: ""
         };
     },
 
@@ -43,8 +43,6 @@ var Profile = React.createClass({
                     username: response.data.username,
                     image_url: response.data.image_url,
                     bio: response.data.bio,
-                    past_events: pastEvents,
-                    upcoming_events: upcomingEvents,
                     interest1: response.data.interests[0],
                     interest2: response.data.interests[1],
                     interest3: response.data.interests[2],
@@ -57,9 +55,36 @@ var Profile = React.createClass({
             }.bind(this));
 
         eventHelper.getSavedEvents(currentUser).then(function (response) {
-            var pastEvents;
-            var upcomingEvents;
-            this.setState({ events: response.data.events });
+
+            // get current date
+            var MyDate = new Date();
+            MyDate.setDate(MyDate.getDate());
+            var todaysMonth = parseInt(('0' + (MyDate.getMonth() + 1)).slice(-2));
+            var todaysDay = parseInt(('0' + MyDate.getDate()).slice(-2));
+
+            // separate events into past and upcoming
+            var pastEvents = [];
+            var upcomingEvents = [];
+            var eventsArr = response.data.events
+            for (var i = 0; i < eventsArr.length; i++) {
+                var eventDay = parseInt(eventsArr[i].start.slice(8, 10));
+                var eventMonth = parseInt(eventsArr[i].start.slice(5, 7));
+                var event = eventsArr[i];
+                if (eventMonth < todaysMonth) {
+                    pastEvents.push(event);
+                } else if (eventMonth > todaysMonth) {
+                    upcomingEvents.push(event);
+                } else {
+                    if (eventDay <= todaysDay) {
+                        pastEvents.push(event);
+                    } else if (eventDay > todaysDay) {
+                        upcomingEvents.push(event);
+                    }
+                }
+            }
+            console.log(pastEvents);
+            console.log(upcomingEvents);
+            this.setState({ past_events: pastEvents, upcoming_events: upcomingEvents });
         }.bind(this));
     },
 
@@ -223,7 +248,14 @@ var Profile = React.createClass({
                                         Past Events
                                     </div>
                                     <div className="panel-body">
-                                        <p>Past events here</p>
+                                        <ul>
+                                            {/*{
+                                                this.state.past_events.map(function (object, i) {
+                                                    return <ProfileEvent object={object} key={i} />
+                                                }, this)
+                                            }*/}
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +265,14 @@ var Profile = React.createClass({
                                         Upcoming Events
                                     </div>
                                     <div className="panel-body">
-                                        <p>Upcoming events here</p>
+                                        <ul>
+                                            {/*{
+                                                this.state.upcoming_events.map(function (object, i) {
+                                                    return <ProfileEvent object={object} key={i} />
+                                                }, this)
+                                            }*/}
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

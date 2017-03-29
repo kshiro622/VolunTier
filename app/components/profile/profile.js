@@ -99,9 +99,9 @@ var Profile = React.createClass({
         // set user image to default if no url exists
         var userImage;
         if (this.state.image_url !== "") {
-            userImage = <img src={this.state.image_url} className="img-circle margin-top-50" height="200px" alt="user image" />
+            userImage = <img src={this.state.image_url} className="img-circle margin-top-50 user-img" height="200px" alt="user image" />
         } else {
-            userImage = <img src="assets/images/defaultuser.png" className="img-circle margin-top-50" height="200px" alt="default image" />
+            userImage = <img src="assets/images/defaultuser.png" className="img-circle margin-top-50 user-img" height="200px" alt="default image" />
         }
 
         // component to be rendered
@@ -149,38 +149,44 @@ var Profile = React.createClass({
                                 {userImage}
                             </div>
                             <div className="col-md-8">
-                                <h1 className="margin-top-80">{this.state.name}</h1>
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        <h4 className="text-orange">{this.state.username}</h4>
-                                        <h4>Interests: <span className="interest-font">{this.state.interest1}, {this.state.interest2}, {this.state.interest3}</span></h4>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <h4>Weekly Goal: <span className="text-orange">{this.state.goal_week}</span> hrs</h4>
-                                        <h4>Goal Progress: <span className="text-orange">{this.state.goal_week_current}</span> hrs</h4>
-                                        <h4>Total Hours This Year: <span className="text-orange">{this.state.goal_year_current}</span> hrs</h4>
+                                    <h1 className="margin-top-80 profile-name-text">{this.state.name}</h1>
+                                </div>
+                                <div className="row">
+                                    <div className="panel panel-default user-info">
+                                        <div className="user-panel-body panel-body">
+                                            <div className="col-md-6">
+                                                <h4 className="text-orange">{this.state.username}</h4>
+                                                <h4>Interests: <span className="interest-font">{this.state.interest1}, {this.state.interest2}, {this.state.interest3}</span></h4>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <h4>Weekly Goal: <span className="text-orange">{this.state.goal_week}</span> hrs</h4>
+                                                <h4>Goal Progress: <span className="text-orange">{this.state.goal_week_current}</span> hrs</h4>
+                                                <h4>Total Hours This Year: <span className="text-orange">{this.state.goal_year_current}</span> hrs</h4>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="profile-body margin-top-20">
+                <div className="profile-body margin-top-20-2">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-7">
-                                <div className="panel panel-default">
+                                <div className="panel panel-default panel-height-profile1">
                                     <div className="panel-heading">
                                         <i className="fa fa-user fa-fw"></i>
                                         About:
                                         </div>
-                                    <div className="panel-body">
-                                        <p>{this.state.bio}</p>
+                                    <div className="panel-body about-panel">
+                                        <p className="vertical-mid">{this.state.bio}</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-5">
-                                <div className="panel panel-default">
+                                <div className="panel panel-default panel-height-profile1">
                                     <div className="panel-heading">
                                         <i className="fa fa-heart-o fa-fw"></i>
                                         Level
@@ -197,13 +203,19 @@ var Profile = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <div className="panel panel-default">
+                                <div className="panel panel-default panel-height-profile2">
                                     <div className="panel-heading">
                                         <i className="fa fa-calendar-o fa-fw"></i>
                                         Past Events
                                     </div>
-                                    <div className="panel-body">
+                                    <div className="panel-body scrollbox-events">
                                         {
+                                            this.state.past_events.length === 0 &&
+                                            (<div>No Past Events</div>)
+
+                                        }
+                                        {
+                                            this.state.past_events &&
                                             this.state.past_events.map(function (event, index) {
                                                 return <li key={index}><a href={event.url} target="blank" className="event-link">{event.title}</a></li>
                                             })
@@ -212,13 +224,19 @@ var Profile = React.createClass({
                                 </div>
                             </div>
                             <div className="col-md-6">
-                                <div className="panel panel-default">
+                                <div className="panel panel-default panel-height-profile2">
                                     <div className="panel-heading">
                                         <i className="fa fa-calendar fa-fw"></i>
                                         Upcoming Events
                                     </div>
-                                    <div className="panel-body">
+                                    <div className="panel-body scrollbox-events">
                                         {
+                                            this.state.upcoming_events.length === 0 &&
+                                            (<div>No Upcoming Events</div>)
+
+                                        }
+                                        {
+                                            this.state.upcoming_events &&
                                             this.state.upcoming_events.map(function (event, index) {
                                                 return <li key={index}><a href={event.url} target="blank" className="event-link">{event.title}</a></li>
                                             })

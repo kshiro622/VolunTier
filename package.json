@@ -11,6 +11,7 @@
     "date-input-polyfill": "^2.13.0",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
+    "line-clamp": "0.0.4",
     "moment": "^2.18.1",
     "mongoose": "^4.8.5",
     "passport": "^0.3.2",

@@ -167,7 +167,7 @@ color: #6564DA;
 }
 
 .large-h1 {
-    font-size: 60px;
+    font-size: 40px;
 }
 
 hr {
@@ -676,6 +676,8 @@ body {
 
 .semi-opaque {
     opacity: 0.96;
+    margin-top: 30px;
+    margin-bottom: 100px;
 }
 
 /*Search*/
@@ -770,6 +772,7 @@ textarea {
     overflow: auto;
 }
 
+<<<<<<< HEAD
 .goal-item{
     overflow: hidden;
     float: left;
@@ -815,3 +818,8 @@ textarea {
 ol.sortable{
     position:relative;
 }
+=======
+.tab-content {
+    margin-top: 10px;
+}
+>>>>>>> updates margins

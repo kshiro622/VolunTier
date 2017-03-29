@@ -222,6 +222,17 @@ hr {
     color: white;
 }
 
+.modal-update-btn {
+    background: #14AEF5;
+    color: white;
+}
+
+.modal-update-btn:hover,
+.modal-update-btn:focus {
+    background: #09D2FF;
+    color: white;
+}
+
 .modal-save-btn:hover,
 .modal-save-btn:focus {
     background: #09D2FF;
@@ -290,6 +301,22 @@ hr {
 .img-circle {
     border-radius: 25px;
     margin-top: 25px;
+}
+
+.hours-input-margin {
+    margin-top: 15px;
+}
+
+.add-input-margin {
+    margin-top: 5px;
+}
+
+.add-label-margin {
+    margin-top: 5px;
+}
+
+.padding-fix {
+    padding-left: 0px;
 }
 
 
@@ -636,13 +663,14 @@ body {
     margin-bottom: 5px !important;
 }
 
+
 /*Register*/
 
 .register-form-padding-top {
     padding-top: 0px;
 }
 
-.semi-opaque{
+.semi-opaque {
     opacity: 0.96;
 }
 

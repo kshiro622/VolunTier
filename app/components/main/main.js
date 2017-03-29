@@ -10,8 +10,6 @@ var Calendar = require("./children/calendar");
 var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var GoalTracker = require("./children/goalTracker");
-var Today = require("./children/today");
-var CurrentGoal = require("./children/currentGoal");
 var VolunteerLevel = require("./children/volunteerLevel");
 
 // Creating the Main component
@@ -22,7 +20,8 @@ var Main = React.createClass({
         return {
             first_name: "",
             last_name: "",
-            events:[]
+            events: [],
+
         };
     },
 
@@ -56,15 +55,6 @@ var Main = React.createClass({
         }.bind(this));
     },
 
-    componentDidMount: function () {
-        // what to do when the component mounts
-    },
-
-
-    componentDidUpdate: function () {
-        // what to do when component updates    
-    },
-
     logout: function () {
         event.preventDefault();
         sessionStorage.clear();
@@ -73,7 +63,7 @@ var Main = React.createClass({
                 this.context.router.push('/');
             }.bind(this))
     },
-    updateEvents: function(){
+    updateEvents: function () {
         var currentUser = sessionStorage.getItem('do_good_id');
         console.log('updating events');
         eventHelper.getSavedEvents(currentUser).then(function (response) {
@@ -126,33 +116,20 @@ var Main = React.createClass({
                 <div className="main-background">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-2">
-                                <Today />
-                            </div>
-                            <div className="col-md-6"></div>
-                            <div className="col-md-4">
-                                <div className="row">
-                                    <CurrentGoal />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-8">
+                            <div className="col-sm-8">
                                 <Calendar />
                             </div>
-                            <div className="col-md-4">
-                                <div className="row">
-                                    <GoalTracker />
-                                </div>
-                                <div className="row">
-                                    <VolunteerLevel />
-                                </div>
+                            <div className="col-sm-4">
+                                <GoalTracker />
+                            </div>
+                            <div className="col-sm-4 padding-fix">
+                                <VolunteerLevel />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="row">
-                                    <Search updateEvents={this.updateEvents}/>
+                                    <Search updateEvents={this.updateEvents} />
                                 </div>
                             </div>
                             <div className="col-md-4">

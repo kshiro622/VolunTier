@@ -76,7 +76,7 @@ var CurrentGoal = React.createClass({
                                 <form onSubmit={this.editHours}>
                                     <div className="formGroup row">
                                         <div className="col-sm-12 margin-top-10">
-                                            <label htmlFor="" className="margin-right-10">New Goal: </label>
+                                            <label htmlFor="" className="margin-right-10">New Goal:&nbsp;</label>
                                             <input
                                                 type="number"
                                                 min="0"

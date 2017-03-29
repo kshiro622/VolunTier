@@ -13,12 +13,16 @@ function checkMax(num) {
 var GoalTracker = React.createClass({
     getInitialState: function () {
         return {
+            user_current_week: "",
+            user_current_month: "",
+            user_current_year: "",
             week_goal_current_percent: "",
             month_goal_current_percent: "",
             year_goal_current_percent: "",
             week_goal_current: "",
             month_goal_current: "",
-            year_goal_current: ""
+            year_goal_current: "",
+            add_hours: ""
         };
     },
 
@@ -31,20 +35,57 @@ var GoalTracker = React.createClass({
                 var userWeekGoal = checkMax(Math.floor((response.data.goal_week_current / response.data.goal_week_goal) * 100));
                 var userMonthGoal = checkMax(Math.floor((response.data.goal_month_current / response.data.goal_month_goal) * 100));
                 var userYearGoal = checkMax(Math.floor((response.data.goal_year_current / response.data.goal_year_goal) * 100));
-                var currentWeekGoal = response.data.goal_week_goal;
-                var currentMonthGoal = response.data.goal_month_goal;
-                var currentYearGoal = response.data.goal_year_goal;
 
 
                 this.setState({
+                    user_current_week: response.data.goal_week_current,
+                    user_current_month: response.data.goal_month_current,
+                    user_current_year: response.data.goal_year_current,
                     week_goal_current_percent: userWeekGoal,
                     month_goal_current_percent: userMonthGoal,
                     year_goal_current_percent: userYearGoal,
-                    week_goal_current: currentWeekGoal,
-                    month_goal_current: currentMonthGoal,
-                    year_goal_current: currentYearGoal
+                    week_goal_current: response.data.goal_week_goal,
+                    month_goal_current: response.data.goal_month_goal,
+                    year_goal_current: response.data.goal_year_goal
                 });
 
+            }.bind(this));
+    },
+
+    handleChange: function (event) {
+        this.setState({ add_hours: event.target.value });
+    },
+
+    addHours: function (event) {
+        event.preventDefault();
+
+        var addedHours = {
+            hours: this.state.add_hours,
+            id: sessionStorage.getItem('do_good_id'),
+            current_week: this.state.user_current_week,
+            current_month: this.state.user_current_month,
+            current_year: this.state.user_current_year
+        }
+
+        axios.post('/addhours', addedHours)
+            .then(function (response) {
+                var userWeekGoal = checkMax(Math.floor((response.data.goal_week_current / response.data.goal_week_goal) * 100));
+                var userMonthGoal = checkMax(Math.floor((response.data.goal_month_current / response.data.goal_month_goal) * 100));
+                var userYearGoal = checkMax(Math.floor((response.data.goal_year_current / response.data.goal_year_goal) * 100));
+
+
+                this.setState({
+                    user_current_week: response.data.goal_week_current,
+                    user_current_month: response.data.goal_month_current,
+                    user_current_year: response.data.goal_year_current,
+                    week_goal_current_percent: userWeekGoal,
+                    month_goal_current_percent: userMonthGoal,
+                    year_goal_current_percent: userYearGoal,
+                    week_goal_current: response.data.goal_week_goal,
+                    month_goal_current: response.data.goal_month_goal,
+                    year_goal_current: response.data.goal_year_goal,
+                    add_hours: ""
+                });
             }.bind(this));
     },
 
@@ -77,6 +118,23 @@ var GoalTracker = React.createClass({
                                 <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {
                                     return percentage === 100 ? 'complete' : 'incomplete';
                                 }} />
+                            </div>
+                        </div>
+                        <div className="row hours-input-margin">
+                            <div className="col-sm-12">
+                                <form onSubmit={this.addHours}>
+                                    <div className="formGroup">
+                                        <label className="add-label-margin" htmlFor="">Add hours:&nbsp;</label>
+                                        <input
+                                            className="add-input-margin"
+                                            type="number"
+                                            min="0"
+                                            onChange={this.handleChange}
+                                            value={this.state.add_hours}
+                                            required />
+                                        <button className="btn modal-update-btn pull-right" type="submit">Add</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

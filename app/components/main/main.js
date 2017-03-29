@@ -22,7 +22,8 @@ var Main = React.createClass({
         return {
             first_name: "",
             last_name: "",
-            events:[]
+            events: [],
+
         };
     },
 
@@ -73,7 +74,7 @@ var Main = React.createClass({
                 this.context.router.push('/');
             }.bind(this))
     },
-    updateEvents: function(){
+    updateEvents: function () {
         var currentUser = sessionStorage.getItem('do_good_id');
         console.log('updating events');
         eventHelper.getSavedEvents(currentUser).then(function (response) {
@@ -83,6 +84,18 @@ var Main = React.createClass({
             $('#calendar').fullCalendar('addEventSource', eventsArr);
             $('#calendar').fullCalendar('rerenderEvents');
         }.bind(this));
+    },
+
+    updateTracker: function () {
+        var currentUser = sessionStorage.getItem('do_good_id');
+        var userRoute = '/user/' + currentUser;
+
+        axios.get(userRoute)
+            .then(function (response) {
+                this.setState({
+
+                });
+            }.bind(this))
     },
 
     // Here we render the function
@@ -152,7 +165,7 @@ var Main = React.createClass({
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="row">
-                                    <Search updateEvents={this.updateEvents}/>
+                                    <Search updateEvents={this.updateEvents} />
                                 </div>
                             </div>
                             <div className="col-md-4">

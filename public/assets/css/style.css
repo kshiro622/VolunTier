@@ -851,4 +851,11 @@ ol.sortable{
     background: white;
     height: 300px;
 }
+<<<<<<< HEAD
 >>>>>>> creates profile component
+=======
+
+.center-align {
+    text-align: center;
+}
+>>>>>>> adds axios call to set states for profile component

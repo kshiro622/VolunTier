@@ -335,5 +335,21 @@ router.post('/addhours', function (req, res) {
     });
 });
 
+router.post('/delhours', function (req, res) {
+    user.findOneAndUpdate({ _id: req.body.id }, {
+        $set: {
+            goal_week_current: Number(req.body.current_week) - Number(req.body.hours),
+            goal_month_current: Number(req.body.current_month) - Number(req.body.hours),
+            goal_year_current: Number(req.body.current_year) - Number(req.body.hours)
+        }
+    }, function (err, respon) {
+        if (err) console.log(err);
+        user.findOne({ '_id': req.body.id }, function (err, user) {
+            if (err) return handleError(err);
+            res.send(user);
+        })
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;

@@ -302,12 +302,20 @@ color: black;
     margin-bottom: 20px;
 }
 
+.margin-bottom-25 {
+    margin-bottom: 25px;
+}
+
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
 
 .margin-bottom-50 {
     margin-bottom: 50px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
 }
 
 .img-circle {
@@ -332,6 +340,10 @@ color: black;
 
 .padding-fix {
     padding-left: 0px;
+}
+
+.goal-tracker-panel-height {
+    height: 660px;
 }
 
 

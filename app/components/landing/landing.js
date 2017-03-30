@@ -130,7 +130,7 @@ var Landing = React.createClass({
                                 <i className="fa fa-comments fa-fw text-orange"></i>
                                 <h3 className="caps">Connect with Others</h3>
                                 <p>Find others with similar interests and locations. Connecting with other volunteers can help make giving back even better.</p>
-                                <button type="button" className="btn btn-lg orange-btn margin-top-50">Find Connections</button>
+                                <button type="button" className="btn btn-lg orange-btn margin-top-50" onClick={this.registerPageClick}>Find Connections</button>
                             </div>
                         </div>
                     </div>

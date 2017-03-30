@@ -326,9 +326,10 @@ color: black;
     margin-top: 15px;
 }
 
-.pad-top {
+
+/*.pad-top {
     margin-top: 5px
-}
+}*/
 
 .add-input-margin {
     margin-top: 5px;
@@ -693,6 +694,10 @@ body {
 
 .dropdown-user {
     margin-top: 3px;
+}
+
+.connect-img {
+    height: 20px;
 }
 
 .form-control {

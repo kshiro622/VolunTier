@@ -158,32 +158,63 @@ var Landing = React.createClass({
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="row footer-top">
                         <div className="container">
-                            <div className="col-md-4">
+                            <div className="col-md-2">
                                 <h4 className="footer-top-text">Made By</h4>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <div className="row top-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">Aisha Ahmad</a>
+                                    <p>Aisha Ahmad&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/aisha-ahmad/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                                 <div className="row bottom-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
+                                    <p>Justin Carlson&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/justinryancarlson/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <div className="row top-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
+                                    <p>Katie Shiro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/kshiro622">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/katie-shiro/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                                 <div className="row bottom-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
+                                    <p>Hadi Yousufi&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/hadicodes">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/hadiyousufi/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
+                            <div className="col-md-4"></div>
                         </div>
                     </div>
                     <div className="row footer-bottom">
                         <div className="container">
                             <div className="col-sm-12 footer-txt">
-                                Join The Discussion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="email" id="email" placeholder="&nbsp;Email" />
+                                Join The Discussion&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <a target="_blank" className="footer-link" href="https://github.com/kshiro622/do-good-app">
+                                    <img src="assets/images/GitHub_logo.png" alt="GitHub" className="connect-img" />
+                                </a>
                                 <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>
                         </div>

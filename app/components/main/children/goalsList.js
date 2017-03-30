@@ -1,7 +1,8 @@
 var React = require("react");
 var goalsListHelper = require("../../../utils/goalsListHelper.js");
 var GoalsForm = require("./grandchildren/goalsForm");
-var Goal = require('./grandchildren/goal.js');
+var Goal = require('./grandchildren/goal.js');  
+const { List} = require('immutable')
 
 var GoalsList = React.createClass({
     getInitialState: function () {

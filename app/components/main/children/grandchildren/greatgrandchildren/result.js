@@ -2,7 +2,6 @@
 var React = require("react");
 var eventHelper = require("../../../../../utils/eventsHelper.js");
 var dateInputPolyfill = require("date-input-polyfill");
-var lineClamp = require('line-clamp');
 
 var Result = React.createClass({
     getInitialState: function () {

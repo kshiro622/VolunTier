@@ -192,9 +192,11 @@ var GoalTracker = React.createClass({
                             <h5 className="your-weekly-goal">
                                 <i className="fa fa-star fa-fw"></i>
                                 My goal is <span id="goal">{this.state.current_goal} hours</span> per week
-                    </h5>
+                            </h5>
                             <button className="btn btn-xs btn-edit pull-right" onClick={this.handleEdit}><i className="fa fa-edit fa-fw"></i></button>
                         </div>
+
+                        {/*Edit Weekly Goal Modal*/}
                         <div className="modal fade" id="edit-hours">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
@@ -227,6 +229,8 @@ var GoalTracker = React.createClass({
                                 </div>
                             </div>
                         </div>
+
+                        {/*Add Hours Modal*/}
                         <div className="modal fade" id="add-hours">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
@@ -259,6 +263,8 @@ var GoalTracker = React.createClass({
                                 </div>
                             </div>
                         </div>
+
+                        {/*Delete Hours Modal*/}
                         <div className="modal fade" id="del-hours">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
@@ -293,6 +299,8 @@ var GoalTracker = React.createClass({
                         </div>
                     </div>
                 </div>
+
+                {/*Goal Tracker Panel*/}
                 <div className="row">
                     <div className="col-sm-12 padding-fix">
                         <div className="panel panel-default goal-tracker-panel-height">
@@ -302,50 +310,73 @@ var GoalTracker = React.createClass({
                                     Goal Tracker
                                 </p>
                             </div>
+
+                            {/*Weekly Goal*/}
                             <div className="panel-body">
                                 <div className="row">
-                                    <div className="col-sm-5">
-                                        <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.week_goal_current} hrs/week</div>
-                                        <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
-                                        <div className="text-center">{this.state.user_current_week} hours</div>
+                                    <div className="panel panel-default wmy-panel">
+                                        <div className="panel-body">
+                                            <div className="col-sm-5">
+                                                <h4>Week</h4>
+                                                <div className="text-center margin-top-20-2"><b>Goal</b></div>
+                                                <div className="text-center">{this.state.week_goal_current} hours</div>
+                                                <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
+                                                <div className="text-center">{this.state.user_current_week} hours</div>
+                                            </div>
+                                            <div className="col-sm-6 progress-center">
+                                                <CircularProgressbar percentage={this.state.week_goal_current_percent} classForPercentage={(percentage) => {
+                                                    return percentage === 100 ? 'complete' : 'incomplete';
+                                                }} />
+                                            </div>
+                                            <div className="col-sm-1"></div>
+                                        </div>
                                     </div>
-                                    <div className="col-sm-6 progress-center">
-                                        <CircularProgressbar percentage={this.state.week_goal_current_percent} classForPercentage={(percentage) => {
-                                            return percentage === 100 ? 'complete' : 'incomplete';
-                                        }} />
-                                    </div>
-                                    <div className="col-sm-1"></div>
                                 </div>
-                                <div className="row margin-top-10">
-                                    <div className="col-sm-5">
-                                        <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.month_goal_current} hrs/week</div>
-                                        <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
-                                        <div className="text-center">{this.state.user_current_month} hours</div>
+
+                                {/*Month Goals*/}
+                                <div className="row">
+                                    <div className="panel panel-default wmy-panel">
+                                        <div className="panel-body">
+                                            <div className="col-sm-5">
+                                                <h4>Month</h4>
+                                                <div className="text-center margin-top-20-2"><b>Goal</b></div>
+                                                <div className="text-center">{this.state.month_goal_current} hours</div>
+                                                <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
+                                                <div className="text-center">{this.state.user_current_month} hours</div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <CircularProgressbar percentage={this.state.month_goal_current_percent} classForPercentage={(percentage) => {
+                                                    return percentage === 100 ? 'complete' : 'incomplete';
+                                                }} />
+                                            </div>
+                                            <div className="col-sm-1"></div>
+                                        </div>
                                     </div>
-                                    <div className="col-sm-6">
-                                        <CircularProgressbar percentage={this.state.month_goal_current_percent} classForPercentage={(percentage) => {
-                                            return percentage === 100 ? 'complete' : 'incomplete';
-                                        }} />
-                                    </div>
-                                    <div className="col-sm-1"></div>
                                 </div>
-                                <div className="row margin-top-10">
-                                    <div className="col-sm-5">
-                                        <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.year_goal_current} hrs/week</div>
-                                        <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
-                                        <div className="text-center">{this.state.user_current_year} hours</div>
+
+                                {/*Year Goals*/}
+                                <div className="row">
+                                    <div className="panel panel-default wmy-panel">
+                                        <div className="panel-body">
+                                            <div className="col-sm-5">
+                                                <h4>Year</h4>
+                                                <div className="text-center margin-top-20-2"><b>Goal</b></div>
+                                                <div className="text-center">{this.state.year_goal_current} hours</div>
+                                                <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
+                                                <div className="text-center">{this.state.user_current_year} hours</div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {
+                                                    return percentage === 100 ? 'complete' : 'incomplete';
+                                                }} />
+                                            </div>
+                                            <div className="col-sm-1"></div>
+                                        </div>
                                     </div>
-                                    <div className="col-sm-6">
-                                        <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {
-                                            return percentage === 100 ? 'complete' : 'incomplete';
-                                        }} />
-                                    </div>
-                                    <div className="col-sm-1"></div>
                                 </div>
-                                <div className="row margin-top-25">
+
+                                {/*Add Hours Button*/}
+                                <div className="row">
                                     <div className="col-sm-6">
                                         <form onSubmit={this.handleAdd}>
                                             <div className="formGroup">
@@ -353,6 +384,8 @@ var GoalTracker = React.createClass({
                                             </div>
                                         </form>
                                     </div>
+
+                                    {/*Delete Hours Button*/}
                                     <div className="col-sm-6">
                                         <form onSubmit={this.handleDelete}>
                                             <div className="formGroup">

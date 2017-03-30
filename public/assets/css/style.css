@@ -294,6 +294,10 @@ color: black;
     margin-top: 10px;
 }
 
+.margin-top-5 {
+    margin-top: 5px;
+}
+
 .margin-right-10 {
     margin-right: 10px;
 }
@@ -344,6 +348,14 @@ color: black;
 
 .goal-tracker-panel-height {
     height: 660px;
+}
+
+.wmy-panel {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 

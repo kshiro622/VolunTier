@@ -18,7 +18,7 @@ var helper = {
     },
     //update Goal
     updateGoal: function (goalId) {
-        return axios.update('/api/goals/' + goalId);
+        return axios.put('/api/goals/' + goalId);
     }
 
 };

@@ -187,7 +187,7 @@ router.delete("/api/goals/:userId/:goalId", function (req, res) {
 });
 
 // router.put("/api/goals/:goalId", function (req, res) {
-//     Goal.findByIdAndUpdate(req.param.goalId, { $set: req.body }, function (error, doc) {
+//     Goal.findByIdAndUpdate(req.params.goalId, { $set: req.body }, function (error, doc) {
 //         if (error) {
 //             console.log(error);
 //         }
@@ -301,6 +301,22 @@ router.delete("/api/events/:userId/:eventId", function (req, res) {
         }
     });
 });
+
+router.put("/api/events/:eventId", function (req, res) {
+    Event.findByIdAndUpdate(req.params.eventId, { $set: {
+        start: req.body.start,
+        end: req.body.end
+    } }, function (error, doc) {
+        if (error) {
+            console.log(error);
+        }
+    });
+});
+
+
+// =======================================================
+// Goal Tracker routes
+// =======================================================
 
 router.put('/goalupdate/:id', function (req, res) {
     console.log(req.body);

@@ -2,7 +2,6 @@
 var React = require("react");
 var eventHelper = require("../../../../../utils/eventsHelper.js");
 var dateInputPolyfill = require("date-input-polyfill");
-var lineClamp = require('line-clamp');
 
 var Result = React.createClass({
     getInitialState: function () {
@@ -78,7 +77,7 @@ var Result = React.createClass({
                                             <input
                                                 type="date"
                                                 onChange={this.startDateChange}
-                                                value={this.props.availability.startDate ? this.props.availability.startDate : this.state.startDate}
+                                                value={this.props.availability.startDate && this.props.availability.singleDayOpportunity ? this.props.availability.startDate : this.state.startDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
@@ -86,7 +85,7 @@ var Result = React.createClass({
                                             <input
                                                 type="time"
                                                 onChange={this.startTimeChange}
-                                                value={this.props.availability.startTime ? this.props.availability.startTime : this.state.startTime}
+                                                value={this.props.availability.startTime && this.props.availability.singleDayOpportunity ? this.props.availability.startTime : this.state.startTime}
                                                 required />
                                         </div>
                                     </div>
@@ -96,7 +95,7 @@ var Result = React.createClass({
                                             <input
                                                 type="date"
                                                 onChange={this.endDateChange}
-                                                value={this.props.availability.endDate ? this.props.availability.endDate : this.state.endDate}
+                                                value={this.props.availability.endDate && this.props.availability.singleDayOpportunity ? this.props.availability.endDate : this.state.endDate}
                                                 required />
                                         </div>
                                         <div className="col-sm-6 margin-top-10">
@@ -104,7 +103,7 @@ var Result = React.createClass({
                                             <input
                                                 type="time"
                                                 onChange={this.endTimeChange}
-                                                value={this.props.availability.endTime ? this.props.availability.endTime : this.state.endTime}
+                                                value={this.props.availability.endTime  && this.props.availability.singleDayOpportunity? this.props.availability.endTime : this.state.endTime}
                                                 required />
                                         </div>
                                     </div>

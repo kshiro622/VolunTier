@@ -17,8 +17,8 @@ var helper = {
         return axios.delete('/api/events/'+userId + '/' + eventId );
     },
     //update event
-    updateEvent: function (goalId) {
-        return axios.update('/api/events/' + eventId);
+    updateEvent: function (eventId, eventDetails) {
+        return axios.put('/api/events/' + eventId, eventDetails);
     }
 
 };

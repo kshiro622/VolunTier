@@ -10,6 +10,7 @@ var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var GoalTracker = require("./children/goalTracker");
 var VolunteerLevel = require("./children/volunteerLevel");
+var EventModal = require("./children/eventModal");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -48,7 +49,13 @@ var Main = React.createClass({
                     center: 'title',
                     right: 'agendaDay,agendaWeek,month,listWeek'
                 },
-                events: eventsArr
+                events: eventsArr,
+                eventClick: function(calEvent, jsEvent, view) {
+                    $('#event-update-modal-'+calEvent._id).modal('show');
+                    if (calEvent.url) {
+                        return false;
+                    }
+                }
             });
         }.bind(this));
 
@@ -68,9 +75,9 @@ var Main = React.createClass({
                 this.context.router.push('/');
             }.bind(this))
     },
+
     updateEvents: function () {
         var currentUser = sessionStorage.getItem('do_good_id');
-        console.log('updating events');
         eventHelper.getSavedEvents(currentUser).then(function (response) {
             this.setState({ events: response.data.events });
             var eventsArr = this.state.events;
@@ -124,6 +131,11 @@ var Main = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8">
+                                {this.state.events.map(function(element, index){
+                                    return(
+                                        <EventModal key={index} _id={element._id} modalId={'event-update-modal-'+element._id} title={element.title} url={element.url} start={element.start} end={element.end} updateEvents={this.updateEvents}/>
+                                    );
+                                }, this)}
                                 <Calendar />
                             </div>
                             <div className="col-sm-4">

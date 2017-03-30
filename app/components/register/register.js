@@ -333,7 +333,7 @@ var Register = React.createClass({
                             <div className="col-sm-12 footer-txt">
                                 Join The Discussion&nbsp;&nbsp;|&nbsp;&nbsp;
                                 <a target="_blank" className="footer-link" href="https://github.com/kshiro622/do-good-app">
-                                    <img src="assets/images/GitHub_logo.png" alt="GitHub" className="connect-img" />
+                                    <img src="assets/images/gh.png" alt="GitHub" className="connect-img" />
                                 </a>
                                 <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>

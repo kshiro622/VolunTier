@@ -51,8 +51,8 @@ var Main = React.createClass({
                     right: 'agendaDay,agendaWeek,month,listWeek'
                 },
                 events: eventsArr,
-                eventClick: function(calEvent, jsEvent, view) {
-                    $('#event-update-modal-'+calEvent._id).modal('show');
+                eventClick: function (calEvent, jsEvent, view) {
+                    $('#event-update-modal-' + calEvent._id).modal('show');
                     if (calEvent.url) {
                         return false;
                     }
@@ -136,9 +136,9 @@ var Main = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8">
-                                {this.state.events.map(function(element, index){
-                                    return(
-                                        <EventModal key={index} _id={element._id} modalId={'event-update-modal-'+element._id} title={element.title} url={element.url} start={element.start} end={element.end} updateEvents={this.updateEvents}/>
+                                {this.state.events.map(function (element, index) {
+                                    return (
+                                        <EventModal key={index} _id={element._id} modalId={'event-update-modal-' + element._id} title={element.title} url={element.url} start={element.start} end={element.end} updateEvents={this.updateEvents} />
                                     );
                                 }, this)}
                                 <Calendar />
@@ -154,10 +154,10 @@ var Main = React.createClass({
                                 </div>
                             </div>
                             <div className="col-md-4">
-                                <div className="row">
+                                <div className="row padding-right-fix">
                                     <VolunteerLevel />
                                 </div>
-                                <div className="row">
+                                <div className="row padding-right-fix">
                                     <GoalsList />
                                 </div>
                             </div>

@@ -305,10 +305,9 @@ var GoalTracker = React.createClass({
                             <div className="panel-body">
                                 <div className="row">
                                     <div className="col-sm-5">
-                                        <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.week_goal_current} hrs/week</div>
-                                        <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
-                                        <div className="text-center">{this.state.user_current_week} hours</div>
+                                        <h4 className="text-left margin-top-10"><b>Week</b></h4>
+                                        <div className="text-left margin-left-20 margin-top-30">Goal: {this.state.week_goal_current} hours</div>
+                                        <div className="text-left margin-left-20">Complete: {this.state.user_current_week} hours</div>
                                     </div>
                                     <div className="col-sm-6 progress-center">
                                         <CircularProgressbar percentage={this.state.week_goal_current_percent} classForPercentage={(percentage) => {
@@ -319,10 +318,9 @@ var GoalTracker = React.createClass({
                                 </div>
                                 <div className="row margin-top-10">
                                     <div className="col-sm-5">
-                                        <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.month_goal_current} hrs/month</div>
-                                        <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
-                                        <div className="text-center">{this.state.user_current_month} hours</div>
+                                        <h4 className="text-left margin-top-10"><b>Month</b></h4>
+                                        <div className="text-left margin-left-20 margin-top-30">Goal: {this.state.month_goal_current} hours</div>
+                                        <div className="text-left margin-left-20">Complete: {this.state.user_current_month} hours</div>
                                     </div>
                                     <div className="col-sm-6">
                                         <CircularProgressbar percentage={this.state.month_goal_current_percent} classForPercentage={(percentage) => {
@@ -333,10 +331,9 @@ var GoalTracker = React.createClass({
                                 </div>
                                 <div className="row margin-top-10">
                                     <div className="col-sm-5">
-                                        <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.year_goal_current} hrs/year</div>
-                                        <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
-                                        <div className="text-center">{this.state.user_current_year} hours</div>
+                                        <h4 className="text-left margin-top-10"><b>Year</b></h4>
+                                        <div className="text-left margin-left-20 margin-top-30">Goal: {this.state.year_goal_current} hours</div>
+                                        <div className="text-left margin-left-20">Complete: {this.state.user_current_year} hours</div>
                                     </div>
                                     <div className="col-sm-6">
                                         <CircularProgressbar percentage={this.state.year_goal_current_percent} classForPercentage={(percentage) => {

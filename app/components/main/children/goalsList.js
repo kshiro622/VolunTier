@@ -12,6 +12,17 @@ var GoalsList = React.createClass({
         goalsListHelper.getSavedGoals(userId).then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));
+        $(".sortable").sortable({
+                axis: 'y',
+                containment: "#goals-containment"
+            }).disableSelection();
+        $( ".sortable" ).on( "sortupdate", function( event, ui ) {
+            var goalsArr = $('.sortable>li').map(function(index, element){
+                return $(element).data('id');
+            }).toArray();
+            this.updateGoalsArray(goalsArr);
+        }.bind(this));
+
     },
     deleteGoalAndUpdate: function (deletedGoal) {
         const userId = sessionStorage.getItem('do_good_id');
@@ -24,6 +35,10 @@ var GoalsList = React.createClass({
         goalsListHelper.addGoal(newGoal, userId).then(function (response) {
             this.setState({ goals: response.data.goals });
         }.bind(this));
+    },
+    updateGoalsArray: function(goalsArr){
+        const userId = sessionStorage.getItem('do_good_id');
+        goalsListHelper.updateGoals(userId, goalsArr);
     },
     render: function () {
         return (
@@ -44,19 +59,25 @@ var GoalsList = React.createClass({
                             </div>
                         )
                     }
-                    <div>
-                        {
-                            this.state.goals &&
-                            this.state.goals.map(function (element, index) {
-                                return (
-                                    <Goal key={index}
-                                        goalText={element.goalText}
-                                        id={element._id}
-                                        deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
-                                );
-                            }, this)
-                        }
+                    <div className="row" id="goals-containment">
+                        <div className="col-sm-12">
+                            <ul className="sortable">
+                                {
+                                    this.state.goals &&
+                                    this.state.goals.map(function (element, index) {
+                                        return (
+                                            <Goal key={index}
+                                                goalText={element.goalText}
+                                                id={element._id}
+                                                deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
+                                        );
+                                    }, this)
+                                }
+                            </ul>
+                        </div>
+                        
                     </div>
+                    
                 </div >
             </div>
         )

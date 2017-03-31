@@ -8,7 +8,7 @@ var Goal = React.createClass({
     },
     render: function () {
         return (
-            <li className="list-group-item goal-item grow">
+            <li className="list-group-item goal-item grow" data-id={this.props.id}>
                 <span>
                     <i className="fa fa-bars" aria-hidden="true"></i>
                     <strong> {this.props.goalText}</strong>

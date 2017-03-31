@@ -11,7 +11,7 @@ var Results = require('./grandchildren/results');
 var Search = React.createClass({
     // initial state
     getInitialState: function () {
-        return { results: [] };
+        return { results: [], options:'' };
     },
     // a search term was entered
     searchVM: function (options) {
@@ -21,8 +21,11 @@ var Search = React.createClass({
                 this.setState({ results: response.data.opportunities });
             }
             $('#matches-tab').tab('show');
+            $( "div.scrollbox" ).scrollTop( 0 )
         }.bind(this));
-        this.setState({ results: [] });
+    },
+    setOptions: function(optionsTxt){
+        this.setState({options: optionsTxt});
     },
     render: function () {
         return (
@@ -38,12 +41,10 @@ var Search = React.createClass({
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane active" id="search-pane">
-                                <Form searchVM={this.searchVM} />
+                                <Form searchVM={this.searchVM} setOptions={this.setOptions}/>
                             </div>
                             <div role="tabpanel" className="tab-pane" id="matches-pane">
-                                <div className="scrollbox">
-                                    <Results results={this.state.results} updateEvents={this.props.updateEvents}/>
-                                </div>
+                                <Results results={this.state.results} updateEvents={this.props.updateEvents} options={this.state.options} searchVM={this.searchVM} />
                             </div>
                         </div>
                     </div>

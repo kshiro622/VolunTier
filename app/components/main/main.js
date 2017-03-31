@@ -10,6 +10,7 @@ var Search = require("./children/search");
 var GoalsList = require("./children/goalsList");
 var GoalTracker = require("./children/goalTracker");
 var VolunteerLevel = require("./children/volunteerLevel");
+var EventModal = require("./children/eventModal");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -48,7 +49,13 @@ var Main = React.createClass({
                     center: 'title',
                     right: 'agendaDay,agendaWeek,month,listWeek'
                 },
-                events: eventsArr
+                events: eventsArr,
+                eventClick: function(calEvent, jsEvent, view) {
+                    $('#event-update-modal-'+calEvent._id).modal('show');
+                    if (calEvent.url) {
+                        return false;
+                    }
+                }
             });
         }.bind(this));
 
@@ -68,9 +75,9 @@ var Main = React.createClass({
                 this.context.router.push('/');
             }.bind(this))
     },
+
     updateEvents: function () {
         var currentUser = sessionStorage.getItem('do_good_id');
-        console.log('updating events');
         eventHelper.getSavedEvents(currentUser).then(function (response) {
             this.setState({ events: response.data.events });
             var eventsArr = this.state.events;
@@ -124,6 +131,11 @@ var Main = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8">
+                                {this.state.events.map(function(element, index){
+                                    return(
+                                        <EventModal key={index} _id={element._id} modalId={'event-update-modal-'+element._id} title={element.title} url={element.url} start={element.start} end={element.end} updateEvents={this.updateEvents}/>
+                                    );
+                                }, this)}
                                 <Calendar />
                             </div>
                             <div className="col-sm-4">
@@ -151,32 +163,63 @@ var Main = React.createClass({
                 <footer className="navbar navbar-default navbar-static-bottom footer" role="navigation" style={{ marginBottom: 0 }}>
                     <div className="row footer-top">
                         <div className="container">
-                            <div className="col-md-4">
+                            <div className="col-md-2">
                                 <h4 className="footer-top-text">Made By</h4>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <div className="row top-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">Aisha Ahmad</a>
+                                    <p>Aisha Ahmad&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/aishaprograms">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/aisha-ahmad/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                                 <div className="row bottom-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">Justin Carlson</a>
+                                    <p>Justin Carlson&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/JustinRyanCarlson">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/justinryancarlson/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <div className="row top-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/kshiro622">Katie Shiro</a>
+                                    <p>Katie Shiro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/kshiro622">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/katie-shiro/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                                 <div className="row bottom-link">
-                                    <a target="_blank" className="footer-link" href="https://github.com/hadicodes">Hadi Yousufi</a>
+                                    <p>Hadi Yousufi&nbsp;&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://github.com/hadicodes">
+                                            <img src="assets/images/githubicon.png" alt="GitHub" className="connect-img" />
+                                        </a>&nbsp;&nbsp;
+                                        <a target="_blank" className="footer-link" href="https://www.linkedin.com/in/hadiyousufi/">
+                                            <img src="assets/images/linkedinicon.png" alt="LinkedIn" className="connect-img" />
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
+                            <div className="col-md-4"></div>
                         </div>
                     </div>
                     <div className="row footer-bottom">
                         <div className="container">
                             <div className="col-sm-12 footer-txt">
-                                Join The Discussion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="email" id="email" placeholder="&nbsp;Email" />
+                                Join The Discussion&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <a target="_blank" className="footer-link" href="https://github.com/kshiro622/do-good-app">
+                                    <img src="assets/images/gh.png" alt="GitHub" className="connect-img" />
+                                </a>
                                 <span className="pull-right">VolunTier &copy; 2017</span>
                             </div>
                         </div>

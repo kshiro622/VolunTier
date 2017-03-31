@@ -10,7 +10,7 @@ var favicon = require('serve-favicon');
 var PORT = process.env.PORT || 8080;
 
 // Connects to the MongoDB.
-mongoose.connect('mongodb://localhost/do_good');
+mongoose.connect('mongodb://heroku_wwnw1cmk:585iovp2klnp8hc99lk1aacejo@ds147080.mlab.com:47080/heroku_wwnw1cmk');
 
 var user = require('./models/user.js')
 

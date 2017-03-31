@@ -255,6 +255,11 @@ color: black;
     color: white;
 }
 
+.cancel-event-btn {
+    margin-top: 30px;
+    text-align: right;
+}
+
 
 /*Margins*/
 
@@ -282,6 +287,10 @@ color: black;
     margin-top: 50px;
 }
 
+.margin-top-30 {
+    margin-top: 30px;
+}
+
 .margin-top-25 {
     margin-top: 25px;
 }
@@ -296,6 +305,10 @@ color: black;
 
 .margin-right-10 {
     margin-right: 10px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
 }
 
 .margin-bottom-20 {
@@ -341,6 +354,10 @@ color: black;
 
 .padding-fix {
     padding-left: 0px;
+}
+
+.padding-right-fix {
+    padding-right: 15px;
 }
 
 .goal-tracker-panel-height {
@@ -535,11 +552,11 @@ blockquote p:after {
 }
 
 .level-text {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .level-title {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .badge {
@@ -805,18 +822,19 @@ body {
     font-weight: bold;
 }
 
-.margin-left-10{
+.margin-left-10 {
     margin-left: 10px;
 }
 
-.category-fa{
-    margin:5px;
+.category-fa {
+    margin: 5px;
     font-size: 20px;
 }
 
-#sortSelect{
+#sortSelect {
     width: 200px;
 }
+
 
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 
@@ -968,8 +986,10 @@ ul.sortable {
     margin-top: 10px;
 }
 
+
 /*Info modal*/
-.info-img{
+
+.info-img {
     border: lightgray solid 1px;
     border-radius: 2px;
 }

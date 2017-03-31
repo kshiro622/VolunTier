@@ -11,6 +11,7 @@ var GoalsList = require("./children/goalsList");
 var GoalTracker = require("./children/goalTracker");
 var VolunteerLevel = require("./children/volunteerLevel");
 var EventModal = require("./children/eventModal");
+var InfoModal = require("./children/infoModal");
 
 // Creating the Main component
 var Main = React.createClass({
@@ -118,6 +119,9 @@ var Main = React.createClass({
                                             Profile
                                          </Link>
                                     </li>
+                                    <li>
+                                        <a data-toggle="modal" data-target="#infoModal"><i className="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                    </li>
                                     <li className="divider"></li>
                                     <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>
                                     </li>
@@ -128,6 +132,7 @@ var Main = React.createClass({
                 </nav>
 
                 <div className="main-background">
+                    <InfoModal />
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8">

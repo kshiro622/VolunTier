@@ -967,3 +967,9 @@ ul.sortable {
 .tab-content {
     margin-top: 10px;
 }
+
+/*Info modal*/
+.info-img{
+    border: lightgray solid 1px;
+    border-radius: 2px;
+}

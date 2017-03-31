@@ -805,6 +805,18 @@ body {
     font-weight: bold;
 }
 
+.margin-left-10{
+    margin-left: 10px;
+}
+
+.category-fa{
+    margin:5px;
+    font-size: 20px;
+}
+
+#sortSelect{
+    width: 200px;
+}
 
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 
@@ -826,11 +838,6 @@ label:focus,
 
 textarea {
     resize: none;
-}
-
-.scrollbox {
-    height: 440px;
-    overflow: auto;
 }
 
 

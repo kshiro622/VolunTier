@@ -6,7 +6,7 @@ var Form = React.createClass({
 
   // set search keyword state
   getInitialState: function () {
-    return { keyword: "", category: "", location: "" };
+    return { keyword: "", category: "", location: "", startDate:"", endDate:"" };
   },
   // This function will respond to the user input
   handleKeywordChange: function (event) {
@@ -19,6 +19,12 @@ var Form = React.createClass({
   // This function will respond to the user input
   handleLocationChange: function (event) {
     this.setState({ location: event.target.value });
+  },
+  startDateChange: function (event) {
+      this.setState({ startDate: event.target.value });
+  },
+  endDateChange: function (event) {
+      this.setState({ endDate: event.target.value });
   },
   getLocation: function(event){
     var ipURL = 'http://ipinfo.io';
@@ -43,11 +49,16 @@ var Form = React.createClass({
     if(this.state.category!==''){
         optionsObj["categoryIds"] = [this.state.category];  
     }
+    if(this.state.startDate!=='' && this.state.endDate!==''){
+        optionsObj["dateRanges"] = [{'startDate': this.state.startDate, 'endDate': this.state.endDate}];
+    }
     optionsObj["location"] = this.state.location;
     optionsObj["numberOfResults"] = 10;
     this.props.searchVM(optionsObj);
+    this.props.setOptions(JSON.stringify(optionsObj));
     this.setState({ keyword: "", category: "", location: "" });
     document.getElementById("vm-form").reset();
+    document.getElementById("sort-form").reset();
 
   },
   handleVirtualSearch: function(){
@@ -55,6 +66,7 @@ var Form = React.createClass({
       optionsObj["virtual"] = true;
       optionsObj["numberOfResults"] = 10;
       this.props.searchVM(optionsObj);
+      this.props.setOptions(JSON.stringify(optionsObj));
   },
   // Here we describe this component's render method
   render: function () {
@@ -118,9 +130,9 @@ var Form = React.createClass({
               <option value="30">Animals</option>
               <option value="34">Arts & Culture</option>
               <option value="22">Children & Youth</option>
+              <option value="25">Community</option>
               <option value="37">Computers & Technology</option>
               <option value="14">Crisis Support</option>
-              <option value="17">Disabled</option>
               <option value="42">Disaster Relief</option>
               <option value="15">Education & Literacy</option>
               <option value="28">Emergency & Safety</option>
@@ -132,6 +144,7 @@ var Form = React.createClass({
               <option value="29">International</option>
               <option value="5">Justice & Legal</option>
               <option value="40">Media & Broadcasting</option>
+              <option value="17">People with Disabilities</option>
               <option value="6">Politics</option>
               <option value="33">Race & Ethnicity</option>
               <option value="36">Religion</option>
@@ -141,6 +154,35 @@ var Form = React.createClass({
               <option value="3">Women</option>
             </select>
           </div>
+           <div className="form-group row">
+              <div className="col-sm-6">
+                  <label htmlFor="startDate" className="">Start Date</label>
+                  <input
+                      className="form-control"
+                      type="date"
+                      id="startDate"
+                      onChange={this.startDateChange}
+                      value={this.state.startDate}
+                      data-toggle="tooltip" 
+                      data-placement="top" 
+                      title="Select the start date. If you select a start date, you must select an end date, too. This is optional."
+                  />
+              </div>
+              <div className="col-sm-6">
+                <label htmlFor="endDate" className="">End Date</label>
+                <input
+                    className="form-control"
+                    type="date"
+                    id="endDate"
+                    onChange={this.endDateChange}
+                    value={this.state.endDate}
+                    data-toggle="tooltip" 
+                    data-placement="top" 
+                    title="Select the start date. If you select a start date, you must select an end date, too. This is optional."
+                  />
+            </div>
+          </div>
+
           <button
             className="btn green-btn"
             type="submit"

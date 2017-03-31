@@ -28,7 +28,12 @@ let vmHelper = {
         key: key,
         action: 'searchOpportunities',
         query: JSON.stringify(options)
-      }
+      },
+      // `onDownloadProgress` allows handling of progress events for downloads 
+      onDownloadProgress: function (progressEvent) {
+        // Do whatever you want with the native progress event 
+
+      },
     };
     return axios(url, request);
   }

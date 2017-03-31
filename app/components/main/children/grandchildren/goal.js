@@ -1,7 +1,7 @@
 var React = require("react");
 
 var Goal = React.createClass({
-   
+
     handleDelete: function (event) {
         event.preventDefault();
         this.props.deleteGoalAndUpdate(this.props.id);
@@ -16,7 +16,6 @@ var Goal = React.createClass({
                 </span>
 
             </li >
-
         )
     }
 });

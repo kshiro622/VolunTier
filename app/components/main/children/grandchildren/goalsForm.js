@@ -12,6 +12,7 @@ var GoalsForm = React.createClass({
         // prevent html from submitting form and refreshing page
         event.preventDefault();
         this.props.addGoal(this.state.goalInput);
+        this.setState({ goalInput: '' });
     },
     render: function () {
         return (

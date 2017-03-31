@@ -1,8 +1,8 @@
 var React = require("react");
 var goalsListHelper = require("../../../utils/goalsListHelper.js");
 var GoalsForm = require("./grandchildren/goalsForm");
-var Goal = require('./grandchildren/goal.js');  
-const { List} = require('immutable')
+var Goal = require('./grandchildren/goal.js');
+const { List } = require('immutable')
 
 var GoalsList = React.createClass({
     getInitialState: function () {
@@ -46,19 +46,17 @@ var GoalsList = React.createClass({
                         )
                     }
                     <div>
-                        <ol className="list-group sortable">
-                            {
-                                this.state.goals &&
-                                this.state.goals.map(function (element, index) {
-                                    return (
-                                        <Goal key={index}
-                                            goalText={element.goalText}
-                                            id={element._id}
-                                            deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
-                                    );
-                                }, this)
-                            }
-                        </ol>
+                        {
+                            this.state.goals &&
+                            this.state.goals.map(function (element, index) {
+                                return (
+                                    <Goal key={index}
+                                        goalText={element.goalText}
+                                        id={element._id}
+                                        deleteGoalAndUpdate={this.deleteGoalAndUpdate} />
+                                );
+                            }, this)
+                        }
                     </div>
                 </div >
             </div>

@@ -6,7 +6,7 @@ var Form = React.createClass({
 
   // set search keyword state
   getInitialState: function () {
-    return { keyword: "", category: "", location: "", startDate:"", endDate:"" };
+    return { keyword: "", category: "", location: "", startDate: "", endDate: "" };
   },
   // This function will respond to the user input
   handleKeywordChange: function (event) {
@@ -21,21 +21,21 @@ var Form = React.createClass({
     this.setState({ location: event.target.value });
   },
   startDateChange: function (event) {
-      this.setState({ startDate: event.target.value });
+    this.setState({ startDate: event.target.value });
   },
   endDateChange: function (event) {
-      this.setState({ endDate: event.target.value });
+    this.setState({ endDate: event.target.value });
   },
-  getLocation: function(event){
-    var ipURL = 'http://ipinfo.io';
+  getLocation: function (event) {
+    var ipURL = 'https://ipinfo.io';
     var cityState = '';
-    $.getJSON({ url: ipURL }).done(function(response) {
-        cityState = response.city + ', ' + response.region;
+    $.getJSON({ url: ipURL }).done(function (response) {
+      cityState = response.city + ', ' + response.region;
     })
-    .then(function(){
-      $('input[type="text"]#location').val(cityState);
-      this.setState({location: cityState});
-    }.bind(this));
+      .then(function () {
+        $('input[type="text"]#location').val(cityState);
+        this.setState({ location: cityState });
+      }.bind(this));
   },
   // When a user submits...
   handleSubmit: function (event) {
@@ -43,14 +43,14 @@ var Form = React.createClass({
     // clicking the button
     event.preventDefault();
     let optionsObj = {};
-    if(this.state.keyword!==''){
+    if (this.state.keyword !== '') {
       optionsObj["keywords"] = [this.state.keyword];
     }
-    if(this.state.category!==''){
-        optionsObj["categoryIds"] = [this.state.category];  
+    if (this.state.category !== '') {
+      optionsObj["categoryIds"] = [this.state.category];
     }
-    if(this.state.startDate!=='' && this.state.endDate!==''){
-        optionsObj["dateRanges"] = [{'startDate': this.state.startDate, 'endDate': this.state.endDate}];
+    if (this.state.startDate !== '' && this.state.endDate !== '') {
+      optionsObj["dateRanges"] = [{ 'startDate': this.state.startDate, 'endDate': this.state.endDate }];
     }
     optionsObj["location"] = this.state.location;
     optionsObj["numberOfResults"] = 10;
@@ -61,12 +61,12 @@ var Form = React.createClass({
     document.getElementById("sort-form").reset();
 
   },
-  handleVirtualSearch: function(){
-      let optionsObj = {};
-      optionsObj["virtual"] = true;
-      optionsObj["numberOfResults"] = 10;
-      this.props.searchVM(optionsObj);
-      this.props.setOptions(JSON.stringify(optionsObj));
+  handleVirtualSearch: function () {
+    let optionsObj = {};
+    optionsObj["virtual"] = true;
+    optionsObj["numberOfResults"] = 10;
+    this.props.searchVM(optionsObj);
+    this.props.setOptions(JSON.stringify(optionsObj));
   },
   // Here we describe this component's render method
   render: function () {
@@ -84,21 +84,21 @@ var Form = React.createClass({
               className="form-control"
               id="location"
               onChange={this.handleLocationChange}
-              data-toggle="tooltip" 
-              data-placement="top" 
+              data-toggle="tooltip"
+              data-placement="top"
               title="Enter your City, State or your Zipcode. This is required."
               required
             />
             <span className="input-group-btn">
-                <button 
-                className="btn btn-default" 
-                type="button" 
+              <button
+                className="btn btn-default"
+                type="button"
                 onClick={this.getLocation}
-                data-toggle="tooltip" 
-                data-placement="top" 
+                data-toggle="tooltip"
+                data-placement="top"
                 title="Detect your location">
-                  <i className="fa fa-map-marker"></i>
-                </button>
+                <i className="fa fa-map-marker"></i>
+              </button>
             </span>
           </div>
           <div className="form-group">
@@ -110,8 +110,8 @@ var Form = React.createClass({
               className="form-control"
               id="searchkeyword"
               onChange={this.handleKeywordChange}
-              data-toggle="tooltip" 
-              data-placement="top" 
+              data-toggle="tooltip"
+              data-placement="top"
               title="Enter a keyword or keywords separated by spaces e.g. cats dogs. This is optional."
             />
           </div>
@@ -122,8 +122,8 @@ var Form = React.createClass({
               size="7"
               id="category"
               onChange={this.handleCategoryChange}
-              data-toggle="tooltip" 
-              data-placement="top" 
+              data-toggle="tooltip"
+              data-placement="top"
               title="Select a volunteering category. This is optional."
             >
               <option value="23">Advocacy & Human Rights</option>
@@ -154,32 +154,32 @@ var Form = React.createClass({
               <option value="3">Women</option>
             </select>
           </div>
-           <div className="form-group row">
-              <div className="col-sm-6">
-                  <label htmlFor="startDate" className="">Start Date</label>
-                  <input
-                      className="form-control"
-                      type="date"
-                      id="startDate"
-                      onChange={this.startDateChange}
-                      value={this.state.startDate}
-                      data-toggle="tooltip" 
-                      data-placement="top" 
-                      title="Select the start date. If you select a start date, you must select an end date, too. This is optional."
-                  />
-              </div>
-              <div className="col-sm-6">
-                <label htmlFor="endDate" className="">End Date</label>
-                <input
-                    className="form-control"
-                    type="date"
-                    id="endDate"
-                    onChange={this.endDateChange}
-                    value={this.state.endDate}
-                    data-toggle="tooltip" 
-                    data-placement="top" 
-                    title="Select the start date. If you select a start date, you must select an end date, too. This is optional."
-                  />
+          <div className="form-group row">
+            <div className="col-sm-6">
+              <label htmlFor="startDate" className="">Start Date</label>
+              <input
+                className="form-control"
+                type="date"
+                id="startDate"
+                onChange={this.startDateChange}
+                value={this.state.startDate}
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Select the start date. If you select a start date, you must select an end date, too. This is optional."
+              />
+            </div>
+            <div className="col-sm-6">
+              <label htmlFor="endDate" className="">End Date</label>
+              <input
+                className="form-control"
+                type="date"
+                id="endDate"
+                onChange={this.endDateChange}
+                value={this.state.endDate}
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Select the start date. If you select a start date, you must select an end date, too. This is optional."
+              />
             </div>
           </div>
 

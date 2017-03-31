@@ -14,7 +14,7 @@ let vmHelper = {
       nonceBase64: true
     });
 
-    const url = 'http://www.volunteermatch.org/api/call';
+    const url = 'https://www.volunteermatch.org/api/call';
 
     let authenticationHeaders = {
       "Authorization": "WSSE profile=\"" + token.getUsername() + "\"",
@@ -39,5 +39,5 @@ let vmHelper = {
   }
 };
 
-module.exports= vmHelper;
+module.exports = vmHelper;
 

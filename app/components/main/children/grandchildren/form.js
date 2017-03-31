@@ -58,6 +58,7 @@ var Form = React.createClass({
     this.props.setOptions(JSON.stringify(optionsObj));
     this.setState({ keyword: "", category: "", location: "" });
     document.getElementById("vm-form").reset();
+    document.getElementById("sort-form").reset();
 
   },
   handleVirtualSearch: function(){
@@ -129,9 +130,9 @@ var Form = React.createClass({
               <option value="30">Animals</option>
               <option value="34">Arts & Culture</option>
               <option value="22">Children & Youth</option>
+              <option value="25">Community</option>
               <option value="37">Computers & Technology</option>
               <option value="14">Crisis Support</option>
-              <option value="17">Disabled</option>
               <option value="42">Disaster Relief</option>
               <option value="15">Education & Literacy</option>
               <option value="28">Emergency & Safety</option>
@@ -143,6 +144,7 @@ var Form = React.createClass({
               <option value="29">International</option>
               <option value="5">Justice & Legal</option>
               <option value="40">Media & Broadcasting</option>
+              <option value="17">People with Disabilities</option>
               <option value="6">Politics</option>
               <option value="33">Race & Ethnicity</option>
               <option value="36">Religion</option>

@@ -21,7 +21,6 @@ var Results = React.createClass({
             var optionsObj = JSON.parse(this.props.options);
             optionsObj['sortCriteria']= event.target.value;
             this.props.searchVM(optionsObj);
-            document.getElementById("sort-form").reset();
         }
     },
     render: function () {
@@ -66,6 +65,9 @@ var Results = React.createClass({
                                             description={element.plaintextDescription}
                                             organization={element.parentOrg.name}
                                             availability={element.availability}
+                                            categoryIds = {element.categoryIds}
+                                            location = {element.location}
+                                            tags = {element.tags}
                                             modalId={'id-' + index}
                                             collapsableId = {'id-collapsable-' + index}
                                             updateEvents={this.props.updateEvents}

@@ -16,10 +16,10 @@ var GoalsForm = React.createClass({
     },
     render: function () {
         return (
-            <span>
+            <div className="row">
                 <div className="col-sm-12">
                     <div className="row">
-                        <form role="form" onSubmit={this.handleSubmit} className="form-group">
+                        <form role="form" onSubmit={this.handleSubmit} className="form-group margin-right-10 margin-left-10">
                             <div className="form-group">
                                 <input
                                     placeholder="My new goal is..."
@@ -37,7 +37,7 @@ var GoalsForm = React.createClass({
                         </form>
                     </div>
                 </div>
-            </span>
+            </div>
         )
     }
 });

@@ -186,13 +186,18 @@ router.delete("/api/goals/:userId/:goalId", function (req, res) {
     });
 });
 
-// router.put("/api/goals/:goalId", function (req, res) {
-//     Goal.findByIdAndUpdate(req.params.goalId, { $set: req.body }, function (error, doc) {
-//         if (error) {
-//             console.log(error);
-//         }
-//     });
-// });
+router.put("/api/goals/:userId", function (req, res) {
+    user.findByIdAndUpdate(req.params.userId, { $set: {goals: req.body} },{safe:true, new:true})
+    .populate('goals')
+    .exec(function (error, doc) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.json(doc);
+        }
+    });
+});
 
 // =======================================================
 // Main routes

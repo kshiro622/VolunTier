@@ -5,6 +5,7 @@ var ResultModal = require("./resultModal");
 var CategoryIcon =require('./categoryIcon');
 var moment = require("moment");
 
+
 var Result = React.createClass({
     componentDidMount: function () {
         let collapsableId = this.props.collapsableId;

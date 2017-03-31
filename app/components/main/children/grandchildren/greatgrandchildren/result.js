@@ -71,7 +71,7 @@ var Result = React.createClass({
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={this.saveEvent}>
-                                    <div className="formGroup row">
+                                    <div className="form-group row">
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">Start Date</label>
                                             <input
@@ -89,7 +89,7 @@ var Result = React.createClass({
                                                 required />
                                         </div>
                                     </div>
-                                    <div className="formGroup row">
+                                    <div className="form-group row">
                                         <div className="col-sm-6 margin-top-10">
                                             <label htmlFor="" className="margin-right-10">End Date</label>
                                             <input
@@ -114,7 +114,7 @@ var Result = React.createClass({
                     </div>
                 </div>
                 <div>
-                    <button className="btn light-orange-btn btn-xs pull-right" onClick={this.handleSave}><i className="fa fa-plus fa-fw"></i>Add Event</button>
+                    <button className="btn light-orange-btn btn-xs pull-right margin-left-10" onClick={this.handleSave}><i className="fa fa-plus fa-fw"></i>Add Event</button>
                     <h4>{this.props.title}</h4>
                     <a data-toggle="collapse" href={'#'+this.props.collapsableId} aria-expanded="false" aria-controls="collapseExample" id={this.props.collapsableId+'-button'} className="gray-txt pointer-link">
                         See more

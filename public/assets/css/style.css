@@ -805,6 +805,9 @@ body {
     font-weight: bold;
 }
 
+.margin-left-10{
+    margin-left: 10px;
+}
 
 /*Fix for blue outline and yellow highlight on input boxes and buttons*/
 

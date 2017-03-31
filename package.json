@@ -1,7 +1,7 @@
 {
   "name": "do-good-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "We all want to do good for the community, but we never seem to find the time. Voluntier will help you plan when and where you can volunteer in your community. Simply start creating an account. Search for opportunities, save volunteering events to your calendar, keep track of your goals and hours, and earn badges along the way. Go ahead, start VolunTiering.",
   "main": "public/index.html",
   "dependencies": {
     "axios": "^0.15.3",
@@ -38,8 +38,8 @@
     "type": "git",
     "url": "git+https://github.com/kshiro622/do-good-app.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["react", "babel", "mern", "mongo", "node", "express", "mongoose", "passport", "volunteermatch", "moment", "fullcalendar.js", "axios"],
+  "authors": ["Aisha Ahmad", "Justin Carlson", "Katie Shiro", "Hadi Yousufi"],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kshiro622/do-good-app/issues"

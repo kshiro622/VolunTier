@@ -9,7 +9,8 @@ var Login = React.createClass({
         return {
             username: "",
             password: "",
-            message: "Login"
+            message: "Login",
+            error: ""
         };
     },
 

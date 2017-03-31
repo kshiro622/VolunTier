@@ -320,7 +320,7 @@ var GoalTracker = React.createClass({
                                 <div className="row margin-top-10">
                                     <div className="col-sm-5">
                                         <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.month_goal_current} hrs/week</div>
+                                        <div className="text-center">{this.state.month_goal_current} hrs/month</div>
                                         <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
                                         <div className="text-center">{this.state.user_current_month} hours</div>
                                     </div>
@@ -334,7 +334,7 @@ var GoalTracker = React.createClass({
                                 <div className="row margin-top-10">
                                     <div className="col-sm-5">
                                         <div className="text-center margin-top-20-2"><b>Current Goal</b></div>
-                                        <div className="text-center">{this.state.year_goal_current} hrs/week</div>
+                                        <div className="text-center">{this.state.year_goal_current} hrs/year</div>
                                         <div className="text-center margin-top-20-2"><b>Current Hours</b></div>
                                         <div className="text-center">{this.state.user_current_year} hours</div>
                                     </div>

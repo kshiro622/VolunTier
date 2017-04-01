@@ -29,7 +29,7 @@ var Level = React.createClass({
                 <div>
                     <h2 className="level-title">Beginner Level</h2>
                     <img src="assets/images/tier0.png" height="150px" className="margin-top-20" alt="Level 0 badge" />
-                    <p>Start getting some hours in!</p>
+                    <h5 className="level-text">Start getting some hours in!</h5>
                 </div>
             );
         } else if (1 <= tier && tier < 10) {

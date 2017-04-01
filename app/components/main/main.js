@@ -120,7 +120,7 @@ var Main = React.createClass({
                                          </Link>
                                     </li>
                                     <li>
-                                        <a data-toggle="modal" data-target="#infoModal"><i className="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                        <a data-toggle="modal" data-target="#infoModal"><i className="fa fa-question-circle fa-fw" aria-hidden="true"></i> Help</a>
                                     </li>
                                     <li className="divider"></li>
                                     <li><a onClick={this.logout}><i className="fa fa-sign-out fa-fw"></i> Logout</a>

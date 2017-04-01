@@ -63,7 +63,7 @@ var Profile = React.createClass({
             var pastEvents = [];
             var upcomingEvents = [];
             var eventsArr = response.data.events;
-            console.log(eventsArr);
+
             for (var i = 0; i < eventsArr.length; i++) {
                 var eventDay = parseInt(eventsArr[i].start.slice(8, 10));
                 var eventMonth = parseInt(eventsArr[i].start.slice(5, 7));

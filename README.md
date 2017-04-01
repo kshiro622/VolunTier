@@ -80,9 +80,9 @@ Please note that the first version of this app is guaranteed support only by Chr
 
 ## How this Works
 
-Start by creating a profile, or use the credentials for this guest account:
+###Start by creating a profile, or use the credentials for this guest account:
 * login: guest
-* password: guest
+* password: guest123
 
 ### Start Here: Your Calendar
 

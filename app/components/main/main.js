@@ -17,6 +17,9 @@ var InfoModal = require("./children/infoModal");
 var Main = React.createClass({
 
     // Sets the initial state of the component.
+    // events populate the calendar and are updated when saved in the result component
+    // level reflects the number of hours a volunteer has completed 
+    // and is shown in volunteerLevel and updated in goalTracker
     getInitialState: function () {
         return {
             first_name: "",
@@ -27,13 +30,13 @@ var Main = React.createClass({
     },
 
     componentWillMount: function () {
+        // get the userId from the session storage
         var currentUser = sessionStorage.getItem('do_good_id');
         if (currentUser === null) {
             this.context.router.push('/');
         }
 
         var userRoute = '/user/' + currentUser;
-
         axios.get(userRoute)
             .then(function (response) {
                 this.setState({
@@ -41,7 +44,8 @@ var Main = React.createClass({
                     last_name: response.data.last_name
                 });
             }.bind(this));
-
+        
+        // get saved events from the db and update the calendar with them
         eventHelper.getSavedEvents(currentUser).then(function (response) {
             this.setState({ events: response.data.events });
             var eventsArr = this.state.events;
@@ -52,6 +56,7 @@ var Main = React.createClass({
                     right: 'agendaDay,agendaWeek,month,listWeek'
                 },
                 events: eventsArr,
+                // when a user clicks on an event in the calendar it opens the modal
                 eventClick: function (calEvent, jsEvent, view) {
                     $('#event-update-modal-' + calEvent._id).modal('show');
                     if (calEvent.url) {
@@ -61,8 +66,8 @@ var Main = React.createClass({
             });
         }.bind(this));
 
+        // gets the volunteer hours from the db to determine the level of the volunteer
         var userGoalRoute = '/user/goaltracker/' + currentUser;
-
         axios.get(userGoalRoute)
             .then(function (response) {
                 var totalHoursThisYear = response.data.goal_year_current;
@@ -75,12 +80,12 @@ var Main = React.createClass({
         var userId = {
             id: currentUser
         }
-        axios.put('/resetcheck', userId).then(function (response) {
-
-        }.bind(this));
+        // Makes a put request to that route in the controller  and passes in the userId object
+        axios.put('/resetcheck', userId).then(function (response) {}.bind(this));
         
     },
 
+    // refreshes the level when hours are added or deleted in the goal tracker
     refreshLevel: function(){
         var currentUser = sessionStorage.getItem('do_good_id');
         var userRoute = '/user/goaltracker/' + currentUser;
@@ -95,6 +100,7 @@ var Main = React.createClass({
             }.bind(this));
     },
 
+    // when the user logs out, the session storoage is cleared
     logout: function () {
         event.preventDefault();
         sessionStorage.clear();
@@ -104,6 +110,7 @@ var Main = React.createClass({
             }.bind(this))
     },
 
+    // updates the events on the calendar when an event is added, updated, or deleted
     updateEvents: function () {
         var currentUser = sessionStorage.getItem('do_good_id');
         eventHelper.getSavedEvents(currentUser).then(function (response) {
@@ -163,6 +170,7 @@ var Main = React.createClass({
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8">
+                                {/*maps through the events and creates a modal for each event*/}
                                 {this.state.events.map(function (element, index) {
                                     return (
                                         <EventModal key={index} _id={element._id} modalId={'event-update-modal-' + element._id} title={element.title} url={element.url} start={element.start} end={element.end} updateEvents={this.updateEvents} />

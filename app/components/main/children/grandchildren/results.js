@@ -7,15 +7,18 @@ var Results = React.createClass({
     getInitialState: function(){
         return {pageNumber:1};
     },
+    // returns to the search tab
     searchAgain: function(){
         $('#search-tab').tab('show');
     },
+    // runs the same search again but passing in the second page
     seeMore: function(){
         var optionsObj = JSON.parse(this.props.options);
         optionsObj['pageNumber'] = this.state.pageNumber +1;
         this.setState({pageNumber: optionsObj.pageNumber});
         this.props.searchVM(optionsObj);
     },
+    // runs the same search again but sorted on a certain filter
     sortMatches:function(event){
         if(event.target.value!==''){
             var optionsObj = JSON.parse(this.props.options);
@@ -47,6 +50,7 @@ var Results = React.createClass({
                             <div className="row margin-left-10 margin-right-10">
                                 <form role="form" id="sort-form">
                                     <div className="form-group">
+                                        {/*filters/ sorts the results*/}
                                         <label htmlFor="sortSelect">Sort By: </label>
                                         <select className="form-control form-control-sm " id="sortSelect" onChange={this.sortMatches}>
                                             <option></option>
@@ -57,6 +61,7 @@ var Results = React.createClass({
                                 </form>
                             </div>
                             <div className="scrollbox">
+                                {/*maps through the results and creates a dynamic Result component for each one*/}
                                 {this.props.results.map(function (element, index) {
                                     return (
                                         <Result key={index}
@@ -74,7 +79,9 @@ var Results = React.createClass({
                                         />
                                     );
                                 }, this)}
+                                {/*refreshes the results with a second, third, etc page of results*/}
                                 <a className="pointer-link purple-txt bold pull-left" onClick={this.seeMore}>See Different Matches... </a>
+                                {/*takes the suer back to the search tab*/}
                                 <a className="pointer-link purple-txt bold pull-right" onClick={this.searchAgain}>Search Again</a>
                             </div>
                         </div>

@@ -19,8 +19,9 @@ var EventModal = React.createClass({
         if (window.confirm('Are you sure you want to cancel this event? This cannot be undone.')) {
             $('#event-update-modal-' + this.props._id).modal('hide');
             const userId = sessionStorage.getItem('do_good_id');
-            eventHelper.deleteEvent(this.props._id, userId);
-            this.props.updateEvents();
+            eventHelper.deleteEvent(this.props._id, userId).then(function(){
+                this.props.updateEvents();
+            }.bind(this));
         }
     },
     updateEvent: function (event) {
@@ -32,8 +33,9 @@ var EventModal = React.createClass({
             start: newStart,
             end: newEnd
         };
-        eventHelper.updateEvent(this.props._id, eventDetails);
-        this.props.updateEvents();
+        eventHelper.updateEvent(this.props._id, eventDetails).then(function(){
+            this.props.updateEvents();
+        });
     },
     render: function () {
         return (

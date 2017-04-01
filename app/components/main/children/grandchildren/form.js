@@ -58,7 +58,6 @@ var Form = React.createClass({
     this.props.setOptions(JSON.stringify(optionsObj));
     this.setState({ keyword: "", category: "", location: "" });
     document.getElementById("vm-form").reset();
-    document.getElementById("sort-form").reset();
 
   },
   handleVirtualSearch: function () {

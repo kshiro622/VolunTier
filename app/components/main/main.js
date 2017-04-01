@@ -22,6 +22,7 @@ var Main = React.createClass({
             first_name: "",
             last_name: "",
             events: [],
+            level:""
         };
     },
 
@@ -60,12 +61,38 @@ var Main = React.createClass({
             });
         }.bind(this));
 
+        var userGoalRoute = '/user/goaltracker/' + currentUser;
+
+        axios.get(userGoalRoute)
+            .then(function (response) {
+                var totalHoursThisYear = response.data.goal_year_current;
+                this.setState({
+                    level: totalHoursThisYear
+                });
+
+            }.bind(this));
+
         var userId = {
             id: currentUser
         }
         axios.put('/resetcheck', userId).then(function (response) {
 
         }.bind(this));
+        
+    },
+
+    refreshLevel: function(){
+        var currentUser = sessionStorage.getItem('do_good_id');
+        var userRoute = '/user/goaltracker/' + currentUser;
+
+        axios.get(userRoute)
+            .then(function (response) {
+                var totalHoursThisYear = response.data.goal_year_current;
+                this.setState({
+                    level: totalHoursThisYear
+                });
+
+            }.bind(this));
     },
 
     logout: function () {
@@ -83,7 +110,7 @@ var Main = React.createClass({
             this.setState({ events: response.data.events });
             var eventsArr = this.state.events;
             $('#calendar').fullCalendar('removeEvents');
-            $('#calendar').fullCalendar('addEventSource', eventsArr);
+            $('#calendar').fullCalendar('addEventSource', this.state.events);
             $('#calendar').fullCalendar('rerenderEvents');
         }.bind(this));
     },
@@ -144,7 +171,7 @@ var Main = React.createClass({
                                 <Calendar />
                             </div>
                             <div className="col-sm-4">
-                                <GoalTracker />
+                                <GoalTracker refreshLevel={this.refreshLevel} level={this.state.level}/>
                             </div>
                         </div>
                         <div className="row">
@@ -155,7 +182,7 @@ var Main = React.createClass({
                             </div>
                             <div className="col-md-4">
                                 <div className="row padding-right-fix">
-                                    <VolunteerLevel />
+                                    <VolunteerLevel level={this.state.level}/>
                                 </div>
                                 <div className="row padding-right-fix">
                                     <GoalsList />

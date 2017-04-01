@@ -28,6 +28,9 @@ var GoalsForm = React.createClass({
                                     id="newGoal"
                                     value={this.state.goalInput}
                                     onChange={this.handleChange}
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Add a new goal here. You can move the goal in its list to reorder your goals as you like."
                                     required
                                 />
                                 <span><button

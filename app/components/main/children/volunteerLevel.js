@@ -13,7 +13,7 @@ var VolunteerLevel = React.createClass({
                         <h3 className="panel-title inline">My Impact</h3>
                     </div>
                     <div className="panel-body level-panel">
-                        <Level />
+                        <Level level={this.props.level}/>
                     </div>
                 </div>
             </span>

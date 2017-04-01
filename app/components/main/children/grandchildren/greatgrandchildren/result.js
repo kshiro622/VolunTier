@@ -41,7 +41,7 @@ var Result = React.createClass({
                         <p><em className="gray-txt">This is an ongoing opportunity.</em></p>
                     )}
                     {this.props.availability.singleDayOpportunity && (
-                        <p><em className="gray-txt">This is a single opportunity occuring on {moment(this.props.availability.startDate).format('dddd, MMMM Do YYYY')}.</em></p>
+                        <p><em className="gray-txt">This is a single day opportunity occuring on {moment(this.props.availability.startDate).format('dddd, MMMM Do YYYY')}.</em></p>
                     )}
                     <p><a data-toggle="collapse" href={'#'+this.props.collapsableId} aria-expanded="false" aria-controls="collapseExample" id={this.props.collapsableId+'-button'} className="purple-txt pointer-link">
                         See more

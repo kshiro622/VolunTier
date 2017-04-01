@@ -15,13 +15,13 @@ var GoalsList = React.createClass({
         }.bind(this));
         // jQuueryUI sortable allows sorting of the goals
         $(".sortable").sortable({
-                axis: 'y',
-                containment: "#goals-containment"
-            }).disableSelection();
-            // when the goals are sorted in the list, the new array gets saved and sent to the db
-            // so that when the user refreshes the screen, the same sorted order is kept
-        $( ".sortable" ).on( "sortupdate", function( event, ui ) {
-            var goalsArr = $('.sortable>li').map(function(index, element){
+            axis: 'y',
+            containment: "#goals-containment"
+        }).disableSelection();
+        // when the goals are sorted in the list, the new array gets saved and sent to the db
+        // so that when the user refreshes the screen, the same sorted order is kept
+        $(".sortable").on("sortupdate", function (event, ui) {
+            var goalsArr = $('.sortable>li').map(function (index, element) {
                 return $(element).data('id');
             }).toArray();
             this.updateGoalsArray(goalsArr);
@@ -43,7 +43,7 @@ var GoalsList = React.createClass({
         }.bind(this));
     },
     // sends the new array of goals to the db
-    updateGoalsArray: function(goalsArr){
+    updateGoalsArray: function (goalsArr) {
         const userId = sessionStorage.getItem('do_good_id');
         goalsListHelper.updateGoals(userId, goalsArr);
     },
@@ -68,7 +68,7 @@ var GoalsList = React.createClass({
                         )
                     }
                     <div className="row" id="goals-containment">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12 scrollbox-goal">
                             <ul className="sortable">
                                 {
                                     this.state.goals &&

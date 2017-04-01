@@ -88,34 +88,34 @@ Start by creating a profile, or use the credentials for this guest account:
 
 This is where you will see your past events and your upcoming events. Click on a calendar event to see more information about it, update the event, or cancel the event.
 
-![Calendar]("public/assets/images/calendar.png")
+![Calendar](/public/assets/images/calendar.png)
 
 ### Search for Opportunities
 
 Here you will be able to search for opportunities by your location, and narrow down the searches by keyword, category, or date range.
 
-![search]("public/assets/images/search.png")
+![search](public/assets/images/search.png)
 
 ### Add a New Event
 
 Once you've figured out what you're looking for, consider your matches. You can see the title, organization name, description, categories, and, most importantly, the link to VolunteerMatch where you can apply for the position. After you've submitted your application, go ahead and save the event to your calendar. Plans might change? No worries. You can always go back and edit your timings later.
 
-![results]("public/assets/images/results.png")
+![results](public/assets/images/results.png)
 
 ### Keep Track of Your Goals
 
 Add new goals, delete completed ones, and rearrange them according to what matters to you the most.
 
-![goals]("public/assets/images/goals.png")
+![goals](public/assets/images/goals.png)
 
 ### Track Your Hours
 
 Woot! You helped out the world. Keep track of your hours and try meeting your weekly, monthly, and yearly goals.
 
-![tracker]("public/assets/images/tracker.png")
+![tracker](public/assets/images/tracker.png)
 
 ### Earn Badges
 
 You deserve it. Proudly earn your badges as you complete your volunteering hour goals. You're on your way to becoming a VolunTier aficionado!
 
-![badge]("public/assets/images/badge.png")
+![badge](public/assets/images/badge.png)

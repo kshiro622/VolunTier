@@ -187,16 +187,16 @@ router.delete("/api/goals/:userId/:goalId", function (req, res) {
 });
 
 router.put("/api/goals/:userId", function (req, res) {
-    user.findByIdAndUpdate(req.params.userId, { $set: {goals: req.body} },{safe:true, new:true})
-    .populate('goals')
-    .exec(function (error, doc) {
-        if (error) {
-            console.log(error);
-        }
-        else {
-            res.json(doc);
-        }
-    });
+    user.findByIdAndUpdate(req.params.userId, { $set: { goals: req.body } }, { safe: true, new: true })
+        .populate('goals')
+        .exec(function (error, doc) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                res.json(doc);
+            }
+        });
 });
 
 // =======================================================
@@ -308,10 +308,12 @@ router.delete("/api/events/:userId/:eventId", function (req, res) {
 });
 
 router.put("/api/events/:eventId", function (req, res) {
-    Event.findByIdAndUpdate(req.params.eventId, { $set: {
-        start: req.body.start,
-        end: req.body.end
-    } }, function (error, doc) {
+    Event.findByIdAndUpdate(req.params.eventId, {
+        $set: {
+            start: req.body.start,
+            end: req.body.end
+        }
+    }, function (error, doc) {
         if (error) {
             console.log(error);
         }
@@ -357,11 +359,25 @@ router.post('/addhours', function (req, res) {
 });
 
 router.post('/delhours', function (req, res) {
+    var week = Number(req.body.current_week) - Number(req.body.hours);
+    var month = Number(req.body.current_month) - Number(req.body.hours);
+    var year = Number(req.body.current_year) - Number(req.body.hours);
+
+    if (week < 0) {
+        week = 0;
+    }
+    if (month < 0) {
+        month = 0;
+    }
+    if (year < 0) {
+        year = 0;
+    }
+
     user.findOneAndUpdate({ _id: req.body.id }, {
         $set: {
-            goal_week_current: Number(req.body.current_week) - Number(req.body.hours),
-            goal_month_current: Number(req.body.current_month) - Number(req.body.hours),
-            goal_year_current: Number(req.body.current_year) - Number(req.body.hours)
+            goal_week_current: week,
+            goal_month_current: month,
+            goal_year_current: year
         }
     }, function (err, respon) {
         if (err) console.log(err);

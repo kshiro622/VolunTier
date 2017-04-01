@@ -5,18 +5,24 @@ var dateInputPolyfill = require("date-input-polyfill");
 
 
 var EventModal = React.createClass({
+    // sets the state for the start date and end date of an event
     getInitialState: function () {
         return { start: '', end: '' };
     },
+    // sets the start to the input value
     startChange: function (event) {
         this.setState({ start: event.target.value });
     },
+    // sets the start to the input value    
     endChange: function (event) {
         this.setState({ end: event.target.value });
     },
+    // deletes an event from the db and updates the calendar
     handleDelete: function (event) {
         event.preventDefault();
+        // if confirmed is true
         if (window.confirm('Are you sure you want to cancel this event? This cannot be undone.')) {
+            // hides the event modal
             $('#event-update-modal-' + this.props._id).modal('hide');
             const userId = sessionStorage.getItem('do_good_id');
             eventHelper.deleteEvent(this.props._id, userId).then(function(){
@@ -24,15 +30,19 @@ var EventModal = React.createClass({
             }.bind(this));
         }
     },
+    // updates the timings for an event
     updateEvent: function (event) {
         event.preventDefault();
+        // hides the event modal
         $('#event-update-modal-' + this.props._id).modal('hide');
+        // if the user entered a new date, update to the new date otherwise keep the old date
         var newStart = (this.state.start === '' ? this.props.start : this.state.start);
         var newEnd = (this.state.end === '' ? this.props.end : this.state.end);
         var eventDetails = {
             start: newStart,
             end: newEnd
         };
+        // updates the event in the db
         eventHelper.updateEvent(this.props._id, eventDetails).then(function(){
             this.props.updateEvents();
         });

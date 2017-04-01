@@ -7,6 +7,7 @@ var moment = require("moment");
 
 
 var Result = React.createClass({
+    // switches the See More text for each Result to Show Less when the collapsible is shown and vice versa
     componentDidMount: function () {
         let collapsableId = this.props.collapsableId;
         $('#'+collapsableId).on('shown.bs.collapse', function () {
@@ -19,6 +20,7 @@ var Result = React.createClass({
     // Saves oppportunity
     handleSave: function (event) {
         event.preventDefault();
+        // shows the modal to save the event
         $('#' + this.props.modalId).modal('show');
     },
 
@@ -34,12 +36,16 @@ var Result = React.createClass({
                             return (<CategoryIcon key={index} number= {element} />);
                         })
                     }</p>
+                    {/*if the data exists (meaning not null), then show it*/}
                     {this.props.location && this.props.location.city && (
                         <p>{this.props.location.city}, {this.props.location.region}, {this.props.location.country}</p>
                     )}
+                    {/*if the data exists (meaning not null), then show it*/}
+                    
                     {this.props.availability.ongoing && (
                         <p><em className="gray-txt">This is an ongoing opportunity.</em></p>
                     )}
+                    {/*if the data exists (meaning not null), then show it*/}                    
                     {this.props.availability.singleDayOpportunity && (
                         <p><em className="gray-txt">This is a single day opportunity occuring on {moment(this.props.availability.startDate).format('dddd, MMMM Do YYYY')}.</em></p>
                     )}
@@ -51,6 +57,7 @@ var Result = React.createClass({
                         <a href={this.props.url} target="_blank" className="purple-txt pointer-link bold">Apply Now</a>
                         <h5>Organization: {this.props.organization}</h5>
                         <p>Description: {this.props.description}</p>
+                        {/*if the data exists (meaning not null), then show it*/}                        
                         {this.props.tags && (
                             <p>Tags: {this.props.tags}</p>
                         )}

@@ -20,12 +20,16 @@ var Form = React.createClass({
   handleLocationChange: function (event) {
     this.setState({ location: event.target.value });
   },
+  // this function sets the start date accoding to the user input
   startDateChange: function (event) {
     this.setState({ startDate: event.target.value });
   },
+    // this function sets the start date accoding to the user input
   endDateChange: function (event) {
     this.setState({ endDate: event.target.value });
   },
+  // gets the users location based on ip address then loads it into the input box 
+  // and sets the location state to it
   getLocation: function (event) {
     var ipURL = 'https://ipinfo.io';
     var cityState = '';
@@ -43,28 +47,35 @@ var Form = React.createClass({
     // clicking the button
     event.preventDefault();
     let optionsObj = {};
+    // keyword is optional so if it exists add it to the query
     if (this.state.keyword !== '') {
       optionsObj["keywords"] = [this.state.keyword];
     }
+    // category is optional so if it exists add it to the query    
     if (this.state.category !== '') {
       optionsObj["categoryIds"] = [this.state.category];
     }
+    // daterange is optional so if it exists add it to the query    
     if (this.state.startDate !== '' && this.state.endDate !== '') {
       optionsObj["dateRanges"] = [{ 'startDate': this.state.startDate, 'endDate': this.state.endDate }];
     }
     optionsObj["location"] = this.state.location;
     optionsObj["numberOfResults"] = 10;
     this.props.searchVM(optionsObj);
+    // saves the search to be sorted later or to see more results
     this.props.setOptions(JSON.stringify(optionsObj));
     this.setState({ keyword: "", category: "", location: "" });
+    // resets the search terms form
     document.getElementById("vm-form").reset();
 
   },
+  // searches the api for virtual opportunities, requires no user input
   handleVirtualSearch: function () {
     let optionsObj = {};
     optionsObj["virtual"] = true;
     optionsObj["numberOfResults"] = 10;
     this.props.searchVM(optionsObj);
+    // saves the search to be sorted later or to see more results    
     this.props.setOptions(JSON.stringify(optionsObj));
   },
   // Here we describe this component's render method

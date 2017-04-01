@@ -20,10 +20,13 @@ var Search = React.createClass({
             if (response !== this.state.results) {
                 this.setState({ results: response.data.opportunities });
             }
+            // switch tabs
             $('#matches-tab').tab('show');
+            // scroll to the top of the results
             $( "div.scrollbox" ).scrollTop( 0 )
         }.bind(this));
     },
+    // collects the options from the form component
     setOptions: function(optionsTxt){
         this.setState({options: optionsTxt});
     },

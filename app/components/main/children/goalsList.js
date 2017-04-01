@@ -13,11 +13,11 @@ var GoalsList = React.createClass({
             this.setState({ goals: response.data.goals });
         }.bind(this));
         $(".sortable").sortable({
-                axis: 'y',
-                containment: "#goals-containment"
-            }).disableSelection();
-        $( ".sortable" ).on( "sortupdate", function( event, ui ) {
-            var goalsArr = $('.sortable>li').map(function(index, element){
+            axis: 'y',
+            containment: "#goals-containment"
+        }).disableSelection();
+        $(".sortable").on("sortupdate", function (event, ui) {
+            var goalsArr = $('.sortable>li').map(function (index, element) {
                 return $(element).data('id');
             }).toArray();
             this.updateGoalsArray(goalsArr);
@@ -36,7 +36,7 @@ var GoalsList = React.createClass({
             this.setState({ goals: response.data.goals });
         }.bind(this));
     },
-    updateGoalsArray: function(goalsArr){
+    updateGoalsArray: function (goalsArr) {
         const userId = sessionStorage.getItem('do_good_id');
         goalsListHelper.updateGoals(userId, goalsArr);
     },
@@ -60,7 +60,7 @@ var GoalsList = React.createClass({
                         )
                     }
                     <div className="row" id="goals-containment">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12 scrollbox-goal">
                             <ul className="sortable">
                                 {
                                     this.state.goals &&
@@ -75,9 +75,9 @@ var GoalsList = React.createClass({
                                 }
                             </ul>
                         </div>
-                        
+
                     </div>
-                    
+
                 </div >
             </div>
         )

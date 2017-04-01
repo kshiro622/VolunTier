@@ -47,8 +47,6 @@ var Login = React.createClass({
                             message: "Login"
                         })
                     } else {
-                        console.log("RESPONSE:" + response);
-                        console.log(response.data);
                         sessionStorage.setItem('do_good_id', response.data);
                         this.context.router.push('main');
                     }

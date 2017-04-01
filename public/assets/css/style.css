@@ -790,6 +790,11 @@ body {
     overflow: auto;
 }
 
+.scrollbox-goal {
+    max-height: 195px;
+    overflow: auto;
+}
+
 .pointer-link:hover {
     cursor: pointer;
 }

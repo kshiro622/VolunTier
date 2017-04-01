@@ -130,7 +130,7 @@ var Register = React.createClass({
             }
             axios.post('/register', cred)
                 .then(function (response) {
-                    console.log(response.data);
+
                     if (response.data === "User already exists") {
                         this.setState({
                             error: "User already exists, please select a new username or login"

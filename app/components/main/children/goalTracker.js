@@ -96,6 +96,7 @@ var GoalTracker = React.createClass({
                 });
             }.bind(this));
         $('#add-hours').modal('hide');
+        this.props.refreshLevel();
     },
 
     handleEdit: function (event) {
@@ -147,6 +148,8 @@ var GoalTracker = React.createClass({
                 });
                 $('#edit-hours').modal('hide');
             }.bind(this));
+        this.props.refreshLevel();
+
     },
 
     deleteHours: function (event) {
@@ -178,10 +181,12 @@ var GoalTracker = React.createClass({
                     week_goal_current: response.data.goal_week_goal,
                     month_goal_current: response.data.goal_month_goal,
                     year_goal_current: response.data.goal_year_goal,
-                    add_hours: ""
+                    add_hours: "",
+                    del_hours:""
                 });
                 $('#del-hours').modal('hide');
             }.bind(this));
+        this.props.refreshLevel();
     },
     render: function () {
         return (

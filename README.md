@@ -73,3 +73,7 @@ This project is licensed under the ISC License.
 ## Acknowledgments
 
 * Northwestern Coding Boot Camp
+
+## Version
+
+Please note that the first version of this app is guaranteed support only by Chrome (Chrome version 56.0). Additionally note that the first version of this app is web-first and not guaranteed mobile responsive.

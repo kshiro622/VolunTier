@@ -35,14 +35,11 @@ var ResultModal = React.createClass({
             end: endDateTime,
             url: this.props.url
         };
-        eventHelper.addEvent(event, userId);
-        $('#' + this.props.modalId).modal('hide');
-        this.props.updateEvents();
-    },
-    showAlert: function () {
-        var alert = '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> You added an opportunity!</div>';
-        // $('#alert-area').append(alert);
-        // $(".alert").alert();
+        eventHelper.addEvent(event, userId).then(function(){
+            $('#' + this.props.modalId).modal('hide');
+            this.props.updateEvents();
+        }.bind(this));
+        
     },
     render: function () {
         return (

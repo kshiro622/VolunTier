@@ -1,30 +1,9 @@
 var React = require("react");
-var axios = require("axios");
 
 var Level = React.createClass({
-    // Sets the initial state of the component.
-    getInitialState: function () {
-        return {
-            level: "",
-        };
-    },
-    componentWillMount: function () {
-        var currentUser = sessionStorage.getItem('do_good_id');
-        var userRoute = '/user/goaltracker/' + currentUser;
-
-        axios.get(userRoute)
-            .then(function (response) {
-                var totalHoursThisYear = response.data.goal_year_current;
-                this.setState({
-                    level: totalHoursThisYear
-                });
-
-            }.bind(this));
-    },
     render: function () {
-        var tier = this.state.level;
         var currentLevel = null;
-        if (tier === 0) {
+        if (this.props.level === 0) {
             currentLevel = (
                 <div>
                     <h2 className="level-title">Beginner Level</h2>
@@ -32,7 +11,7 @@ var Level = React.createClass({
                     <p>Start getting some hours in!</p>
                 </div>
             );
-        } else if (1 <= tier && tier < 10) {
+        } else if (1 <= this.props.level && this.props.level < 10) {
             currentLevel = (
                 <div>
                     <h2 className="level-title">Level 1</h2>
@@ -41,7 +20,7 @@ var Level = React.createClass({
                     <h5 className="level-text">Great start! You are already making a difference. Every hour counts!</h5>
                 </div>
             );
-        } else if (10 <= tier && tier < 20) {
+        } else if (10 <= this.props.level && this.props.level < 20) {
             currentLevel = (
                 <div>
                     <h2 className="level-title">Level 2</h2>
@@ -50,7 +29,7 @@ var Level = React.createClass({
                     <h5 className="level-text">You are really making an impact!</h5>
                 </div>
             );
-        } else if (20 <= tier && tier < 50) {
+        } else if (20 <= this.props.level && this.props.level < 50) {
             currentLevel = (
                 <div>
                     <h2 className="level-title">Level 3</h2>
@@ -59,7 +38,7 @@ var Level = React.createClass({
                     <h5 className="level-text">Now you can really start to see what you have accomplished!</h5>
                 </div>
             );
-        } else if (50 <= tier && tier < 100) {
+        } else if (50 <= this.props.level && this.props.level < 100) {
             currentLevel = (
                 <div>
                     <h2 className="level-title">Level 4</h2>
@@ -68,7 +47,7 @@ var Level = React.createClass({
                     <h5 className="level-text">What an amazing feat, you are almost to the top!</h5>
                 </div>
             );
-        } else if (100 <= tier) {
+        } else if (100 <= this.props.level) {
             currentLevel = (
                 <div>
                     <h2 className="level-title">Level 5</h2>

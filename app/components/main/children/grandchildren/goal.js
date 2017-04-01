@@ -1,7 +1,7 @@
 var React = require("react");
 
 var Goal = React.createClass({
-
+    // deletes a goal accoding to the id
     handleDelete: function (event) {
         event.preventDefault();
         this.props.deleteGoalAndUpdate(this.props.id);

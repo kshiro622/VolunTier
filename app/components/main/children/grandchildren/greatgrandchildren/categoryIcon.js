@@ -3,6 +3,7 @@ var React = require("react");
 var CategoryIcon = React.createClass({
     componentDidMount: function () {
     },
+    // renders a different font awesome icon based on category id
     render: function () {
         switch(this.props.number){
             case 23:

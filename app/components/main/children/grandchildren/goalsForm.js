@@ -5,9 +5,11 @@ var GoalsForm = React.createClass({
     getInitialState: function () {
         return { goalInput: '' };
     },
+    // sets the state to the user's input
     handleChange: function (event) {
         this.setState({ goalInput: event.target.value })
     },
+    // adds a goal to the db from user input
     handleSubmit: function (event) {
         // prevent html from submitting form and refreshing page
         event.preventDefault();

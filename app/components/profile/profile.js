@@ -25,6 +25,7 @@ var Profile = React.createClass({
             goal_week: "",
             goal_week_current: "",
             goal_year_current: "",
+            level: ""
         };
     },
 
@@ -47,6 +48,7 @@ var Profile = React.createClass({
                     goal_week: response.data.goal_week_goal,
                     goal_week_current: response.data.goal_week_current,
                     goal_year_current: response.data.goal_year_current,
+                    level: response.data.goal_year_current
                 });
 
             }.bind(this));
@@ -190,7 +192,7 @@ var Profile = React.createClass({
                                         Level
                                     </div>
                                     <div className="panel-body center-align">
-                                        <Level />
+                                        <Level level={this.state.level}/>
                                     </div>
                                 </div>
                             </div>
